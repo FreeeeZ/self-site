@@ -1,0 +1,26 @@
+.home-page {
+  .home-page__info {
+    display: grid;
+    justify-content: center;
+
+    .home-page__avatar {
+      margin: 0 auto;
+
+      .home-page__avatar-title {
+        text-align: center;
+      }
+
+      picture {
+        img {
+          width: 150px;
+          border-radius: 50%;
+          border: 3px solid #1f1f39;
+        }
+      }
+    }
+
+    .home-page__description {
+
+    }
+  }
+}
