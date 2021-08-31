@@ -15,6 +15,7 @@ export default Vue.extend({
   },
   methods: {
     setInitialTheme() {
+      //@ts-ignore
       document
         .querySelector("html")
         .setAttribute("data-theme", this.$store.getters.currentTheme);
