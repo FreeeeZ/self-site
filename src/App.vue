@@ -15,11 +15,9 @@ export default Vue.extend({
   },
   methods: {
     setInitialTheme() {
-      document.addEventListener("DOMContentLoaded", () => {
-        document
-          .querySelector("html")
-          .setAttribute("data-theme", this.$store.getters.currentTheme);
-      });
+      document
+        .querySelector("html")
+        .setAttribute("data-theme", this.$store.getters.currentTheme);
     },
   },
   created() {
