@@ -1,26 +1,46 @@
+@import "src/assets/styles/_variables/colors/index";
+@import "src/assets/styles/_mixins/themes/index";
+
 .home-page {
-  .home-page__info {
-    display: grid;
-    justify-content: center;
+  display: grid;
+  align-items: center;
+  height: 100%;
 
-    .home-page__avatar {
-      margin: 0 auto;
+  .home-page__wrap {
 
-      .home-page__avatar-title {
-        text-align: center;
-      }
+    .home-page__info {
+      display: grid;
+      justify-content: center;
 
-      picture {
-        img {
-          width: 150px;
-          border-radius: 50%;
-          border: 3px solid #1f1f39;
+      .home-page__avatar {
+        margin: 0 auto;
+
+        .home-page__avatar-title {
+          text-align: center;
+          margin: 15px 0 0;
+          font-size: 24px;
+          font-weight: 500;
+        }
+
+        picture {
+          img {
+            width: 150px;
+            border-radius: 50%;
+
+            @include light {
+              border: 3px solid $color-blue-1;
+            }
+
+            @include dark {
+              border: 3px solid $color-white-1;
+            }
+          }
         }
       }
-    }
 
-    .home-page__description {
-
+      .home-page__description {
+        margin: 25px 0;
+      }
     }
   }
 }

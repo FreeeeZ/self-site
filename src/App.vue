@@ -13,5 +13,21 @@ export default Vue.extend({
   components: {
     LayoutMain,
   },
+  methods: {
+    setInitialTheme() {
+      document.addEventListener("DOMContentLoaded", () => {
+        document
+          .querySelector("html")
+          .setAttribute("data-theme", this.$store.getters.currentTheme);
+      });
+    },
+  },
+  created() {
+    this.setInitialTheme();
+  },
 });
 </script>
+
+<style lang="scss">
+@import "~@/assets/styles/_normalize/index";
+</style>

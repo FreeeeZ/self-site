@@ -23,5 +23,5 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
-@import "../../assets/styles/layouts/layout-main/index";
+@import "~@/assets/styles/layouts/layout-main/index";
 </style>

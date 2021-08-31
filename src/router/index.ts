@@ -9,6 +9,11 @@ const routes: Array<RouteConfig> = [
     name: "HomePage",
     component: () => import("@/views/HomePage.vue"),
   },
+  {
+    path: "*",
+    name: "NotFound",
+    component: () => import("@/views/HomePage.vue"),
+  },
 ];
 
 const router = new VueRouter({

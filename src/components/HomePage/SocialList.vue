@@ -1,6 +1,7 @@
 <template>
   <article class="home-page__social-list">
     <a
+      class="home-page__social-list-item"
       v-for="(socialItem, index) in socialList"
       :key="index"
       :href="socialItem.socialLink"
@@ -73,5 +74,5 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
-@import "../../assets/styles/views/home-page/social-list/index";
+@import "~@/assets/styles/views/home-page/social-list/index";
 </style>
