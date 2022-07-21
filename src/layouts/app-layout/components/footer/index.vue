@@ -1,8 +1,10 @@
 <template>
   <footer class="main-footer">
-    <SocialList />
-    <Navigation />
-    <Copyright />
+    <div class="container">
+      <SocialList />
+      <Navigation />
+      <Copyright />
+    </div>
   </footer>
 </template>
 
@@ -13,5 +15,5 @@
 </script>
 
 <style lang="scss" scoped>
-
+  @use './styles/index';
 </style>

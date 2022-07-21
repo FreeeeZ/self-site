@@ -1,9 +1,9 @@
 <template>
-  <HeroBlock />
+  <h1>Not found 404</h1>
 </template>
 
 <script lang="ts" setup>
-import HeroBlock from '@/components/home/HeroBlock.vue'
+
 </script>
 
 <style lang="scss" scoped>

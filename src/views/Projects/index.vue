@@ -2,10 +2,8 @@
   <h1>Projects</h1>
 </template>
 
-<script>
-export default {
-  name: "Projects"
-}
+<script lang="ts" setup>
+
 </script>
 
 <style scoped>

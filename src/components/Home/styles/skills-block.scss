@@ -1,0 +1,43 @@
+.skills-block {
+  &__title {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 26px;
+    letter-spacing: 0.04em;
+    color: #BDEBEA;
+  }
+
+  &__list {
+    display: flex;
+    justify-content: center;
+    flex-flow: wrap;
+    gap: 120px;
+
+    &-item {
+      width: 124px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .list-item {
+
+        &__picture {
+
+        }
+
+        &__title {
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 20px;
+          display: flex;
+          align-items: center;
+          text-align: center;
+          letter-spacing: 0.13538em;
+          text-transform: uppercase;
+          color: #BDEBEA;
+        }
+      }
+    }
+  }
+}

@@ -2,8 +2,8 @@
   <div class="main-footer__navigation">
     <nav>
       <ul>
-        <li v-for="item in this.$router.options.routes">
-          <router-link :to="item.path">
+        <li v-for="(item, index) in this.$router.options.routes" :key="index">
+          <router-link :to="item.path" v-if="item.name !== 'NotFound'">
             {{item.name}}
           </router-link>
         </li>

@@ -1,8 +1,11 @@
-@import "src/assets/fonts/Montserrat/style";
+@import "container";
+@import "breakpoints";
+@import "buttons";
+@import "font-size";
+@import "font-family";
 
 :root {
-  font-family: Montserrat, sans-serif;
-
+  font-family: $montserrat;
   color-scheme: light dark;
   //color: rgba(255, 255, 255, 0.87);
   //background-color: #242424;
@@ -14,14 +17,17 @@
   -webkit-text-size-adjust: 100%;
 }
 
+html, body {
+  height: 100%;
+}
 
-//body {
-//  margin: 0;
-//  display: flex;
-//  place-items: center;
-//  min-width: 320px;
-//  min-height: 100vh;
-//}
+body {
+  //margin: 0;
+  //display: flex;
+  //place-items: center;
+  //min-width: 320px;
+  //min-height: 100vh;
+}
 //
 //#app {
 //  max-width: 1280px;

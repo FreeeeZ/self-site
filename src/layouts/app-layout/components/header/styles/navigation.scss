@@ -1,0 +1,24 @@
+.main-header {
+  &__navigation {
+    nav {
+      ul {
+        display: flex;
+        flex-direction: row;
+        column-gap: 15px;
+        padding: 0;
+
+        li {
+          list-style: none;
+
+          a {
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 20px;
+            color: #BDEBEA;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+}
