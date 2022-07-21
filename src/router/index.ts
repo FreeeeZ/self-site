@@ -1,24 +1,22 @@
-import Vue from "vue";
-import VueRouter, { RouteConfig } from "vue-router";
+import { createWebHistory, createRouter } from 'vue-router';
+import Home from '@/views/Home/index.vue';
+import Projects from '@/views/Projects/index.vue';
 
-Vue.use(VueRouter);
-
-const routes: Array<RouteConfig> = [
+const routes = [
   {
-    path: "/",
-    name: "HomePage",
-    component: () => import("@/views/HomePage.vue"),
+    path: '/',
+    name: 'Home',
+    component: Home,
   },
   {
-    path: "*",
-    name: "NotFound",
-    component: () => import("@/views/HomePage.vue"),
+    path: '/projects',
+    name: 'Projects',
+    component: Projects,
   },
 ];
 
-const router = new VueRouter({
-  mode: "history",
-  base: process.env.BASE_URL,
+const router = createRouter({
+  history: createWebHistory(),
   routes,
 });
 
