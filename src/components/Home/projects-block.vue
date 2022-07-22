@@ -155,13 +155,10 @@ const getProjects = async () => {
   await axios.get('https://api.github.com/users/FreeeeZ/repos')
     .then(function (response) {
       for (let i = 0; i < response.data.length; i++) {
-        // @ts-ignore
-        projectsList.push(response.data[i])
-
+        projectsList.push(response.data[i]);
         axios.get(`https://api.github.com/repos/FreeeeZ/${response.data[i].name}/languages`)
           .then(function (response) {
-            // @ts-ignore
-            projectsList[i].tags = response.data
+            projectsList[i].tags = response.data;
           })
           .catch(function (error) {
             console.log(error);
