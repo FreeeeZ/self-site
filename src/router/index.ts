@@ -39,7 +39,7 @@ const router = createRouter({
       behavior: 'smooth',
     }
   },
-  history: createWebHistory(),
+  history: createWebHistory('/self-site/'),
   routes,
   linkActiveClass: 'active-link',
   linkExactActiveClass: 'exact-active-link',
