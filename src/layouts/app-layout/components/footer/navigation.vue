@@ -16,7 +16,7 @@
 import { useRouter } from "vue-router";
 
 const router = useRouter()
-const formattedRouter = router.options.routes.filter(route => route.name !== 'NotFound' && route.name !== 'Experience')
+const formattedRouter = router.options.routes.filter(route => route.name !== 'NotFound' && route.name !== 'PathForNotFound' && route.name !== 'Experience')
 </script>
 
 <style lang="scss" scoped>

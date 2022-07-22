@@ -5,9 +5,9 @@
         <h4 class="hero-block__subtitle">Web developer</h4>
         <h1 class="hero-block__title">Vladislav Shell</h1>
         <p class="hero-block__description">
-          Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt.
+          Hey! Welcome to my visiting card site. I hope it will be interesting. Let's go!
         </p>
-        <button class="button button-primary">
+        <button class="button button-primary button-soon" disabled>
           Contact Me
         </button>
       </div>
@@ -28,10 +28,6 @@
     </div>
   </div>
 </template>
-
-<script lang="ts" setup>
-
-</script>
 
 <style lang="scss" scoped>
   @use './styles/hero-block.scss';

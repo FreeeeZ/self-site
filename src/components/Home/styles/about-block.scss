@@ -20,17 +20,17 @@
     padding: 0 0 0 20px;
     position: relative;
 
-    &:before {
-      content: '';
+    &::before {
+      content: "";
       display: block;
       height: 5px;
-      width: 120px;
+      width: 275px;
       background: linear-gradient(90deg, #00F5A0 0%, #00D9F5 100%);
       border-radius: 2px;
       transform: rotate(-90deg);
       position: absolute;
-      left: -57px;
-      top: 63px;
+      left: -135px;
+      top: 140px;
     }
   }
 }

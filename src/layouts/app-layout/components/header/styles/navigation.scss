@@ -20,7 +20,7 @@
             &.active-link {
               color: #00F5A0;
 
-              &:after {
+              &::after {
                 content: "";
                 display: block;
                 height: 2px;

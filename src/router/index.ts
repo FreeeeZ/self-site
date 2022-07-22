@@ -21,13 +21,24 @@ const routes = [
     component: Experience,
   },
   {
-    path: '/:pathMatch(.*)*',
+    path: '/404',
     name: 'NotFound',
     component: NotFound,
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'PathForNotFound',
+    redirect: '/404'
   },
 ];
 
 const router = createRouter({
+  scrollBehavior(to, from, savedPosition) {
+    return {
+      top: 0,
+      behavior: 'smooth',
+    }
+  },
   history: createWebHistory(),
   routes,
   linkActiveClass: 'active-link',
