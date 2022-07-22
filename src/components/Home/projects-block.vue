@@ -46,7 +46,7 @@ const props = defineProps({
   type: { type: String, required: true }
 })
 
-export interface Owner {
+interface Owner {
   login: string;
   id: number;
   node_id: string;
@@ -67,7 +67,7 @@ export interface Owner {
   site_admin: boolean;
 }
 
-export interface ProjectsObject {
+interface ProjectsObject {
   id: number;
   node_id: string;
   name: string;
