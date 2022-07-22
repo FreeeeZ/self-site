@@ -1,11 +1,7 @@
 <template>
-  <h1>Projects</h1>
+  <ProjectsBlock :type="`projects-page`" />
 </template>
 
 <script lang="ts" setup>
-
+import ProjectsBlock from "@/components/Home/projects-block.vue";
 </script>
-
-<style scoped>
-
-</style>

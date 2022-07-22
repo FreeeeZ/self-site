@@ -1,4 +1,6 @@
 .skills-block {
+  margin: 0 0 150px;
+
   &__title {
     font-weight: 600;
     font-size: 24px;
@@ -23,7 +25,9 @@
       .list-item {
 
         &__picture {
-
+          img {
+            height: 120px;
+          }
         }
 
         &__title {

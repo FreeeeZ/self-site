@@ -30,13 +30,6 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(),
   routes,
-  scrollBehavior () {
-    window.scrollTo({
-      left: 0,
-      top: 0,
-      behavior: 'smooth'
-    });
-  },
   linkActiveClass: 'active-link',
   linkExactActiveClass: 'exact-active-link',
 });

@@ -1,6 +1,6 @@
 import { createApp } from 'vue'
 import 'normalize.css'
-import App from '@/app.vue'
+import App from '@/App.vue'
 import router from "@/router";
 import VueSmoothScroll from 'vue3-smooth-scroll'
 

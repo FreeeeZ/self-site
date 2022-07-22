@@ -1,6 +1,12 @@
 <template>
   <div class="main-footer__socials-list">
-    <a class="main-footer__socials-list-item" v-for="(social, index) in socialsList" :key="index" :href="social.linkUrl">
+    <a class="main-footer__socials-list-item"
+       rel="noopener noreferrer nofollow"
+       target="_blank"
+       v-for="(social, index) in socialsList"
+       :key="index"
+       :href="social.linkUrl"
+    >
       <picture class="socials-list-item__picture">
         <source type="image/webp" :srcset="social.imageWebP">
         <img :src="social.imageSvg" alt="Main photo">

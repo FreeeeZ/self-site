@@ -1,7 +1,7 @@
 <template>
   <HeroBlock />
   <AboutBlock />
-  <ProjectsBlock />
+  <ProjectsBlock :type="`home-page`" />
   <SkillsBlock />
 </template>
 

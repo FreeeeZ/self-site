@@ -22,22 +22,22 @@ import JsIconSvg from "@/assets/images/skills/js-icon.png";
 import JsIconWebP from "@/assets/images/skills/js-icon.webp";
 import TsIconSvg from "@/assets/images/skills/ts-icon.png";
 import TsIconWebP from "@/assets/images/skills/ts-icon.webp";
-// import VueIconSvg from "@/assets/images/skills/";
-// import VueIconWebP from "@/assets/images/skills/";
+import VueIconSvg from "@/assets/images/skills/vue-icon.svg";
+import VueIconWebP from "@/assets/images/skills/vue-icon.webp";
 import ReactIconSvg from "@/assets/images/skills/react-icon.png";
 import ReactIconWebP from "@/assets/images/skills/react-icon.webp";
-// import VuexIconSvg from "@/assets/images/skills/";
-// import VuexIconWebP from "@/assets/images/skills/";
-// import PiniaIconSvg from "@/assets/images/skills/";
-// import PiniaIconWebP from "@/assets/images/skills/";
+import VuexIconSvg from "@/assets/images/skills/vuex-icon.svg";
+import VuexIconWebP from "@/assets/images/skills/vuex-icon.webp";
+import PiniaIconSvg from "@/assets/images/skills/pinia-icon.svg";
+import PiniaIconWebP from "@/assets/images/skills/pinia-icon.webp";
 import GitIconSvg from "@/assets/images/skills/git-icon.png";
 import GitIconWebP from "@/assets/images/skills/git-icon.webp";
-// import FigmaIconSvg from "@/assets/images/skills/";
-// import FigmaIconWebP from "@/assets/images/skills/";
-// import WebpackIconSvg from "@/assets/images/skills/";
-// import WebpackIconWebP from "@/assets/images/skills/";
-// import ViteIconSvg from "@/assets/images/skills/";
-// import ViteIconWebP from "@/assets/images/skills/";
+import FigmaIconSvg from "@/assets/images/skills/figma-icon.svg";
+import FigmaIconWebP from "@/assets/images/skills/figma-icon.webp";
+import WebpackIconSvg from "@/assets/images/skills/webpack-icon.svg";
+import WebpackIconWebP from "@/assets/images/skills/webpack-icon.webp";
+import ViteIconSvg from "@/assets/images/skills/vite-icon.svg";
+import ViteIconWebP from "@/assets/images/skills/vite-icon.webp";
 
 const skillsList = [
   {
@@ -51,8 +51,8 @@ const skillsList = [
     title: 'Typescript'
   },
   {
-    imageSvg: JsIconSvg,
-    imageWebP: JsIconWebP,
+    imageSvg: VueIconSvg,
+    imageWebP: VueIconWebP,
     title: 'Vue JS'
   },
   {
@@ -61,13 +61,13 @@ const skillsList = [
     title: 'React JS'
   },
   {
-    imageSvg: JsIconSvg,
-    imageWebP: JsIconWebP,
+    imageSvg: VuexIconSvg,
+    imageWebP: VuexIconWebP,
     title: 'VueX'
   },
   {
-    imageSvg: JsIconSvg,
-    imageWebP: JsIconWebP,
+    imageSvg: PiniaIconSvg,
+    imageWebP: PiniaIconWebP,
     title: 'Pinia'
   },
   {
@@ -76,18 +76,18 @@ const skillsList = [
     title: 'Git'
   },
   {
-    imageSvg: JsIconSvg,
-    imageWebP: JsIconWebP,
+    imageSvg: FigmaIconSvg,
+    imageWebP: FigmaIconWebP,
     title: 'Figma'
   },
   {
-    imageSvg: JsIconSvg,
-    imageWebP: JsIconWebP,
+    imageSvg: WebpackIconSvg,
+    imageWebP: WebpackIconWebP,
     title: 'Webpack'
   },
   {
-    imageSvg: JsIconSvg,
-    imageWebP: JsIconWebP,
+    imageSvg: ViteIconSvg,
+    imageWebP: ViteIconWebP,
     title: 'Vite'
   },
 ]

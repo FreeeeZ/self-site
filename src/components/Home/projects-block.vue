@@ -23,7 +23,7 @@
           </div>
         </div>
       </div>
-      <div class="projects-block__bottom">
+      <div class="projects-block__bottom" v-if="props.type === 'home-page'">
         <router-link to="/projects" class="button button-primary">
           SEE ALL PROJECTS
         </router-link>
@@ -33,6 +33,10 @@
 </template>
 
 <script lang="ts" setup>
+const props = defineProps({
+  type: { type: String, required: true }
+})
+
 const projectsList = [
   {
     title: 'TITLE PROJECT',

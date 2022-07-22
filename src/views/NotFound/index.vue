@@ -1,11 +1,7 @@
 <template>
-  <h1>Not found 404</h1>
+  <NotfoundWrap />
 </template>
 
 <script lang="ts" setup>
-
+import NotfoundWrap from "@/components/NotFound/notfound-wrap.vue";
 </script>
-
-<style lang="scss" scoped>
-
-</style>
