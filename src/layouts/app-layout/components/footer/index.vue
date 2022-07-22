@@ -9,7 +9,7 @@
 </template>
 
 <script lang="ts" setup>
-  import SocialList from './social-list.vue'
+  import SocialList from './socials-list.vue'
   import Navigation from './navigation.vue'
   import Copyright from './copyright.vue'
 </script>

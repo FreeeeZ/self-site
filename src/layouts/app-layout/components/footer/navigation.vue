@@ -17,5 +17,5 @@
 </script>
 
 <style lang="scss" scoped>
-
+  @use './styles/navigation.scss';
 </style>

@@ -1,6 +1,6 @@
 <template>
-  <div class="main-footer__social-list">
-    Socials
+  <div>
+    123
   </div>
 </template>
 

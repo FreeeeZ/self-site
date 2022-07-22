@@ -1,0 +1,38 @@
+.main-footer {
+  &__socials-list {
+    display: flex;
+    flex-direction: row;
+    column-gap: 73px;
+
+    &-item {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-decoration: none;
+
+      .socials-list-item {
+        &__picture {
+          display: flex;
+          justify-content: center;
+
+          img {
+            width: 38px;
+            height: 38px;
+          }
+        }
+
+        &__title {
+          font-weight: 400;
+          font-size: 12px;
+          line-height: 11px;
+          display: flex;
+          align-items: center;
+          text-align: center;
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
+          color: #BDEBEA;
+        }
+      }
+    }
+  }
+}
