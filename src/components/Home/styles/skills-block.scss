@@ -1,5 +1,11 @@
+@import "/src/assets/scss/breakpoints.scss";
+
 .skills-block {
   margin: 0 0 150px;
+
+  @media screen and (max-width: $xl) {
+    margin: 0 0 100px;
+  }
 
   &__title {
     font-weight: 600;
@@ -15,6 +21,23 @@
     flex-flow: wrap;
     gap: 120px;
 
+    @media screen and (max-width: $xl) {
+      gap: 85px;
+    }
+
+    @media screen and (max-width: $lg) {
+      gap: 74px;
+    }
+
+    @media screen and (max-width: $md) {
+      gap: 84px;
+    }
+
+    @media screen and (max-width: $sm) {
+      column-gap: 42px;
+      row-gap: 20px;
+    }
+
     &-item {
       width: 124px;
       display: flex;
@@ -26,6 +49,18 @@
         &__picture {
           img {
             height: 120px;
+
+            @media screen and (max-width: $xl) {
+              height: 100px;
+            }
+
+            @media screen and (max-width: $lg) {
+              height: 90px;
+            }
+
+            @media screen and (max-width: $md) {
+              height: 80px;
+            }
           }
         }
 
