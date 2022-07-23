@@ -1,5 +1,11 @@
+@import "src/assets/scss/breakpoints.scss";
+
 .hero-block {
   margin: 150px 0 200px;
+
+  @media screen and (max-width: $lg) {
+    margin: 50px 0 100px;
+  }
 
   & > .container {
     display: flex;
@@ -8,9 +14,23 @@
     align-items: center;
     margin: 0 auto 105px;
 
+    @media screen and (max-width: $lg) {
+      flex-direction: column-reverse;
+      column-gap: 0;
+      row-gap: 50px;
+    }
+    
     & > div {
       flex-grow: 1;
       flex-basis: 0;
+
+      @media screen and (max-width: $lg) {
+        &:first-child {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+      }
 
       &:last-child {
         display: flex;
@@ -37,6 +57,18 @@
     -webkit-text-fill-color: transparent;
     text-fill-color: transparent;
     margin: 0 0 20px;
+
+    @media screen and (max-width: $xl) {
+      font-size: 58px;
+    }
+
+    @media screen and (max-width: $lg) {
+      font-size: 48px;
+    }
+
+    @media screen and (max-width: $sm) {
+      font-size: 32px;
+    }
   }
   /* stylelint-enable */
 
@@ -47,6 +79,10 @@
     letter-spacing: 0.04em;
     color: #BDEBEA;
     margin: 0 0 30px;
+
+    @media screen and (max-width: $lg) {
+      text-align: center;
+    }
   }
 
   &__main-picture {
@@ -55,6 +91,16 @@
       height: 400px;
       border-radius: 50%;
       box-shadow: 20px 20px 20px -10px rgb(0 0 0 / 20%);
+
+      @media screen and (max-width: $lg) {
+        width: 300px;
+        height: 300px;
+      }
+
+      @media screen and (max-width: $sm) {
+        width: 250px;
+        height: 250px;
+      }
     }
   }
 

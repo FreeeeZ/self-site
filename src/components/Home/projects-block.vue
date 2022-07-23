@@ -46,6 +46,8 @@ const props = defineProps({
   type: { type: String, required: true }
 })
 
+// TODO: Вынести в class
+
 interface Owner {
   login: string;
   id: number;
@@ -148,6 +150,8 @@ interface ProjectsObject {
   default_branch: string;
   tags: string[]
 }
+
+// TODO: Вынести в class
 
 let projectsList: Array<ProjectsObject> = reactive([])
 
