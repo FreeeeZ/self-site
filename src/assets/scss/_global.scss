@@ -1,0 +1,45 @@
+@import "container";
+@import "breakpoints";
+@import "buttons";
+@import "font-size";
+@import "font-family";
+
+:root {
+  font-family: $montserrat;
+  color-scheme: light dark;
+  font-synthesis: none;
+  text-rendering: optimizelegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-size-adjust: 100%;
+
+  // color: rgba(255, 255, 255, 0.87);
+  // background-color: #242424;
+}
+
+html, body {
+  height: 100%;
+  min-width: 320px;
+}
+
+// body {
+  // margin: 0;
+  // display: flex;
+  // place-items: center;
+  // min-width: 320px;
+  // min-height: 100vh;
+// }
+
+
+// @media (prefers-color-scheme: light) {
+//  :root {
+//    color: #213547;
+//    background-color: #ffffff;
+//  }
+//  a:hover {
+//    color: #747bff;
+//  }
+//  button {
+//    background-color: #f9f9f9;
+//  }
+// }

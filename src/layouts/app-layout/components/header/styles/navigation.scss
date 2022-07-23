@@ -1,0 +1,40 @@
+.main-header {
+  &__navigation {
+    nav {
+      ul {
+        display: flex;
+        column-gap: 15px;
+        padding: 0;
+
+        li {
+          list-style: none;
+
+          a {
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 20px;
+            color: #BDEBEA;
+            text-decoration: none;
+            position: relative;
+
+            &.active-link {
+              color: #00F5A0;
+
+              &::after {
+                content: "";
+                display: block;
+                height: 2px;
+                width: 100%;
+                background: linear-gradient(90deg, #00F5A0 0%, #00D9F5 100%);
+                border-radius: 2px;
+                position: absolute;
+                left: 0;
+                top: 25px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

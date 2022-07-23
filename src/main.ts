@@ -1,13 +1,11 @@
-import Vue from "vue";
-import App from "./App.vue";
-import "./registerServiceWorker";
-import router from "./router";
-import store from "./store";
+import { createApp } from 'vue'
+import 'normalize.css'
+import App from '@/App.vue'
+import router from "@/router";
+import VueSmoothScroll from 'vue3-smooth-scroll'
 
-Vue.config.productionTip = false;
-
-new Vue({
-  router,
-  store,
-  render: (h) => h(App),
-}).$mount("#root");
+createApp(App).use(router).use(VueSmoothScroll, {
+  duration: 800,
+  offset: -80,
+  updateHistory: false
+}).mount('#app')
