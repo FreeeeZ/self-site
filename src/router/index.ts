@@ -4,6 +4,8 @@ import Projects from '@/views/Projects/index.vue';
 import Experience from '@/views/Experience/index.vue';
 import NotFound from '@/views/NotFound/index.vue';
 
+const nodeEnv = process.env.NODE_ENV === 'development' ? '/' : '/self-site/'
+
 const routes = [
   {
     path: '/',
@@ -39,7 +41,7 @@ const router = createRouter({
       behavior: 'smooth',
     }
   },
-  history: createWebHistory(),
+  history: createWebHistory(nodeEnv),
   routes,
   linkActiveClass: 'active-link',
   linkExactActiveClass: 'exact-active-link',

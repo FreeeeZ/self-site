@@ -3,5 +3,5 @@
 </template>
 
 <script lang="ts" setup>
-import ProjectsBlock from "@/components/Home/projects-block.vue";
+  import ProjectsBlock from "@/components/Home/projects-block.vue";
 </script>
