@@ -1,5 +1,11 @@
 # Self site
 
+## Description
+Vladislav Shell personal site
+
+## Design
+Design was taken for the basis: https://www.figma.com/community/file/1032660103068521518
+
 ## Deps
 
 ![npm](https://img.shields.io/badge/npm-v8.13.2-blue?style=flat-square)
