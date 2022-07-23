@@ -15,5 +15,5 @@
 </template>
 
 <style lang="scss" scoped>
-  @use './styles/notfound-wrap.scss';
+@use './styles/notfound-wrap.scss';
 </style>

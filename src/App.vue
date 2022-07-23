@@ -3,7 +3,7 @@
 </template>
 
 <script lang="ts" setup>
-  import AppLayout from '@/layouts/app-layout/index.vue'
+import AppLayout from '@/layouts/app-layout/index.vue'
 </script>
 
 <style lang="scss">

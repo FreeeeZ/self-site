@@ -8,10 +8,10 @@
 </template>
 
 <script lang="ts" setup>
-  import Navigation from '@/layouts/app-layout/components/header/navigation.vue'
-  import MiscInfo from '@/layouts/app-layout/components/header/misc-info.vue'
+import Navigation from '@/layouts/app-layout/components/header/navigation.vue'
+import MiscInfo from '@/layouts/app-layout/components/header/misc-info.vue'
 </script>
 
 <style lang="scss" scoped>
-  @use './styles/index';
+@use './styles/index';
 </style>

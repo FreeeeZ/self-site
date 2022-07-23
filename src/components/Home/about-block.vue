@@ -11,5 +11,5 @@
 </template>
 
 <style lang="scss" scoped>
-  @use 'styles/about-block.scss';
+@use 'styles/about-block.scss';
 </style>

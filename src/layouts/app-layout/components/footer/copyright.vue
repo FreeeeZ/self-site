@@ -5,9 +5,9 @@
 </template>
 
 <script lang="ts" setup>
-  const currentYear = new Date().getFullYear();
+const currentYear = new Date().getFullYear();
 </script>
 
 <style lang="scss" scoped>
-  @use './styles/copyright.scss';
+@use './styles/copyright.scss';
 </style>

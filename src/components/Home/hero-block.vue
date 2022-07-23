@@ -30,5 +30,5 @@
 </template>
 
 <style lang="scss" scoped>
-  @use './styles/hero-block.scss';
+@use './styles/hero-block.scss';
 </style>
