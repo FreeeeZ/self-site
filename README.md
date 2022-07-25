@@ -21,8 +21,8 @@ Design was taken for the basis: https://www.figma.com/community/file/10326601030
 - [ ] i18n compatible.
 - [ ] Add "Experience" page.
 - [ ] Add "Contact" layer/modal.
-- [x] Partial typescript support.
-- [ ] Full typescript support.
+- [x] Partial TypeScript support.
+- [ ] Full TypeScript support.
 - [x] Support Vue 3 + Composition API.
 - [x] Support Vite 3.
 - [ ] Support Vitedge.
@@ -32,7 +32,7 @@ Design was taken for the basis: https://www.figma.com/community/file/10326601030
 ## Quick start
 
 1. Install all dependencies using `yarn` or `npm install`
-2. Start the development server using `yarn start` or `npm run start`
+2. Start the development server using `yarn dev` or `npm run dev`
 3. Open up [http://localhost:3000](http://localhost:3000)
 
 ## License
