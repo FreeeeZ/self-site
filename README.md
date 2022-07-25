@@ -15,6 +15,18 @@ Design was taken for the basis: https://www.figma.com/community/file/10326601030
 ![vite](https://img.shields.io/badge/vite-v3.0.2-yellow?style=flat-square)
 ![license](https://img.shields.io/badge/license-MIT-green?style=flat-square)
 
+## Roadmap
+
+- [ ] i18n compatible.
+- [ ] Add "Experience" page.
+- [ ] Add "Contact" layer/modal.
+- [x] Partial typescript support.
+- [ ] Full typescript support.
+- [x] Support Vue 3 + Composition API.
+- [x] Support Vite 3.
+- [x] Support Vitedge.
+
+
 ## Quick start
 
 1. Install all dependencies using `yarn` or `npm install`
