@@ -3,11 +3,12 @@
     <div class="container">
       <h2 class="projects-block__title">Projects</h2>
       <div class="projects-block__list">
-        <div class="projects-block__list-item"
-             v-for="(project, index) in type === 'home-page' ? EX_$Projects.projectsArr.slice(0, 2) : EX_$Projects.projectsArr"
-             :key="index">
+        <div
+          class="projects-block__list-item"
+          v-for="(project, index) in type === 'home-page' ? EX_$Projects.projectsArr.slice(0, 2) : EX_$Projects.projectsArr"
+          :key="index"
+        >
           <div class="list-item__info">
-
             <h2 class="list-item__info-title">
               <a rel="noopener noreferrer nofollow"
                  :href="project.html_url"
@@ -16,7 +17,7 @@
                 {{project.name}}
               </a>
             </h2>
-            <div class="list-item__info-tags" v-if="project.tags ? Object.keys(project.tags).length : ''">
+            <div class="list-item__info-tags" v-if="project.tags">
               <div class="list-item__info-tags-item" v-for="(tag, index) in Object.keys(project.tags)" :key="index">
                 {{tag}}
               </div>

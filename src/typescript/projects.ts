@@ -115,20 +115,16 @@ export class $Projects  {
   async getProjects() {
     if (!this.projectsFetched) {
       await axios.get('https://api.github.com/users/FreeeeZ/repos')
-        .then((response) => {
+        .then(async (response) => {
           for (let i = 0; i < response.data.length; i++) {
             if (response.data[i].full_name !== 'FreeeeZ/FreeeeZ') {
               this.projectsList.push(response.data[i]);
-            }
+              await this.getProjectTags(response.data[i])
 
-            axios.get(`https://api.github.com/repos/FreeeeZ/${response.data[i].name}/languages`)
-              .then((response) => {
-                this.projectsList[i].tags = response.data;
+              if (i === response.data.length - 1) {
                 this.projectsFetched = true
-              })
-              .catch(function(error) {
-                console.log(error);
-              })
+              }
+            }
           }
         })
         .catch(function(error) {
@@ -136,6 +132,20 @@ export class $Projects  {
         })
     }
   };
+
+  async getProjectTags(project: ProjectsObject) {
+    if (!this.projectsFetched) {
+      if (project.full_name !== 'FreeeeZ/FreeeeZ') {
+        await axios.get(`https://api.github.com/repos/FreeeeZ/${project.name}/languages`)
+          .then((response) => {
+            response.data ? project.tags = response.data : project.tags = [];
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+      }
+    }
+  }
 }
 
 export default new $Projects()
