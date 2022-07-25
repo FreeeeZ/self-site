@@ -17,6 +17,7 @@ Design was taken for the basis: https://www.figma.com/community/file/10326601030
 
 ## Roadmap
 
+- [x] Main landing with "Projects" page.
 - [ ] i18n compatible.
 - [ ] Add "Experience" page.
 - [ ] Add "Contact" layer/modal.
@@ -24,7 +25,8 @@ Design was taken for the basis: https://www.figma.com/community/file/10326601030
 - [ ] Full typescript support.
 - [x] Support Vue 3 + Composition API.
 - [x] Support Vite 3.
-- [x] Support Vitedge.
+- [ ] Support Vitedge.
+- [ ] Support Vitest && Cover functions with tests.
 
 
 ## Quick start
