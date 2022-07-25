@@ -117,7 +117,9 @@ export class $Projects  {
       await axios.get('https://api.github.com/users/FreeeeZ/repos')
         .then((response) => {
           for (let i = 0; i < response.data.length; i++) {
-            this.projectsList.push(response.data[i]);
+            if (response.data[i].full_name !== 'FreeeeZ/FreeeeZ') {
+              this.projectsList.push(response.data[i]);
+            }
 
             axios.get(`https://api.github.com/repos/FreeeeZ/${response.data[i].name}/languages`)
               .then((response) => {
