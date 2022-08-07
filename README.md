@@ -27,6 +27,7 @@ Design was taken for the basis: https://www.figma.com/community/file/10326601030
 - [ ] i18n compatible.
 - [ ] Full TypeScript support.
 - [ ] Support Vitedge (SSR).
+- [ ] Add SEO metatags.
 - [ ] Support Vitest && Cover functions with tests.
 - [ ] Make UI library (buttons, modals, titles and etc).
 
