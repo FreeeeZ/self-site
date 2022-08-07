@@ -3,7 +3,7 @@
     <div class="main-header__navigation-mobile__burger">
       <button
         class="main-header__navigation-mobile__burger-button"
-        @click="toggleBurgerMenu"
+        @click="toggleBurgerMenu(isBurgerOpened !== true)"
       >
         <span></span>
         <span></span>
@@ -27,16 +27,24 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue";
-import { useRouter } from "vue-router";
+import { ref, watch } from "vue";
+import { useRoute, useRouter } from "vue-router";
 
+const route = useRoute()
 const router = useRouter()
 const formattedRouter = router.options.routes.filter(route => route.name !== 'NotFound' && route.name !== 'PathForNotFound')
 
 let isBurgerOpened = ref(false)
 
-function toggleBurgerMenu () {
-  isBurgerOpened.value = !isBurgerOpened.value
+watch(
+  () => route.name,
+  () => {
+    toggleBurgerMenu(false)
+  }
+)
+
+function toggleBurgerMenu (state: boolean) {
+  isBurgerOpened.value = state
 }
 
 function clickOutsideBurger () {
