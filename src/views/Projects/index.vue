@@ -1,7 +1,7 @@
 <template>
-  <ProjectsBlock :type="`projects-page`" />
+  <ProjectsList :type="`projects-page`" />
 </template>
 
 <script lang="ts" setup>
-import ProjectsBlock from "@/components/Home/projects-block.vue";
+import ProjectsList from '@/components/Global/projects-list.vue';
 </script>

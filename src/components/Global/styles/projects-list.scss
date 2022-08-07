@@ -1,8 +1,7 @@
 @import "/src/assets/scss/breakpoints.scss";
 
-.projects-block {
+.projects-list {
   margin: 0 0 130px;
-  min-height: calc(100vh - 630px);
 
   &__title {
     font-weight: 600;

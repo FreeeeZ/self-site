@@ -1,5 +1,7 @@
 <template>
-  <div>
-    Experience
-  </div>
+  <ExperienceHero />
 </template>
+
+<script setup>
+import ExperienceHero from '@/components/Experience/experience-hero.vue';
+</script>

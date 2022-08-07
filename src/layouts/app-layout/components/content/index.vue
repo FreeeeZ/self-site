@@ -1,6 +1,6 @@
 <template>
   <main class="main-content">
-    <div :class="`${String(route.name)}-page`.toLowerCase()">
+    <div :class="`${String(route?.name)}-page`.toLowerCase()">
       <router-view />
     </div>
   </main>

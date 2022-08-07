@@ -1,9 +1,9 @@
 <template>
-  <div class="skills-block">
+  <div class="home-skills">
     <div class="container">
-      <h2 class="skills-block__title">Skills</h2>
-      <div class="skills-block__list">
-        <div class="skills-block__list-item" v-for="(skill, index) in skillsList" :key="index">
+      <h2 class="home-skills__title">Skills</h2>
+      <div class="home-skills__list">
+        <div class="home-skills__list-item" v-for="(skill, index) in skillsList" :key="index">
           <picture class="list-item__picture">
             <source type="image/webp" :srcset="skill.imageWebP">
             <img :src="skill.imageSvg" :alt="skill.title">
@@ -94,5 +94,5 @@ const skillsList = [
 </script>
 
 <style lang="scss" scoped>
-@use './styles/skills-block.scss';
+@use './styles/home-skills';
 </style>

@@ -1,13 +1,13 @@
 <template>
-  <HeroBlock />
-  <AboutBlock />
-  <ProjectsBlock :type="`home-page`" />
-  <SkillsBlock />
+  <HomeHero />
+  <HomeAbout />
+  <ProjectsList :type="`home-page`" />
+  <HomeSkills />
 </template>
 
 <script lang="ts" setup>
-import HeroBlock from '@/components/Home/hero-block.vue'
-import AboutBlock from '@/components/Home/about-block.vue'
-import ProjectsBlock from '@/components/Home/projects-block.vue'
-import SkillsBlock from '@/components/Home/skills-block.vue'
+import HomeHero from '@/components/Home/home-hero.vue';
+import HomeAbout from '@/components/Home/home-about.vue';
+import HomeSkills from '@/components/Home/home-skills.vue';
+import ProjectsList from '@/components/Global/projects-list.vue';
 </script>
