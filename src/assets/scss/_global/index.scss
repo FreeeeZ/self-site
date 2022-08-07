@@ -1,8 +1,8 @@
-@import "container";
-@import "breakpoints";
-@import "buttons";
-@import "font-size";
-@import "font-family";
+@import "./container";
+@import "./breakpoints";
+@import "../_ui/buttons";
+@import "../_ui/font-size";
+@import "../_ui/font-family";
 
 :root {
   font-family: $montserrat;
