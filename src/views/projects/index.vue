@@ -3,5 +3,5 @@
 </template>
 
 <script lang="ts" setup>
-import ProjectsList from '@/components/Global/projects-list.vue';
+import ProjectsList from '@/components/_global/projects-list.vue';
 </script>

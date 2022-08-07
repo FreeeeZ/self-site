@@ -1,8 +1,8 @@
 import { createWebHistory, createRouter } from 'vue-router';
-import Home from '@/views/Home/index.vue';
-import Projects from '@/views/Projects/index.vue';
-import Experience from '@/views/Experience/index.vue';
-import NotFound from '@/views/NotFound/index.vue';
+import Home from '@/views/home/index.vue';
+import Projects from '@/views/projects/index.vue';
+import Experience from '@/views/experience/index.vue';
+import NotFound from '@/views/not-found/index.vue';
 
 const baseUrl = process.env.NODE_ENV === 'development' ? '/' : '/self-site/'
 
