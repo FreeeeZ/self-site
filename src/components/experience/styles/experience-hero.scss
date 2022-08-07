@@ -3,5 +3,7 @@
 .experience-hero {
   &__title {
     @include title-primary;
+
+    margin: 20px 0 50px;
   }
 }

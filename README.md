@@ -18,16 +18,17 @@ Design was taken for the basis: https://www.figma.com/community/file/10326601030
 ## Roadmap
 
 - [x] Main landing with "Projects" page.
-- [ ] Fix eslint and lint *.vue, *.ts files.
-- [ ] i18n compatible.
-- [ ] Add "Experience" page.
-- [ ] Add "Contact" layer/modal.
-- [x] Partial TypeScript support.
-- [ ] Full TypeScript support.
 - [x] Support Vue 3 + Composition API.
 - [x] Support Vite 3.
-- [ ] Support Vitedge.
+- [x] Partial TypeScript support.
+- [x] Add "Experience" page.
+- [ ] Add "Contact" layer/modal.
+- [ ] Fix eslint and lint *.vue, *.ts files.
+- [ ] i18n compatible.
+- [ ] Full TypeScript support.
+- [ ] Support Vitedge (SSR).
 - [ ] Support Vitest && Cover functions with tests.
+- [ ] Make UI library (buttons, modals, titles and etc).
 
 
 ## Quick start

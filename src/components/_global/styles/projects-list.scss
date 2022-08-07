@@ -6,6 +6,8 @@
 
   &__title {
     @include title-primary;
+
+    margin: 20px 0 50px;
   }
 
   &__items {
