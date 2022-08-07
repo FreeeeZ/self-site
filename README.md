@@ -21,14 +21,15 @@ Design was taken for the basis: https://www.figma.com/community/file/10326601030
 - [x] Support Vue 3 + Composition API.
 - [x] Support Vite 3.
 - [x] Partial TypeScript support.
-- [ ] Add SEO metatags.
-- [ ] Fix eslint and lint *.vue files.
-- [ ] i18n compatible.
-- [ ] Add "Experience" page.
+- [x] Add "Experience" page.
 - [ ] Add "Contact" layer/modal.
+- [ ] Fix eslint and lint *.vue, *.ts files.
+- [ ] i18n compatible.
 - [ ] Full TypeScript support.
-- [ ] Support Vitedge.
+- [ ] Support Vitedge (SSR).
+- [ ] Add SEO metatags.
 - [ ] Support Vitest && Cover functions with tests.
+- [ ] Make UI library (buttons, modals, titles and etc).
 
 
 ## Quick start

@@ -1,7 +1,7 @@
 .main-footer {
   &__socials-list {
     display: flex;
-    flex-direction: row;
+    flex-flow: row;
     flex-wrap: wrap;
     justify-content: center;
     column-gap: 73px;

@@ -1,3 +1,7 @@
 .main-content {
   height: 100%;
+
+  [class*="-page"] {
+    min-height: calc(100vh - 480px);
+  }
 }

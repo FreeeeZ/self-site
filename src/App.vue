@@ -7,5 +7,5 @@ import AppLayout from '@/layouts/app-layout/index.vue'
 </script>
 
 <style lang="scss">
-  @use '@/assets/scss/_global.scss';
+@use '@/assets/scss/_global/index.scss';
 </style>
