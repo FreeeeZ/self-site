@@ -1,12 +1,11 @@
+@import "src/assets/scss/_ui/titles";
+
 .home-about {
   margin: 0 0 130px;
 
   &__title {
-    font-weight: 600;
-    font-size: 24px;
-    line-height: 26px;
-    letter-spacing: 0.04em;
-    color: #BDEBEA;
+    @include title-primary;
+
     padding: 0 0 0 20px;
   }
 
@@ -21,16 +20,14 @@
     position: relative;
 
     &::before {
-      content: "";
-      display: block;
-      height: 5px;
-      width: 275px;
-      background: linear-gradient(90deg, #00F5A0 0%, #00D9F5 100%);
-      border-radius: 2px;
-      transform: rotate(-90deg);
+      content: '';
+      width: 5px;
+      height: 100%;
       position: absolute;
-      left: -135px;
-      top: 140px;
+      top: 0;
+      left: 0;
+      background: linear-gradient(0deg, #00F5A0 0%, #00D9F5 100%);
+      border-radius: 10px;
     }
   }
 }

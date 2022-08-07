@@ -2,9 +2,9 @@
   <div class="projects-list">
     <div class="container">
       <h2 class="projects-list__title">Projects</h2>
-      <div class="projects-list__list">
+      <div class="projects-list__items">
         <div
-          class="projects-list__list-item"
+          class="projects-list__items-point"
           v-for="(project, index) in type === 'home-page' ? EX_$Projects?.projectsArr.slice(0, 2) : EX_$Projects?.projectsArr"
           :key="index"
         >

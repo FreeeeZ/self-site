@@ -13,5 +13,5 @@ import Footer from '@/layouts/app-layout/components/footer/index.vue'
 </script>
 
 <style lang="scss" scoped>
-@use './styles/index.scss'
+@use './styles/index.scss';
 </style>

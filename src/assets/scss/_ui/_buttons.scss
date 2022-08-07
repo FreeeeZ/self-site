@@ -1,4 +1,4 @@
-@import "../_ui/font-family";
+@import "src/assets/scss/_ui/font-family";
 
 @mixin button-primary {
   font-family: $montserrat;
@@ -19,6 +19,7 @@
 .button {
   border: none;
   text-decoration: none;
+  position: relative;
 
   &:hover {
     cursor: pointer;
@@ -30,7 +31,6 @@
 
   &.button-soon {
     cursor: not-allowed;
-    position: relative;
 
     &::after {
       content: 'SOON';
