@@ -10,7 +10,7 @@ export default ({ mode }) => {
     base: mode === 'development' ? process.env.VITE_DEV_BASE_URL : process.env.VITE_PROD_BASE_URL,
     resolve: {
       alias: {
-        '@': path.resolve(__dirname, './src'),
+        '@': path.resolve(__dirname, 'src'),
       },
     },
     plugins: [

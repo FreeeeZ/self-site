@@ -39,7 +39,7 @@
 
 <script lang="ts" setup>
 import { onMounted } from 'vue';
-import EX_$Projects from '@/typescript/projects'
+import EX_$Projects from '@/typescript/classes/projects'
 
 const props = defineProps({
   type: { type: String, required: true }
