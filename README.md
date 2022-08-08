@@ -22,6 +22,7 @@ Design was taken for the basis: https://www.figma.com/community/file/10326601030
 - [x] Support Vite 3.
 - [x] Partial TypeScript support.
 - [x] Add "Experience" page.
+- [x] Add lightweight AOS animations.
 - [ ] Add "Contact" layer/modal.
 - [ ] Fix eslint and lint *.vue, *.ts files.
 - [ ] i18n compatible.
