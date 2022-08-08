@@ -8,7 +8,7 @@
       </p>
       <div class="home-about__bottom">
         <router-link to="/experience" class="button button-primary">
-          See my experience
+          SEE MY EXPERIENCE
         </router-link>
       </div>
     </div>
