@@ -1,8 +1,8 @@
 <template>
-  <HomeHero />
-  <HomeAbout />
-  <ProjectsList :type="`home-page`" />
-  <HomeSkills />
+  <HomeHero data-aos="fade-down" />
+  <HomeAbout data-aos="fade-left" />
+  <ProjectsList :type="`home-page`" data-aos="fade-right" />
+  <HomeSkills data-aos="fade-down" />
 </template>
 
 <script lang="ts" setup>
