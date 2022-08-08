@@ -3,7 +3,8 @@
     <div class="main-header__navigation-mobile__burger">
       <button
         class="main-header__navigation-mobile__burger-button"
-        @click="toggleBurgerMenu(isBurgerOpened !== true)"
+        :class="isBurgerOpened ? 'opened' : ''"
+        @click="toggleBurgerMenu(!isBurgerOpened)"
       >
         <span></span>
         <span></span>
@@ -35,19 +36,23 @@ const router = useRouter()
 const formattedRouter = router.options.routes.filter(route => route.name !== 'NotFound' && route.name !== 'PathForNotFound')
 
 let isBurgerOpened = ref(false)
+let isBurgerButtonClicked = ref(false)
 
-watch(
-  () => route.name,
-  () => {
-    toggleBurgerMenu(false)
-  }
-)
+watch(() => route.name,() => {
+  toggleBurgerMenu(false)
+})
 
 function toggleBurgerMenu (state: boolean) {
   isBurgerOpened.value = state
+
+  if (isBurgerButtonClicked.value) {
+    isBurgerOpened.value = false
+  }
 }
 
-function clickOutsideBurger () {
+function clickOutsideBurger (event: any) {
+  isBurgerButtonClicked.value = event.path[0].className.includes('main-header__navigation-mobile__burger-button opened');
+
   if (isBurgerOpened.value) {
     isBurgerOpened.value = false
   }
