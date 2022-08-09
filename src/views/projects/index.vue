@@ -1,5 +1,5 @@
 <template>
-  <ProjectsList :type="`projects-page`" data-aos="fade-in" />
+  <ProjectsList :type="`projects-page`" />
 </template>
 
 <script lang="ts" setup>

@@ -1,6 +1,6 @@
 <template>
-  <ExperienceHero data-aos="fade-in" />
-  <ExperienceList data-aos="fade-in" />
+  <ExperienceHero />
+  <ExperienceList />
 </template>
 
 <script setup>
