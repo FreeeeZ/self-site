@@ -7,7 +7,6 @@ import App from '@/App.vue'
 import router from "@/router";
 
 import 'normalize.css'
-import 'aos/dist/aos.css'
 
 createApp(App).use(router).use(clickOutside).use(VueSmoothScroll, {
   duration: 800,

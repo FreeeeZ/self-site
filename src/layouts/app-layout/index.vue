@@ -1,6 +1,6 @@
 <template>
   <div class="app-layout">
-    <Header data-aos="fade-in" />
+    <Header />
     <Content />
     <Footer />
   </div>
