@@ -1,7 +1,7 @@
 <template>
   <HomeHero />
   <HomeAbout />
-  <ProjectsList :type="`home-page`" />
+  <ProjectsList :count-items-for-render="2" render-for="home-page" />
   <HomeSkills />
 </template>
 

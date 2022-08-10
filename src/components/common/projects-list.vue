@@ -5,7 +5,7 @@
       <div class="projects-list__items">
         <div
           class="projects-list__items-point"
-          v-for="(project, index) in type === 'home-page' ? EX_$Projects?.projectsArr.slice(0, 2) : EX_$Projects?.projectsArr"
+          v-for="(project, index) in typeof countItemsForRender === 'number' ? EX_$Projects?.projectsArr.slice(0, countItemsForRender) : EX_$Projects?.projectsArr"
           :key="index"
         >
           <div class="list-item__info">
@@ -28,7 +28,7 @@
           </div>
         </div>
       </div>
-      <div class="projects-list__bottom" v-if="props.type === 'home-page'">
+      <div class="projects-list__bottom" v-if="props.renderFor === 'home-page'">
         <router-link to="/projects" class="button button-primary">
           SEE ALL PROJECTS
         </router-link>
@@ -42,8 +42,11 @@ import { onMounted } from 'vue';
 import EX_$Projects from '@/typescript/classes/projects'
 
 const props = defineProps({
-  type: {
-    type: String,
+  renderFor: {
+    type: String
+  },
+  countItemsForRender: {
+    type: Number,
     required: true
   }
 })

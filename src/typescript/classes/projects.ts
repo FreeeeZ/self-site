@@ -12,35 +12,43 @@ export class $Projects  {
 
   async getProjects() {
     if (!this.projectsFetched) {
-      await axios.get('https://api.github.com/users/FreeeeZ/repos')
-        .then(async (response) => {
-          response.data.map(async (item: ProjectsObject, index: number, response: Array<ProjectsObject>) => {
-            if (item.full_name !== 'FreeeeZ/FreeeeZ') {
-              this.projectsList.push(item);
-              await this.getProjectTags(item)
+      try {
+        await axios.get('https://api.github.com/users/FreeeeZ/repos')
+          .then(async (response) => {
+            for (let i = 0; i < response.data.length; i++) {
+              if (response.data[i].full_name !== 'FreeeeZ/FreeeeZ') {
+                this.projectsList.push(response.data[i]);
+                await this.getProjectTags(response.data[i])
 
-              if (index + 1 === response.length) {
-                this.projectsFetched = true
+                if (i === response.data.length - 1) {
+                  this.projectsFetched = true
+                }
               }
             }
           })
-        })
-        .catch(function(error) {
-          console.log(error);
-        })
+          .catch(function(error) {
+            console.log(error);
+          })
+      } catch (e) {
+        console.error(e)
+      }
     }
   };
 
   async getProjectTags(project: ProjectsObject) {
     if (!this.projectsFetched) {
       if (project.full_name !== 'FreeeeZ/FreeeeZ') {
-        await axios.get(`https://api.github.com/repos/FreeeeZ/${project.name}/languages`)
-          .then((response) => {
-            response.data ? project.tags = response.data : project.tags = [];
-          })
-          .catch(function(error) {
-            console.log(error);
-          })
+        try {
+          await axios.get(`https://api.github.com/repos/FreeeeZ/${project.name}/languages`)
+            .then((response) => {
+              response.data ? project.tags = response.data : project.tags = [];
+            })
+            .catch(function(error) {
+              console.log(error);
+            })
+        } catch (e) {
+          console.error(e)
+        }
       }
     }
   }
