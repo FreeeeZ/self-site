@@ -9,15 +9,15 @@
         >
           <div class="list-item__info">
             <p class="list-item__info-years">
-              {{company.yearInterval}}
+              {{company?.yearInterval}}
             </p>
             <p class="list-item__info-name">
-              {{company.name}}
+              {{company?.name}}
             </p>
             <p class="list-item__info-position">
-              {{company.position}}
+              {{company?.position}}
             </p>
-            <p class="list-item__info-description" v-html="company.description" />
+            <p class="list-item__info-description" v-html="company?.description" />
           </div>
         </div>
       </div>

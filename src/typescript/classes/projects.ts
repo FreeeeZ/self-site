@@ -1,5 +1,5 @@
-import {reactive} from 'vue';
 import axios from 'axios';
+import { reactive } from 'vue';
 import { ProjectsObject } from '@/typescript/interfaces/projectsInterfaces'
 
 export class $Projects  {
@@ -14,16 +14,16 @@ export class $Projects  {
     if (!this.projectsFetched) {
       await axios.get('https://api.github.com/users/FreeeeZ/repos')
         .then(async (response) => {
-          for (let i = 0; i < response.data.length; i++) {
-            if (response.data[i].full_name !== 'FreeeeZ/FreeeeZ') {
-              this.projectsList.push(response.data[i]);
-              await this.getProjectTags(response.data[i])
+          response.data.map(async (item: ProjectsObject, index: number, response: Array<ProjectsObject>) => {
+            if (item.full_name !== 'FreeeeZ/FreeeeZ') {
+              this.projectsList.push(item);
+              await this.getProjectTags(item)
 
-              if (i === response.data.length - 1) {
+              if (index + 1 === response.length) {
                 this.projectsFetched = true
               }
             }
-          }
+          })
         })
         .catch(function(error) {
           console.log(error);
