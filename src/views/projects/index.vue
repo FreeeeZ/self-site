@@ -1,5 +1,5 @@
 <template>
-  <ProjectsList :type="`projects-page`" />
+  <ProjectsList :count-items-for-render="99" />
 </template>
 
 <script lang="ts" setup>
