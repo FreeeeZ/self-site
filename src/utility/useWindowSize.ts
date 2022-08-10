@@ -7,7 +7,7 @@ export default function () {
   onMounted(() => window.addEventListener('resize', onWidthChange))
   onUnmounted(() => window.removeEventListener('resize', onWidthChange))
 
-  const type = computed(() => {
+  const screenBreakpointType = computed(() => {
     if (windowWidth.value < 575.98) return 'sm'
     if (windowWidth.value >= 767.98 && windowWidth.value < 991.98) return 'md'
     if (windowWidth.value >= 991.98 && windowWidth.value < 1199.98) return 'lg'
@@ -17,5 +17,5 @@ export default function () {
 
   const width = computed(() => windowWidth.value)
 
-  return { width, type }
+  return { width, screenBreakpointType }
 }
