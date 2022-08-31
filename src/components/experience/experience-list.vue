@@ -67,7 +67,7 @@ const experienceArray = [
     yearInterval: 'July 2022 — Now',
     name: 'red_mad_robot',
     position: 'Frontend Developer',
-    description: '— SuperFarm (Gigamart) - NFT marketplace for the international market. Product development in a large distributed team, preparing the system for release, project support.<br>' +
+    description: '— NFT marketplace for the international market. Product development in a large distributed team, preparing the system for release, project support.<br>' +
       '— Development of the frontend department in the company.<br>' +
       '— More will be added little bit later...',
   },
