@@ -1,4 +1,5 @@
 import { createApp } from "vue";
+import { createPinia } from 'pinia'
 import clickOutside from 'click-outside-vue3'
 import VueSmoothScroll from 'vue3-smooth-scroll'
 
@@ -7,10 +8,11 @@ import router from "@/router";
 
 import 'normalize.css'
 
+const pinia = createPinia()
 export const app = createApp(App);
 app.config.globalProperties.globalVar = 'globalVar'
 
-app.use(router).use(clickOutside).use(VueSmoothScroll, {
+app.use(router).use(clickOutside).use(pinia).use(VueSmoothScroll, {
   duration: 800,
   offset: -80,
   updateHistory: false
