@@ -12,9 +12,11 @@
       />
 
       <div class="modal-wrapper__content">
-        <slot name="header" />
-        <slot />
-        <slot name="footer" />
+        <component
+          v-bind="{modalProps: item?.props || {}}"
+          :is="item?.content"
+          v-if="item?.content"
+        />
       </div>
     </div>
   </transition-group>

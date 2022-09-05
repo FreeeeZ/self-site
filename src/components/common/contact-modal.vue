@@ -1,8 +1,6 @@
 <template>
   <AppModal>
-    <template>
-      <div>Empty</div>
-    </template>
+    <div>Empty</div>
   </AppModal>
 </template>
 
