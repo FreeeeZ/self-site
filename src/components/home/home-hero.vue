@@ -7,7 +7,7 @@
         <p class="home-hero__description">
           Hey! Welcome to my visiting card site. I hope it will be interesting. Let's go!
         </p>
-        <button class="button button-primary button-soon" disabled>
+        <button class="button button-primary" @click="openContactModal">
           Contact Me
         </button>
       </div>
@@ -28,6 +28,16 @@
     </div>
   </div>
 </template>
+
+<script lang="ts" setup>
+import { useModalStore } from "@/store/ui/modalStore";
+
+const modalStore = useModalStore();
+
+function openContactModal () {
+  modalStore.openModal('contact')
+}
+</script>
 
 <style lang="scss" scoped>
 @use './styles/home-hero.scss';

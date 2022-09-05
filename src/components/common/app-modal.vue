@@ -11,11 +11,11 @@
         @click="modalStore.closeModal(item)"
       />
 
-      <component
-        v-bind="{modalProps: item?.props || {}}"
-        :is="item?.content"
-        v-if="item?.content"
-      />
+      <div class="modal-wrapper__content">
+        <slot name="header" />
+        <slot />
+        <slot name="footer" />
+      </div>
     </div>
   </transition-group>
 </template>
