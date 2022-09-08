@@ -8,21 +8,21 @@
       </div>
     </div>
     <div class="modal-window__main">
-      <form class="contact-form">
+      <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
         <fieldset>
+          <input type="hidden" name="access_key" value="791ad86b-6fa4-43e1-aa38-6ebe1b5f4652">
           <div class="contact-form__field" v-for="(field, index) in contactModalFields" :key="index">
             <label class="input-label" :for="field.name">
-              {{ field.label }}
-              <em v-if="field.required">*</em>
+              {{ field.label }}<em v-if="field.required">*</em>
             </label>
-            <input v-if="field.tag === 'input'" class="input input-primary" :type="field.type" :id="field.name" :placeholder="field.label" />
-            <textarea v-if="field.tag === 'textarea'" class="input input-primary" :id="field.name" :placeholder="field.label" rows="5" />
+            <input v-if="field.tag === 'input'" class="input input-primary" :type="field.type" :id="field.name" :placeholder="field.label" :required="field.required" />
+            <textarea v-if="field.tag === 'textarea'" class="input input-primary" :id="field.name" :placeholder="field.label" rows="5" :required="field.required" />
           </div>
         </fieldset>
       </form>
     </div>
     <div class="modal-window__footer">
-      <button class="button button-primary" @click="confirmForm">
+      <button class="button button-primary" type="submit">
         Confirm
       </button>
     </div>
@@ -66,8 +66,12 @@ function closeModal () {
   modalStore.closeModal('contact')
 }
 
+function submitForm (e: Event) {
+  e.preventDefault();
+}
+
 function confirmForm () {
-  console.log('Confirm')
+  return;
 }
 </script>
 
