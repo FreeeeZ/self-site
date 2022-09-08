@@ -6,9 +6,9 @@
         :class="isBurgerOpened ? 'opened' : ''"
         @click="toggleBurgerMenu(!isBurgerOpened)"
       >
-        <span></span>
-        <span></span>
-        <span></span>
+        <span />
+        <span />
+        <span />
       </button>
       <nav
         class="main-header__navigation-mobile__burger-menu"

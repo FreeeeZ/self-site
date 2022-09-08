@@ -30,12 +30,15 @@
 </template>
 
 <script lang="ts" setup>
+import { markRaw } from "vue";
+
 import { useModalStore } from "@/store/ui/modalStore";
+import ContactModal from "@/components/common/contact-modal.vue";
 
 const modalStore = useModalStore();
 
 function openContactModal () {
-  modalStore.openModal('contact')
+  modalStore.openModal({ modalName: 'contact', content: markRaw(ContactModal) })
 }
 </script>
 
