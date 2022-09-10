@@ -5,7 +5,7 @@
   right: 0;
   bottom: 0;
   z-index: 1100;
-  overflow-y: auto;
+  overflow: hidden;
 
   &__overlay {
     position: fixed;
@@ -42,6 +42,7 @@
         display: flex;
         justify-content: center;
         position: relative;
+        font-size: 18px;
       }
 
       &:deep(.modal-window__header-cross) {

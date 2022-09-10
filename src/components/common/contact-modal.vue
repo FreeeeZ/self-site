@@ -22,7 +22,7 @@
       </form>
     </div>
     <div class="modal-window__footer">
-      <button class="button button-primary" type="submit">
+      <button class="button button-primary">
         Confirm
       </button>
     </div>
@@ -66,7 +66,7 @@ function closeModal () {
   modalStore.closeModal('contact')
 }
 
-function submitForm (e: Event) {
+async function contactFormSubmit (e: Event) {
   e.preventDefault();
 }
 

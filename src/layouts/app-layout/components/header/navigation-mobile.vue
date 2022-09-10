@@ -16,7 +16,7 @@
         v-click-outside="clickOutsideBurger"
       >
         <ul>
-          <li v-for="(item, index) in formattedRouter" :key="index">
+          <li v-for="(item, index) in formattedRouter" :key="index" :tabindex="index + 1">
             <router-link :to="item.path">
               {{item.name}}
             </router-link>
