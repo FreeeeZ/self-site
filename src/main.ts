@@ -10,7 +10,6 @@ import 'normalize.css'
 
 const pinia = createPinia()
 export const app = createApp(App);
-app.config.globalProperties.globalVar = 'globalVar'
 
 app.use(router).use(clickOutside).use(pinia).use(VueSmoothScroll, {
   duration: 800,
