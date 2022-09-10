@@ -1,14 +1,6 @@
 import { defineStore } from "pinia";
 
-interface IModalStore {
-  openedModals: Array<object>
-}
-
-interface IModalItem {
-  modalName: string,
-  content: any,
-  props?: object,
-}
+import { IModalItem, IModalStore } from "@/typescript/interfaces/modalsInterfaces";
 
 export const useModalStore = defineStore('modals', {
   state: (): IModalStore => ({
@@ -20,7 +12,7 @@ export const useModalStore = defineStore('modals', {
     },
     closeModal (modalName: string): any {
       // @ts-ignore
-      return this.openedModals = this.openedModals.filter((item: IModalItem) => item.modalName !== modalName)
+      return this.openedModals = this.openedModals.filter(modal => modal.modalName !== modalName)
     },
     closeAllModals () {
       this.openedModals = this.openedModals.splice(0, this.openedModals.length);
