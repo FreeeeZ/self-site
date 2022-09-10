@@ -5,7 +5,7 @@
       <div class="projects-list__items">
         <div
           class="projects-list__items-point"
-          v-for="(project, index) in typeof countItemsForRender === 'number' ? EX_$Projects?.projectsArr.slice(0, countItemsForRender) : EX_$Projects?.projectsArr"
+          v-for="(project, index) in typeof countItemsForRender === 'number' ? projectsArr?.slice(0, countItemsForRender) : projectsArr"
           :key="index"
         >
           <div class="list-item__info">
@@ -14,21 +14,21 @@
                  :href="project?.html_url"
                  target="_blank"
               >
-                {{project.name}}
+                {{ project?.name }}
               </a>
             </h2>
             <div class="list-item__info-tags" v-if="project?.tags">
               <div class="list-item__info-tags-item" v-for="(tag, index) in Object.keys(project?.tags)" :key="index">
-                {{tag}}
+                {{ tag }}
               </div>
             </div>
             <p class="list-item__info-description" v-if="project?.description">
-              {{project.description}}
+              {{ project?.description }}
             </p>
           </div>
         </div>
       </div>
-      <div class="projects-list__bottom" v-if="props.renderFor === 'home-page'">
+      <div class="projects-list__bottom" v-if="renderFor === 'home-page'">
         <router-link to="/projects" class="button button-primary">
           SEE ALL PROJECTS
         </router-link>
@@ -38,10 +38,12 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted } from 'vue';
-import EX_$Projects from '@/typescript/classes/projects'
+import { onMounted, ref } from 'vue';
 
-const props = defineProps({
+import EX_$Projects from '@/typescript/classes/projects'
+import { IProjectsObject } from "@/typescript/interfaces/projectsInterfaces";
+
+defineProps({
   renderFor: {
     type: String
   },
@@ -51,8 +53,11 @@ const props = defineProps({
   }
 })
 
-onMounted(() => {
-  EX_$Projects.getProjects()
+const projectsArr = ref([] as Array<IProjectsObject>)
+
+onMounted(async () => {
+  await EX_$Projects?.getProjects()
+  projectsArr.value = EX_$Projects.projectsArr
 })
 </script>
 

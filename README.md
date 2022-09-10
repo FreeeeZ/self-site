@@ -22,15 +22,14 @@ Design was taken for the basis: https://www.figma.com/community/file/10326601030
 - [x] Support Vite 3.
 - [x] Partial TypeScript support.
 - [x] Add "Experience" page.
-- [ ] Add lightweight animations.
-- [ ] Add "Contact" layer/modal.
+- [x] Add "Contact" layer/modal.
+- [ ] Add lightweight animations (?).
 - [ ] Fix eslint and lint *.vue, *.ts files.
 - [ ] i18n compatible.
 - [ ] Full TypeScript support.
-- [ ] Support Vitedge (SSR).
 - [ ] Add SEO metatags.
 - [ ] Support Vitest && Cover functions with tests.
-- [ ] Make UI library (buttons, modals, titles and etc).
+- [ ] Make unique UI library (buttons, modals, titles and etc).
 
 
 ## Quick start

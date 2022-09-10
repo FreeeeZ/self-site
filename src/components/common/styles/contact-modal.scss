@@ -1,5 +1,5 @@
 .contact-form {
-  .contact-form__field {
+  &__field {
     display: flex;
     flex-direction: column;
     row-gap: 5px;
@@ -8,11 +8,19 @@
     &:last-child {
       margin: 0;
     }
+  }
 
-    .input-label {
-      font-weight: 400;
-      font-size: 14px;
-      line-height: 17px;
+  &__status {
+    font-size: 18px;
+    text-align: center;
+    margin: 15px 0 0;
+
+    &_success {
+      color: #00af00;
+    }
+
+    &_failed {
+      color: #cc2a2a;
     }
   }
 }

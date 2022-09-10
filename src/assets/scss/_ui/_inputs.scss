@@ -12,16 +12,19 @@
   border: 1px solid #000000;
   background-color: transparent;
   border-radius: 6px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
 
   &::placeholder {
     color: #b2b2b2;
   }
 
-  &.input-primary {
+  &-primary {
     @include input-primary;
   }
 
-  textarea {
+  &_resize-disabled {
     resize: none;
   }
 }

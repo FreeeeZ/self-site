@@ -8,21 +8,40 @@
       </div>
     </div>
     <div class="modal-window__main">
-      <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+      <form class="contact-form" id="contactForm">
         <fieldset>
           <input type="hidden" name="access_key" value="791ad86b-6fa4-43e1-aa38-6ebe1b5f4652">
-          <div class="contact-form__field" v-for="(field, index) in contactModalFields" :key="index">
-            <label class="input-label" :for="field.name">
-              {{ field.label }}<em v-if="field.required">*</em>
+          <div class="contact-form__field" v-for="(field, index) in contactModalObj?.fields" :key="index">
+            <label :for="field?.name">
+              {{ field?.label }}<em v-if="field?.required">*</em>
             </label>
-            <input v-if="field.tag === 'input'" class="input input-primary" :type="field.type" :id="field.name" :placeholder="field.label" :required="field.required" :value="field.value" />
-            <textarea v-if="field.tag === 'textarea'" class="input input-primary" :id="field.name" :placeholder="field.label" rows="5" :required="field.required" :value="field.value" />
+            <component
+              :is="field?.tag"
+              class="input input-primary"
+              :class="field?.tag === 'textarea' ? 'input_resize-disabled' : null"
+              :type="field?.type"
+              :name="field?.name"
+              :id="field?.name"
+              :placeholder="field?.label"
+              :required="field?.required"
+              :value="field?.value"
+              :rows="field?.tag === 'textarea' ? '5' : null"
+            />
           </div>
         </fieldset>
+        <p
+          class="contact-form__status"
+          :class="{
+            'contact-form__status_success': contactModalObj?.requestStatus,
+            'contact-form__status_failed': !contactModalObj?.requestStatus
+          }"
+        >
+          {{ contactModalObj?.finallyMessage }}
+        </p>
       </form>
     </div>
     <div class="modal-window__footer">
-      <button class="button button-primary">
+      <button class="button button-primary" @click="confirmForm">
         Confirm
       </button>
     </div>
@@ -30,52 +49,27 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue";
+import {onBeforeUnmount, ref} from "vue";
 
 import { useModalStore } from "@/store/ui/modalStore";
+import EX_$ContactForm from '@/typescript/classes/contactForm'
 
 const modalStore = useModalStore();
 
-const contactModalFields = ref([
-  {
-    name: 'name',
-    label: 'Name',
-    required: true,
-    placeholder: 'Name',
-    tag: 'input',
-    type: 'text',
-    value: ''
-  },
-  {
-    name: 'email',
-    label: 'Email',
-    required: false,
-    placeholder: 'Email',
-    tag: 'input',
-    type: 'email',
-    value: ''
-  },
-  {
-    name: 'message',
-    label: 'Message',
-    required: true,
-    placeholder: 'Message',
-    tag: 'textarea',
-    value: ''
-  }
-])
+const contactModalObj = ref(EX_$ContactForm.contactModal);
+
+async function confirmForm (e: Event) {
+  await EX_$ContactForm.confirmContactForm(e);
+}
 
 function closeModal () {
-  modalStore.closeModal('contact')
+  modalStore?.closeModal('contact')
+  EX_$ContactForm.setModalStatusAndMessage('')
 }
 
-async function contactFormSubmit (e: Event) {
-  e.preventDefault();
-}
-
-function confirmForm () {
-  return;
-}
+onBeforeUnmount(() => {
+  closeModal()
+})
 </script>
 
 <style lang="scss" scoped>

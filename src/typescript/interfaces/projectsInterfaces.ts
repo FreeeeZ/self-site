@@ -1,4 +1,4 @@
-export interface UserInfo {
+export interface IUserInfo {
   login: string;
   id: number;
   node_id: string;
@@ -19,13 +19,13 @@ export interface UserInfo {
   site_admin: boolean;
 }
 
-export interface ProjectsObject {
+export interface IProjectsObject {
   id: number;
   node_id: string;
   name: string;
   full_name: string;
   private: boolean;
-  owner: UserInfo;
+  owner: IUserInfo;
   html_url: string;
   description: string;
   fork: boolean;
