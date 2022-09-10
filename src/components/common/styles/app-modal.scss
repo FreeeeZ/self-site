@@ -25,11 +25,13 @@
 
     & > div {
       z-index: 100;
-      min-width: 500px;
+      min-width: 300px;
       max-width: 500px;
+      width: 500px;
       border-radius: 10px;
       box-shadow: 0 8px 40px rgb(0 0 0 / 40%);
       background-color: #222525;
+      margin: 10px;
 
       &:deep(fieldset) {
         border: none;
