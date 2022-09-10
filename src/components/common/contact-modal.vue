@@ -15,8 +15,8 @@
             <label class="input-label" :for="field.name">
               {{ field.label }}<em v-if="field.required">*</em>
             </label>
-            <input v-if="field.tag === 'input'" class="input input-primary" :type="field.type" :id="field.name" :placeholder="field.label" :required="field.required" />
-            <textarea v-if="field.tag === 'textarea'" class="input input-primary" :id="field.name" :placeholder="field.label" rows="5" :required="field.required" />
+            <input v-if="field.tag === 'input'" class="input input-primary" :type="field.type" :id="field.name" :placeholder="field.label" :required="field.required" :value="field.value" />
+            <textarea v-if="field.tag === 'textarea'" class="input input-primary" :id="field.name" :placeholder="field.label" rows="5" :required="field.required" :value="field.value" />
           </div>
         </fieldset>
       </form>
@@ -43,7 +43,8 @@ const contactModalFields = ref([
     required: true,
     placeholder: 'Name',
     tag: 'input',
-    type: 'text'
+    type: 'text',
+    value: ''
   },
   {
     name: 'email',
@@ -51,14 +52,16 @@ const contactModalFields = ref([
     required: false,
     placeholder: 'Email',
     tag: 'input',
-    type: 'email'
+    type: 'email',
+    value: ''
   },
   {
     name: 'message',
     label: 'Message',
     required: true,
     placeholder: 'Message',
-    tag: 'textarea'
+    tag: 'textarea',
+    value: ''
   }
 ])
 
