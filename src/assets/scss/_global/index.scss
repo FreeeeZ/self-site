@@ -1,7 +1,5 @@
 @import "./container";
 @import "./breakpoints";
-@import "src/assets/scss/_ui/buttons";
-@import "src/assets/scss/_ui/font-size";
 @import "src/assets/scss/_ui/font-family";
 
 :root {
@@ -20,6 +18,12 @@
 html, body {
   height: 100%;
   min-width: 320px;
+}
+
+html {
+  &.page-locked {
+    overflow: hidden;
+  }
 }
 
 // body {

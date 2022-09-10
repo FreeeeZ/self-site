@@ -7,7 +7,7 @@
         <p class="home-hero__description">
           Hey! Welcome to my visiting card site. I hope it will be interesting. Let's go!
         </p>
-        <button class="button button-primary button-soon" disabled>
+        <button class="button button-primary" @click="openContactModal">
           Contact Me
         </button>
       </div>
@@ -28,6 +28,19 @@
     </div>
   </div>
 </template>
+
+<script lang="ts" setup>
+import { markRaw } from "vue";
+
+import { useModalStore } from "@/store/ui/modalStore";
+import ContactModal from "@/components/common/contact-modal.vue";
+
+const modalStore = useModalStore();
+
+function openContactModal () {
+  modalStore.openModal({ modalName: 'contact', content: markRaw(ContactModal) })
+}
+</script>
 
 <style lang="scss" scoped>
 @use './styles/home-hero.scss';

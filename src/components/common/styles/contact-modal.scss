@@ -1,0 +1,26 @@
+.contact-form {
+  &__field {
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    margin: 0 0 25px;
+
+    &:last-child {
+      margin: 0;
+    }
+  }
+
+  &__status {
+    font-size: 18px;
+    text-align: center;
+    margin: 15px 0 0;
+
+    &_success {
+      color: #00af00;
+    }
+
+    &_failed {
+      color: #cc2a2a;
+    }
+  }
+}
