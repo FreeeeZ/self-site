@@ -82,17 +82,17 @@ export class $ContactForm  {
   async confirmContactForm (e: Event): Promise<void> {
     const contactForm = document.getElementById('contactForm') as HTMLFormElement;
     const formData = new FormData(contactForm);
-    let object: object = {};
-    let contactFormData: string = '';
+    let fieldValuesObj: object = {};
+    let contactFormData: string;
 
     formData?.forEach((value, key) => {
       if (typeof value !== "string" || value?.length) {
         // @ts-ignore
-        object[key] = value;
+        fieldValuesObj[key] = value;
       }
     })
 
-    contactFormData = JSON.stringify(object);
+    contactFormData = JSON.stringify(fieldValuesObj);
 
     this.validateContactForm();
 
