@@ -26,13 +26,14 @@
               :rows="field?.tag === 'textarea' ? '5' : null"
               :required="field?.required"
               :value="field?.value"
+              :maxLength="field?.maxLength"
               @input="changeFieldValue(field, $event)"
             />
             <p
               class="contact-form__error"
-              v-if="field.isError"
+              v-if="field?.isError"
             >
-              Field required
+              {{ field?.errorText }}
             </p>
           </div>
         </fieldset>

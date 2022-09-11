@@ -1,9 +1,9 @@
 export interface IModalStore {
-  openedModals: Array<IModalItem>
+  openedModals: Array<IModalItem>;
 }
 
 export interface IModalItem {
-  modalName: string,
-  content: any,
-  props?: object,
+  modalName: string;
+  content: any;
+  props?: object;
 }
