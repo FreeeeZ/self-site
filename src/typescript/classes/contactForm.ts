@@ -71,7 +71,7 @@ export class $ContactForm  {
         field.errorText = 'Field required';
       }
 
-      if (field?.name === 'email' && !validateEmail(field?.value)) {
+      if (field?.name === 'email' && field?.value?.length && !validateEmail(field?.value)) {
         this.getErrorsArray?.push(field?.name);
         field.isError = true;
         field.errorText = 'Field is not valid';
