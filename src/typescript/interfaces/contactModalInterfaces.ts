@@ -10,6 +10,7 @@ export interface IContactModalField {
 
 export interface IContactModalObj {
   fields?: Array<IContactModalField>;
+  fieldsErrors?: Array<string>;
   requestStatus: boolean;
   finallyMessage: string;
 }

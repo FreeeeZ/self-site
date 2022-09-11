@@ -23,10 +23,17 @@
               :name="field?.name"
               :id="field?.name"
               :placeholder="field?.label"
+              :rows="field?.tag === 'textarea' ? '5' : null"
               :required="field?.required"
               :value="field?.value"
-              :rows="field?.tag === 'textarea' ? '5' : null"
+              @input="field.value = $event.target.value"
             />
+            <p
+              class="contact-form__error"
+              v-if="showFieldError(field)"
+            >
+              Field required
+            </p>
           </div>
         </fieldset>
         <p
@@ -35,6 +42,7 @@
             'contact-form__status_success': contactModalObj?.requestStatus,
             'contact-form__status_failed': !contactModalObj?.requestStatus
           }"
+          v-if="!!contactModalObj?.finallyMessage"
         >
           {{ contactModalObj?.finallyMessage }}
         </p>
@@ -49,10 +57,11 @@
 </template>
 
 <script lang="ts" setup>
-import {onBeforeUnmount, ref} from "vue";
+import { onBeforeUnmount, ref } from "vue";
 
 import { useModalStore } from "@/store/ui/modalStore";
 import EX_$ContactForm from '@/typescript/classes/contactForm'
+import { IContactModalField } from "@/typescript/interfaces/contactModalInterfaces";
 
 const modalStore = useModalStore();
 
@@ -65,6 +74,16 @@ async function confirmForm (e: Event) {
 function closeModal () {
   modalStore?.closeModal('contact')
   EX_$ContactForm.setModalStatusAndMessage('')
+}
+
+function showFieldError (field: IContactModalField) {
+  let errorShow = false;
+
+  contactModalObj?.value?.fieldsErrors?.forEach((errorField) => {
+    errorShow = errorField === field?.name
+  })
+
+  return errorShow
 }
 
 onBeforeUnmount(() => {

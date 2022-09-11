@@ -31,7 +31,8 @@ const experienceArray = [
     yearInterval: 'July 2017 — March 2019',
     name: 'GEOS LLC',
     position: 'Frontend Developer',
-    description: '— Development of internal resources (websites) of the company using CMS technologies: WordPress, Joomla, Tilda, Opencart.<br>' +
+    description:
+      '— Development of internal resources (websites) of the company using CMS technologies: WordPress, Joomla, Tilda, Opencart.<br>' +
       '— Development landing pages for projects pre-sale.<br>' +
       '— Development projects of company on technologies: Yii2 (PHP), JavaScript, jQuery, CSS, SASS, Bootstrap (2, 3).<br>' +
       '— Markup of cross-browser and adaptive interfaces.<br>' +
@@ -41,7 +42,8 @@ const experienceArray = [
     yearInterval: 'March 2019 — June 2022',
     name: 'SmartWorld LLC',
     position: 'Frontend Supervisor',
-    description: '— Development projects of company on technologies: Yii2 (PHP), React.js, Vue.js (Nuxt.js), JavaScript, TypeScript, jQuery, CSS, SASS, Bootstrap (3, 4, 5), Material UI, Vuetify.<br>' +
+    description:
+      '— Development projects of company on technologies: Yii2 (PHP), React.js, Vue.js (Nuxt.js), JavaScript, TypeScript, jQuery, CSS, SASS, Bootstrap (3, 4, 5), Material UI, Vuetify.<br>' +
       '— Web3 (work with smart contracts, ABI, connection of software wallets).<br>' +
       '— Technical audit and optimization of web applications (Google Lighthouse).<br>' +
       '— SEO optimization of web-projects.<br>' +
@@ -67,7 +69,9 @@ const experienceArray = [
     yearInterval: 'July 2022 — Now',
     name: 'red_mad_robot',
     position: 'Frontend Developer',
-    description: '— NFT marketplace for the international market. Product development in a large distributed team, preparing the system for release, project support.<br>' +
+    description:
+      '— NFT marketplace for the international market. Product development in a large distributed team, preparing the system for release, project support, code review, refactofing legacy-code.<br>' +
+      '— Promotion of frontend technologies through presentations for teams.<br>' +
       '— Development of the frontend department in the company.<br>' +
       '— More will be added little bit later...',
   },

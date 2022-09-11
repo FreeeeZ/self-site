@@ -3,7 +3,7 @@
     display: flex;
     flex-direction: column;
     row-gap: 5px;
-    margin: 0 0 25px;
+    margin: 0 0 20px;
 
     &:last-child {
       margin: 0;
@@ -20,7 +20,13 @@
     }
 
     &_failed {
-      color: #cc2a2a;
+      color: #e34040;
     }
+  }
+
+  &__error {
+    text-align: right;
+    margin: 0;
+    color: #e34040;
   }
 }
