@@ -29,7 +29,7 @@ Design was taken for the basis: https://www.figma.com/community/file/10326601030
 - [ ] Full TypeScript support.
 - [ ] Add SEO metatags.
 - [ ] Support Vitest && Cover functions with tests.
-- [ ] Make unique UI library (buttons, modals, titles and etc).
+- [ ] Make unique UI library (buttons, modals, titles, toasts and etc).
 
 
 ## Quick start

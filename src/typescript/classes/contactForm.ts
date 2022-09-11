@@ -1,7 +1,7 @@
 import { ref } from 'vue';
 import axios from 'axios';
 
-// import { IContactModalObj } from "@/typescript/interfaces/contactModalInterfaces";
+import { IContactModalObj } from "@/typescript/interfaces/contactModalInterfaces";
 
 export class $ContactForm  {
   private contactModalObj = ref({
@@ -33,16 +33,17 @@ export class $ContactForm  {
         value: ''
       }
     ],
+    fieldsErrors: [],
     requestStatus: true,
     finallyMessage: ''
-  })
+  } as IContactModalObj)
 
   get contactModal () {
-    return this.contactModalObj.value
+    return this.contactModalObj?.value
   }
 
   clearFields () {
-    this.contactModalObj.value.fields.forEach((field) => {
+    this.contactModalObj?.value?.fields?.forEach((field) => {
       field.value = '';
     })
   }
@@ -52,39 +53,56 @@ export class $ContactForm  {
     this.contactModalObj.value.requestStatus = status
   }
 
-  async confirmContactForm (e: Event): Promise<void> {
-    e.preventDefault();
+  validateContactForm () {
+    this.contactModalObj.value.fieldsErrors = []
 
+    return this.contactModalObj?.value?.fields?.forEach((field) => {
+      if (field?.required && !field?.value?.length) {
+        this.contactModalObj?.value?.fieldsErrors?.push(field?.name)
+      }
+    })
+  }
+
+  async confirmContactForm (e: Event): Promise<void> {
     const contactForm = document.getElementById('contactForm') as HTMLFormElement
     const formData = new FormData(contactForm);
-    let object = {};
-    formData.forEach((value, key) => {
+    let object: object = {};
+    let contactFormData: string = '';
+
+    formData?.forEach((value, key) => {
       if (typeof value !== "string" || value?.length) {
         // @ts-ignore
         object[key] = value;
       }
     })
-    let contactFormData = JSON.stringify(object);
 
-    try {
-      await axios("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json"
-        },
-        data: contactFormData
-      })
-        .then((response) => {
-          this.clearFields()
-          this.setModalStatusAndMessage(response.data.message, response.data.success)
+    contactFormData = JSON.stringify(object)
+
+    this.validateContactForm()
+
+    if (!this.contactModalObj.value.fieldsErrors?.length) {
+      try {
+        await axios("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json"
+          },
+          data: contactFormData
         })
-        .catch((error) => {
-          this.setModalStatusAndMessage(error.response.data.message, error.success)
-        })
-    } catch (e) {
-      console.error(e)
+          .then((response) => {
+            this.clearFields()
+            this.setModalStatusAndMessage(response.data.message, response.data.success)
+          })
+          .catch((error) => {
+            this.setModalStatusAndMessage(error.response.data.message, error.success)
+          })
+      } catch (e) {
+        console.error(e)
+      }
     }
+
+    e.preventDefault();
   };
 }
 
