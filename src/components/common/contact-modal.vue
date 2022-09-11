@@ -85,7 +85,7 @@ function changeFieldValue (field: IContactModalField, e: Event) {
 function closeModal () {
   modalStore?.closeModal('contact')
   EX_$ContactForm.setModalStatusAndMessage('')
-  contactModalObj.value.fieldsErrors = []
+  EX_$ContactForm.clearFieldsErrors()
 }
 
 onBeforeUnmount(() => {

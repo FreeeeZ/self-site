@@ -41,12 +41,8 @@ export class $ContactForm  {
     finallyMessage: ''
   } as IContactModalObj)
 
-  get contactModal () {
-    return this.contactModalObj?.value
-  }
-
   clearFields () {
-    this.contactModalObj?.value?.fields?.forEach((field) => {
+    this.fieldsArray?.forEach((field) => {
       field.value = '';
     })
   }
@@ -57,13 +53,13 @@ export class $ContactForm  {
   }
 
   validateContactForm () {
-    this.contactModalObj.value.fieldsErrors = []
+     this.setErrorsArray = []
 
-    return this.contactModalObj?.value?.fields?.forEach((field) => {
+    return this.fieldsArray?.forEach((field) => {
       field.isError = false
 
       if (field?.required && !field?.value?.length) {
-        this.contactModalObj?.value?.fieldsErrors?.push(field?.name)
+        this.getErrorsArray?.push(field?.name)
         field.isError = true
       }
     })
@@ -86,7 +82,7 @@ export class $ContactForm  {
 
     this.validateContactForm()
 
-    if (!this.contactModalObj.value.fieldsErrors?.length) {
+    if (!this.getErrorsArray?.length) {
       try {
         await axios("https://api.web3forms.com/submit", {
           method: "POST",
@@ -110,6 +106,30 @@ export class $ContactForm  {
 
     e.preventDefault();
   };
+
+  clearFieldsErrors () {
+    this.setErrorsArray = []
+
+    this.fieldsArray?.forEach((field) => {
+      field.isError = false
+    })
+  }
+
+  get contactModal () {
+    return this.contactModalObj?.value
+  }
+
+  get fieldsArray () {
+    return this.contactModalObj.value.fields
+  }
+
+  get getErrorsArray () {
+    return this.contactModalObj.value.fieldsErrors
+  }
+
+  set setErrorsArray (value: any) {
+    this.contactModalObj.value.fieldsErrors = value
+  }
 }
 
 export default new $ContactForm()
