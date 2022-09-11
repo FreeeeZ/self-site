@@ -11,7 +11,6 @@ export const useModalStore = defineStore('modals', {
       return this.openedModals.unshift(modal)
     },
     closeModal (modalName: string): any {
-      // @ts-ignore
       return this.openedModals = this.openedModals.filter(modal => modal.modalName !== modalName)
     },
     closeAllModals () {
