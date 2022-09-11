@@ -1,13 +1,13 @@
 import axios from 'axios';
 import { reactive } from 'vue';
-import { IProjectsObject } from '@/typescript/interfaces/projectsInterfaces'
+import { IProjectsObject } from '@/typescript/interfaces/projectsInterfaces';
 
-export class $Projects  {
-  private projectsList: Array<IProjectsObject> = reactive([])
-  private projectsFetched: boolean = false
+export class $Projects {
+  private projectsList: Array<IProjectsObject> = reactive([]);
+  private projectsFetched: boolean = false;
 
   get projectsArr () {
-    return this.projectsList
+    return this.projectsList;
   }
 
   async getProjects() {
@@ -18,19 +18,19 @@ export class $Projects  {
             for (let i = 0; i < response.data.length; i++) {
               if (response.data[i].full_name !== 'FreeeeZ/FreeeeZ') {
                 this.projectsList.push(response.data[i]);
-                await this.getProjectTags(response.data[i])
+                await this.getProjectTags(response.data[i]);
 
                 if (i === response.data.length - 1) {
-                  this.projectsFetched = true
+                  this.projectsFetched = true;
                 }
               }
             }
           })
-          .catch(function(error) {
+          .catch((error) => {
             console.log(error);
           })
       } catch (e) {
-        console.error(e)
+        console.error(e);
       }
     }
   };
@@ -43,11 +43,11 @@ export class $Projects  {
             .then((response) => {
               response.data ? project.tags = response.data : project.tags = [];
             })
-            .catch(function(error) {
+            .catch((error) => {
               console.log(error);
             })
         } catch (e) {
-          console.error(e)
+          console.error(e);
         }
       }
     }

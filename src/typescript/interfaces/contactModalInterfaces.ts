@@ -1,12 +1,14 @@
 export interface IContactModalField {
   name: string;
-  label: string,
-  required: boolean,
-  placeholder: string,
-  tag: string,
-  type?: string,
-  value: string,
-  isError: boolean
+  label: string;
+  required: boolean;
+  placeholder?: string;
+  tag: string;
+  type?: string;
+  maxLength?: number;
+  value: string;
+  isError: boolean;
+  errorText: string;
 }
 
 export interface IContactModalObj {

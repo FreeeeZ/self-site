@@ -2,6 +2,7 @@ import { ref } from 'vue';
 import axios from 'axios';
 
 import { IContactModalObj } from "@/typescript/interfaces/contactModalInterfaces";
+import { validateEmail } from "@/utility/regExpHelper";
 
 export class $ContactForm  {
   private contactModalObj = ref({
@@ -13,8 +14,10 @@ export class $ContactForm  {
         placeholder: 'Name',
         tag: 'input',
         type: 'text',
+        maxLength: 52,
         value: '',
-        isError: false
+        isError: false,
+        errorText: ''
       },
       {
         name: 'email',
@@ -23,8 +26,10 @@ export class $ContactForm  {
         placeholder: 'Email',
         tag: 'input',
         type: 'email',
+        maxLength: 52,
         value: '',
-        isError: false
+        isError: false,
+        errorText: ''
       },
       {
         name: 'message',
@@ -32,14 +37,16 @@ export class $ContactForm  {
         required: true,
         placeholder: 'Message',
         tag: 'textarea',
+        maxLength: 300,
         value: '',
-        isError: false
+        isError: false,
+        errorText: ''
       }
     ],
     fieldsErrors: [],
     requestStatus: true,
     finallyMessage: ''
-  } as IContactModalObj)
+  } as IContactModalObj);
 
   clearFields () {
     this.fieldsArray?.forEach((field) => {
@@ -48,25 +55,32 @@ export class $ContactForm  {
   }
 
   setModalStatusAndMessage (message: string, status: boolean = true) {
-    this.contactModalObj.value.finallyMessage = message
-    this.contactModalObj.value.requestStatus = status
+    this.contactModalObj.value.finallyMessage = message;
+    this.contactModalObj.value.requestStatus = status;
   }
 
   validateContactForm () {
-     this.setErrorsArray = []
+    this.setErrorsArray = [];
 
     return this.fieldsArray?.forEach((field) => {
-      field.isError = false
+      field.isError = false;
 
       if (field?.required && !field?.value?.length) {
-        this.getErrorsArray?.push(field?.name)
-        field.isError = true
+        this.getErrorsArray?.push(field?.name);
+        field.isError = true;
+        field.errorText = 'Field required';
+      }
+
+      if (field?.name === 'email' && !validateEmail(field?.value)) {
+        this.getErrorsArray?.push(field?.name);
+        field.isError = true;
+        field.errorText = 'Field is not valid';
       }
     })
   }
 
   async confirmContactForm (e: Event): Promise<void> {
-    const contactForm = document.getElementById('contactForm') as HTMLFormElement
+    const contactForm = document.getElementById('contactForm') as HTMLFormElement;
     const formData = new FormData(contactForm);
     let object: object = {};
     let contactFormData: string = '';
@@ -78,9 +92,9 @@ export class $ContactForm  {
       }
     })
 
-    contactFormData = JSON.stringify(object)
+    contactFormData = JSON.stringify(object);
 
-    this.validateContactForm()
+    this.validateContactForm();
 
     if (!this.getErrorsArray?.length) {
       try {
@@ -93,11 +107,11 @@ export class $ContactForm  {
           data: contactFormData
         })
           .then((response) => {
-            this.clearFields()
-            this.setModalStatusAndMessage(response.data.message, response.data.success)
+            this.clearFields();
+            this.setModalStatusAndMessage(response.data.message, response.data.success);
           })
           .catch((error) => {
-            this.setModalStatusAndMessage(error.response.data.message, error.success)
+            this.setModalStatusAndMessage(error.response.data.message, error.success);
           })
       } catch (e) {
         console.error(e)
@@ -108,28 +122,28 @@ export class $ContactForm  {
   };
 
   clearFieldsErrors () {
-    this.setErrorsArray = []
+    this.setErrorsArray = [];
 
     this.fieldsArray?.forEach((field) => {
-      field.isError = false
+      field.isError = false;
     })
   }
 
   get contactModal () {
-    return this.contactModalObj?.value
+    return this.contactModalObj?.value;
   }
 
   get fieldsArray () {
-    return this.contactModalObj.value.fields
+    return this.contactModalObj.value.fields;
   }
 
   get getErrorsArray () {
-    return this.contactModalObj.value.fieldsErrors
+    return this.contactModalObj.value.fieldsErrors;
   }
 
   set setErrorsArray (value: any) {
-    this.contactModalObj.value.fieldsErrors = value
+    this.contactModalObj.value.fieldsErrors = value;
   }
 }
 
-export default new $ContactForm()
+export default new $ContactForm();
