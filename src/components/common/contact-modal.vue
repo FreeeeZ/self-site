@@ -26,7 +26,7 @@
               :rows="field?.tag === 'textarea' ? '5' : null"
               :required="field?.required"
               :value="field?.value"
-              @input="field.value = $event.target.value"
+              @input="changeFieldValue(field, $event)"
             />
             <p
               class="contact-form__error"
@@ -49,7 +49,10 @@
       </form>
     </div>
     <div class="modal-window__footer">
-      <button class="button button-primary" @click="confirmForm">
+      <p v-if="formProcessingValue">
+        Processing...
+      </p>
+      <button class="button button-primary" @click="confirmForm" v-else>
         Confirm
       </button>
     </div>
@@ -66,9 +69,17 @@ import { IContactModalField } from "@/typescript/interfaces/contactModalInterfac
 const modalStore = useModalStore();
 
 const contactModalObj = ref(EX_$ContactForm.contactModal);
+const formProcessingValue = ref(false);
 
 async function confirmForm (e: Event) {
-  await EX_$ContactForm.confirmContactForm(e);
+  formProcessingValue.value = true
+  await EX_$ContactForm.confirmContactForm(e)
+    .then(() => formProcessingValue.value = false)
+    .catch(() => formProcessingValue.value = false);
+}
+
+function changeFieldValue (field: IContactModalField, e: { target: { value: string } }) {
+  field.value = e?.target?.value
 }
 
 function closeModal () {
