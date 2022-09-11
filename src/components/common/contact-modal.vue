@@ -78,8 +78,8 @@ async function confirmForm (e: Event) {
     .catch(() => formProcessingValue.value = false);
 }
 
-function changeFieldValue (field: IContactModalField, e: { target: { value: string } }) {
-  field.value = e?.target?.value
+function changeFieldValue (field: IContactModalField, e: Event) {
+  field.value = (e.target as HTMLInputElement | HTMLTextAreaElement).value
 }
 
 function closeModal () {
