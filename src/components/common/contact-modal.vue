@@ -30,7 +30,7 @@
             />
             <p
               class="contact-form__error"
-              v-if="showFieldError(field)"
+              v-if="field.isError"
             >
               Field required
             </p>
@@ -85,16 +85,7 @@ function changeFieldValue (field: IContactModalField, e: Event) {
 function closeModal () {
   modalStore?.closeModal('contact')
   EX_$ContactForm.setModalStatusAndMessage('')
-}
-
-function showFieldError (field: IContactModalField) {
-  let errorShow = false;
-
-  contactModalObj?.value?.fieldsErrors?.forEach((errorField) => {
-    errorShow = errorField === field?.name
-  })
-
-  return errorShow
+  contactModalObj.value.fieldsErrors = []
 }
 
 onBeforeUnmount(() => {

@@ -13,7 +13,8 @@ export class $ContactForm  {
         placeholder: 'Name',
         tag: 'input',
         type: 'text',
-        value: ''
+        value: '',
+        isError: false
       },
       {
         name: 'email',
@@ -22,7 +23,8 @@ export class $ContactForm  {
         placeholder: 'Email',
         tag: 'input',
         type: 'email',
-        value: ''
+        value: '',
+        isError: false
       },
       {
         name: 'message',
@@ -30,7 +32,8 @@ export class $ContactForm  {
         required: true,
         placeholder: 'Message',
         tag: 'textarea',
-        value: ''
+        value: '',
+        isError: false
       }
     ],
     fieldsErrors: [],
@@ -57,8 +60,11 @@ export class $ContactForm  {
     this.contactModalObj.value.fieldsErrors = []
 
     return this.contactModalObj?.value?.fields?.forEach((field) => {
+      field.isError = false
+
       if (field?.required && !field?.value?.length) {
         this.contactModalObj?.value?.fieldsErrors?.push(field?.name)
+        field.isError = true
       }
     })
   }

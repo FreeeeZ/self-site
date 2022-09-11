@@ -5,7 +5,8 @@ export interface IContactModalField {
   placeholder: string,
   tag: string,
   type?: string,
-  value: string
+  value: string,
+  isError: boolean
 }
 
 export interface IContactModalObj {
