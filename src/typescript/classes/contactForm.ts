@@ -48,7 +48,7 @@ export class $ContactForm  {
     finallyMessage: ''
   } as IContactModalObj);
 
-  clearFields () {
+  clearFieldsValues () {
     this.fieldsArray?.forEach((field) => {
       field.value = '';
     })
@@ -107,7 +107,7 @@ export class $ContactForm  {
           data: contactFormData
         })
           .then((response) => {
-            this.clearFields();
+            this.clearFieldsValues();
             this.setModalStatusAndMessage(response.data.message, response.data.success);
           })
           .catch((error) => {

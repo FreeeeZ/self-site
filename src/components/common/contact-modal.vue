@@ -87,6 +87,7 @@ function closeModal () {
   modalStore?.closeModal('contact')
   EX_$ContactForm.setModalStatusAndMessage('')
   EX_$ContactForm.clearFieldsErrors()
+  EX_$ContactForm.clearFieldsValues()
 }
 
 onBeforeUnmount(() => {
