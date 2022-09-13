@@ -98,7 +98,7 @@ export class $ContactForm  {
 
     if (!this.getErrorsArray?.length) {
       try {
-        await axios("https://api.web3forms.com/submit", {
+        await axios(`${import.meta.env.VITE_WEB3_FORMS_API_URI}/submit`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

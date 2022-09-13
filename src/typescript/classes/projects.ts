@@ -13,7 +13,7 @@ export class $Projects {
   async getProjects() {
     if (!this.projectsFetched) {
       try {
-        await axios.get('https://api.github.com/users/FreeeeZ/repos')
+        await axios.get(`${import.meta.env.VITE_GITHUB_API_URI}/users/FreeeeZ/repos`)
           .then(async (response) => {
             for (let i = 0; i < response.data.length; i++) {
               if (response.data[i].full_name !== 'FreeeeZ/FreeeeZ') {
@@ -39,7 +39,7 @@ export class $Projects {
     if (!this.projectsFetched) {
       if (project.full_name !== 'FreeeeZ/FreeeeZ') {
         try {
-          await axios.get(`https://api.github.com/repos/FreeeeZ/${project.name}/languages`)
+          await axios.get(`${import.meta.env.VITE_GITHUB_API_URI}/repos/FreeeeZ/${project.name}/languages`)
             .then((response) => {
               response.data ? project.tags = response.data : project.tags = [];
             })
