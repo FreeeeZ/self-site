@@ -1,12 +1,5 @@
 @import "src/assets/scss/_ui/font-family";
-
-@mixin input-primary {
-  font-family: $montserrat;
-  padding: 15px;
-  font-size: 16px;
-  color: #fff;
-  border: 1px solid #BDEBEA;
-}
+@import "src/assets/scss/_ui/mixins/_inputs";
 
 .input {
   border: 1px solid #000;

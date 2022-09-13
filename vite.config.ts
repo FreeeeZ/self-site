@@ -21,6 +21,11 @@ export default ({ mode }) => {
     server: {
       host: 'localhost',
       port: 3000,
-    }
+    },
+    // @ts-ignore
+    test: {
+      globals: true,
+      environment: 'jsdom',
+    },
   });
 }

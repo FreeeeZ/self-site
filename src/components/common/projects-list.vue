@@ -41,7 +41,7 @@
 import { onMounted, ref } from 'vue';
 
 import EX_$Projects from '@/typescript/classes/projects'
-import { IProjectsObject } from "@/typescript/interfaces/projectsInterfaces";
+import { IProjectObject } from "@/typescript/interfaces/projectsInterfaces";
 
 defineProps({
   renderFor: {
@@ -53,7 +53,7 @@ defineProps({
   }
 })
 
-const projectsArr = ref([] as Array<IProjectsObject>)
+const projectsArr = ref([] as Array<IProjectObject>)
 
 onMounted(async () => {
   await EX_$Projects?.getProjects()

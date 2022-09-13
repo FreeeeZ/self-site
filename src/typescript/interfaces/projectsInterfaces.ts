@@ -19,7 +19,7 @@ export interface IUserInfo {
   site_admin: boolean;
 }
 
-export interface IProjectsObject {
+export interface IProjectObject {
   id: number;
   node_id: string;
   name: string;

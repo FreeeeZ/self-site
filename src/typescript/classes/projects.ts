@@ -1,9 +1,9 @@
 import axios from 'axios';
 import { reactive } from 'vue';
-import { IProjectsObject } from '@/typescript/interfaces/projectsInterfaces';
+import { IProjectObject } from '@/typescript/interfaces/projectsInterfaces';
 
 export class $Projects {
-  private projectsList: Array<IProjectsObject> = reactive([]);
+  private projectsList: Array<IProjectObject> = reactive([]);
   private projectsFetched: boolean = false;
 
   get projectsArr () {
@@ -35,7 +35,7 @@ export class $Projects {
     }
   };
 
-  async getProjectTags(project: IProjectsObject) {
+  async getProjectTags(project: IProjectObject) {
     if (!this.projectsFetched) {
       if (project.full_name !== 'FreeeeZ/FreeeeZ') {
         try {

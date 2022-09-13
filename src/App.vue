@@ -12,8 +12,8 @@ import { useModalStore } from "@/store/ui/modalStore";
 import AppLayout from '@/layouts/app-layout/index.vue'
 import AppModal from "@/components/common/app-modal.vue";
 
+const route = useRoute();
 const modalStore = useModalStore();
-const route = useRoute()
 
 watch(() => route.name, () => {
   modalStore.closeAllModals()

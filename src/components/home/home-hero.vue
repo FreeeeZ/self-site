@@ -8,7 +8,7 @@
           Hey! Welcome to my visiting card site. I hope it will be interesting. Let's go!
         </p>
         <button class="button button-primary" @click="openContactModal">
-          Contact Me
+          Contact me
         </button>
       </div>
       <div class="home-hero__right">
