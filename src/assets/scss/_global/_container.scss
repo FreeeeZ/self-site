@@ -4,7 +4,7 @@
   padding: 0 15px;
 }
 
-@media (min-width: $sm){
+@media screen and (min-width: $sm) {
   .container {
     max-width: 540px;
     margin: auto;
@@ -12,19 +12,19 @@
   }
 }
 
-@media (min-width: $md){
+@media screen and (min-width: $md) {
   .container {
     max-width: 720px;
   }
 }
 
-@media (min-width: $lg) {
+@media screen and (min-width: $lg) {
   .container {
     max-width: 960px;
   }
 }
 
-@media (min-width: $xl){
+@media screen and (min-width: $xl) {
   .container {
     max-width: 1100px;
   }

@@ -5,7 +5,7 @@
       <div class="projects-list__items">
         <div
           class="projects-list__items-point"
-          v-for="(project, index) in typeof countItemsForRender === 'number' ? projectsArr?.slice(0, countItemsForRender) : projectsArr"
+          v-for="(project, index) in countItemsForRender ? projectsArr?.slice(0, countItemsForRender) : projectsArr"
           :key="index"
         >
           <div class="list-item__info">

@@ -1,6 +1,7 @@
 <template>
   <AppLayout />
   <AppModal />
+  <AppToast />
 </template>
 
 <script lang="ts" setup>
@@ -10,7 +11,8 @@ import { useRoute } from "vue-router";
 import { useModalStore } from "@/store/ui/modalStore";
 
 import AppLayout from '@/layouts/app-layout/index.vue'
-import AppModal from "@/components/common/app-modal.vue";
+import AppModal from "@/components/ui/modals/app-modal.vue";
+import AppToast from "@/components/ui/toasts/app-toast.vue";
 
 const route = useRoute();
 const modalStore = useModalStore();
