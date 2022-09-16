@@ -1,8 +1,9 @@
 import { ref } from 'vue';
 import axios from 'axios';
 
-import { IContactModalObj } from "@/typescript/interfaces/contactModalInterfaces";
 import { validateEmail } from "@/utility/regExpHelper";
+
+import { IContactModalObj } from "@/typescript/interfaces/contactModalInterfaces";
 
 export class $ContactForm  {
   private contactModalObj = ref({
@@ -49,20 +50,15 @@ export class $ContactForm  {
   } as IContactModalObj);
 
   clearFieldsValues () {
-    this.fieldsArray?.forEach((field) => {
+    this.getFieldsArray?.forEach((field) => {
       field.value = '';
     })
-  }
-
-  setModalStatusAndMessage (message: string, status: boolean = true) {
-    this.contactModalObj.value.finallyMessage = message;
-    this.contactModalObj.value.requestStatus = status;
   }
 
   validateContactForm () {
     this.setErrorsArray = [];
 
-    return this.fieldsArray?.forEach((field) => {
+    return this.getFieldsArray?.forEach((field) => {
       field.isError = false;
 
       if (field?.required && !field?.value?.length) {
@@ -108,10 +104,16 @@ export class $ContactForm  {
         })
           .then((response) => {
             this.clearFieldsValues();
-            this.setModalStatusAndMessage(response.data.message, response.data.success);
+            this.setRequestStatusAndMessage = {
+              finallyMessage: response?.data?.message,
+              finallyStatus: response?.data?.success
+            };
           })
           .catch((error) => {
-            this.setModalStatusAndMessage(error.response.data.message, error.success);
+            this.setRequestStatusAndMessage = {
+              finallyMessage: error?.response?.data?.message,
+              finallyStatus: error?.success
+            };
           })
       } catch (e) {
         console.error(e)
@@ -124,25 +126,37 @@ export class $ContactForm  {
   clearFieldsErrors () {
     this.setErrorsArray = [];
 
-    this.fieldsArray?.forEach((field) => {
+    this.getFieldsArray?.forEach((field) => {
       field.isError = false;
     })
   }
 
-  get contactModal () {
+  get getContactModal () {
     return this.contactModalObj?.value;
   }
 
-  get fieldsArray () {
-    return this.contactModalObj.value.fields;
+  get getFieldsArray () {
+    return this.contactModalObj?.value?.fields;
   }
 
   get getErrorsArray () {
-    return this.contactModalObj.value.fieldsErrors;
+    return this.contactModalObj?.value?.fieldsErrors;
+  }
+
+  get getRequestStatusAndMessage () {
+    return {
+      finallyMessage: this.contactModalObj.value.finallyMessage,
+      requestStatus: this.contactModalObj.value.requestStatus
+    }
   }
 
   set setErrorsArray (value: any) {
     this.contactModalObj.value.fieldsErrors = value;
+  }
+
+  set setRequestStatusAndMessage (value: any) {
+    this.contactModalObj.value.finallyMessage = value.finallyMessage;
+    this.contactModalObj.value.requestStatus = value.finallyStatus;
   }
 }
 

@@ -1,21 +1,21 @@
 <template>
   <transition-group name="modal-slide">
     <div
-      v-for="(item, index) in modalStore?.openedModals"
+      v-for="(modal, index) in modalStore?.openedModals"
       :key="index"
       class="modal-wrapper"
     >
       <div
         v-if="(modalStore?.openedModals?.length - 1) === index"
         class="modal-wrapper__overlay"
-        @click="modalStore?.closeModal(item?.modalName)"
+        @click="modalStore?.closeModal(modal?.modalName)"
       />
 
       <div class="modal-wrapper__content">
         <component
-          v-bind="item?.props"
-          :is="item?.content"
-          v-if="item?.content"
+          v-bind="modal?.props"
+          :is="modal?.content"
+          v-if="modal?.content"
         />
       </div>
     </div>
