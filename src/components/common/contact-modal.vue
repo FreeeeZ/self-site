@@ -10,7 +10,7 @@
     <div class="modal-window__main">
       <form class="contact-form" id="contactForm">
         <fieldset>
-<!--          <input type="hidden" name="access_key" value="791ad86b-6fa4-43e1-aa38-6ebe1b5f4652">-->
+          <input type="hidden" name="access_key" value="791ad86b-6fa4-43e1-aa38-6ebe1b5f4652">
           <div class="contact-form__field" v-for="(field, index) in contactModalObj?.fields" :key="index">
             <label :for="field?.name">
               {{ field?.label }}<em v-if="field?.required">*</em>
