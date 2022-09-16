@@ -1,3 +1,5 @@
+@import "src/assets/scss/_global/keyframes";
+
 .modal-wrapper {
   position: fixed;
   left: 0;
@@ -93,6 +95,24 @@
         display: flex;
         justify-content: center;
       }
+
+      &:deep(.modal-window__processing) {
+        background: transparent;
+        display: flex;
+        flex-direction: row;
+        column-gap: 15px;
+        align-items: center;
+        justify-items: center;
+        color: #FFF;
+        border: 1px solid rgb(0 0 0 / 20%);
+        border-radius: 5px;
+        padding: 5px 15px;
+
+        svg {
+          width: 30px;
+          height: 30px;
+        }
+      }
     }
   }
 
@@ -121,25 +141,5 @@
       transform: translate3d(0, 100vh, 0);
       transform-style: preserve-3d;
     }
-  }
-}
-
-@keyframes modal-toggle-open {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes modal-toggle-close {
-  from {
-    opacity: 1;
-  }
-
-  to {
-    opacity: 0;
   }
 }

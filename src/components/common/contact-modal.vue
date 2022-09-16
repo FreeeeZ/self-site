@@ -10,7 +10,7 @@
     <div class="modal-window__main">
       <form class="contact-form" id="contactForm">
         <fieldset>
-          <input type="hidden" name="access_key" value="791ad86b-6fa4-43e1-aa38-6ebe1b5f4652">
+<!--          <input type="hidden" name="access_key" value="791ad86b-6fa4-43e1-aa38-6ebe1b5f4652">-->
           <div class="contact-form__field" v-for="(field, index) in contactModalObj?.fields" :key="index">
             <label :for="field?.name">
               {{ field?.label }}<em v-if="field?.required">*</em>
@@ -37,22 +37,13 @@
             </p>
           </div>
         </fieldset>
-        <p
-          class="contact-form__status"
-          :class="{
-            'contact-form__status_success': contactModalObj?.requestStatus,
-            'contact-form__status_failed': !contactModalObj?.requestStatus
-          }"
-          v-if="!!contactModalObj?.finallyMessage"
-        >
-          {{ contactModalObj?.finallyMessage }}
-        </p>
       </form>
     </div>
     <div class="modal-window__footer">
-      <p v-if="formProcessingValue">
+      <button class="modal-window__processing" v-if="formProcessingValue" disabled>
+        <LoadingIcon />
         Processing...
-      </p>
+      </button>
       <button class="button button-primary" @click="confirmForm" v-else>
         Confirm
       </button>
@@ -64,19 +55,38 @@
 import { onBeforeUnmount, ref } from "vue";
 
 import { useModalStore } from "@/store/ui/modalStore";
+import { useToastStore } from "@/store/ui/toastStore";
 import EX_$ContactForm from '@/typescript/classes/contactForm'
 import { IContactModalField } from "@/typescript/interfaces/contactModalInterfaces";
 
-const modalStore = useModalStore();
+import LoadingIcon from "@/components/ui/icons/LoadingIcon.vue";
 
-const contactModalObj = ref(EX_$ContactForm.contactModal);
+const modalStore = useModalStore();
+const toastStore = useToastStore();
+
 const formProcessingValue = ref(false);
+const contactModalObj = ref(EX_$ContactForm.getContactModal);
 
 async function confirmForm (e: Event) {
-  formProcessingValue.value = true
-  await EX_$ContactForm.confirmContactForm(e)
-    .then(() => formProcessingValue.value = false)
-    .catch(() => formProcessingValue.value = false);
+  formProcessingValue.value = true;
+
+  await EX_$ContactForm?.confirmContactForm(e)
+    .then(() => {
+
+    })
+    .finally(() => {
+      formProcessingValue.value = false;
+
+      if (!EX_$ContactForm?.getErrorsArray?.length) {
+        toastStore.openToast({
+          toastType: EX_$ContactForm?.getRequestStatusAndMessage?.requestStatus ? 'success' : 'error',
+          toastTitle: EX_$ContactForm?.getRequestStatusAndMessage?.requestStatus ? 'Success' : 'Error',
+          toastName: 'contact-modal-message',
+          toastText: EX_$ContactForm?.getRequestStatusAndMessage?.finallyMessage,
+          toastDuration: 5000
+        })
+      }
+    });
 }
 
 function changeFieldValue (field: IContactModalField, e: Event) {
@@ -85,7 +95,7 @@ function changeFieldValue (field: IContactModalField, e: Event) {
 
 function closeModal () {
   modalStore?.closeModal('contact')
-  EX_$ContactForm.setModalStatusAndMessage('')
+  EX_$ContactForm.setRequestStatusAndMessage = {}
   EX_$ContactForm.clearFieldsErrors()
   EX_$ContactForm.clearFieldsValues()
 }
