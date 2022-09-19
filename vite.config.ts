@@ -1,7 +1,7 @@
 import path from 'path'
 import vue from '@vitejs/plugin-vue'
 import { defineConfig, loadEnv } from 'vite'
-// import eslintPlugin from 'vite-plugin-eslint'
+import eslintPlugin from 'vite-plugin-eslint'
 
 // https://vitejs.dev/config/
 export default ({ mode }) => {
@@ -16,7 +16,7 @@ export default ({ mode }) => {
     },
     plugins: [
       vue(),
-      // eslintPlugin()
+      eslintPlugin()
     ],
     server: {
       host: 'localhost',

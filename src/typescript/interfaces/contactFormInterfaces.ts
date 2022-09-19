@@ -1,4 +1,4 @@
-export interface IContactModalField {
+export interface IContactFormField {
   name: string;
   label: string;
   required: boolean;
@@ -11,8 +11,8 @@ export interface IContactModalField {
   errorText: string;
 }
 
-export interface IContactModalObj {
-  fields?: Array<IContactModalField>;
+export interface IContactFormObj {
+  fields?: Array<IContactFormField>;
   fieldsErrors?: Array<string>;
   requestStatus: boolean;
   finallyMessage: string;

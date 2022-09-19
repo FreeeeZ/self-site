@@ -1,7 +1,7 @@
 import { computed, onMounted, onUnmounted, ref } from "vue";
 
 export default function () {
-  let windowWidth = ref(window.innerWidth);
+  const windowWidth = ref(window.innerWidth);
 
   const onWidthChange = () => windowWidth.value = window.innerWidth;
   onMounted(() => window.addEventListener('resize', onWidthChange));
@@ -13,9 +13,9 @@ export default function () {
     if (windowWidth.value >= 991.98 && windowWidth.value < 1199.98) return 'lg';
     if (windowWidth.value >= 1199.98) return 'xl';
     return null;
-  })
+  });
 
   const width = computed(() => windowWidth.value);
 
-  return { width, screenBreakpointType }
+  return { width, screenBreakpointType };
 }

@@ -4,7 +4,7 @@ import Projects from '@/views/projects/index.vue';
 import Experience from '@/views/experience/index.vue';
 import NotFound from '@/views/not-found/index.vue';
 
-const baseUrl = process.env.NODE_ENV === 'development' ? '/' : '/self-site/'
+const baseUrl = process.env.NODE_ENV === 'development' ? '/' : '/self-site/';
 
 const routes = [
   {
@@ -35,11 +35,11 @@ const routes = [
 ];
 
 const router = createRouter({
-  scrollBehavior(to, from, savedPosition) {
+  scrollBehavior() {
     return {
       top: 0,
       behavior: 'smooth',
-    }
+    };
   },
   history: createWebHistory(baseUrl),
   routes,

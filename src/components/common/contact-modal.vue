@@ -8,30 +8,30 @@
       </div>
     </div>
     <div class="modal-window__main">
-      <form class="contact-form" id="contactForm">
+      <form id="contactForm" class="contact-form">
         <fieldset>
-          <input type="hidden" name="access_key" value="791ad86b-6fa4-43e1-aa38-6ebe1b5f4652">
-          <div class="contact-form__field" v-for="(field, index) in contactModalObj?.fields" :key="index">
+          <input type="hidden" name="access_key" :value="contactFormAccessKey">
+          <div v-for="(field, index) in contactFormObj?.fields" :key="index" class="contact-form__field">
             <label :for="field?.name">
               {{ field?.label }}<em v-if="field?.required">*</em>
             </label>
             <component
               :is="field?.tag"
+              :id="field?.name"
               class="input input-primary"
               :class="field?.tag === 'textarea' ? 'input_resize-disabled' : null"
               :type="field?.type"
               :name="field?.name"
-              :id="field?.name"
               :placeholder="field?.label"
               :rows="field?.tag === 'textarea' ? '5' : null"
               :required="field?.required"
               :value="field?.value"
-              :maxLength="field?.maxLength"
+              :max-length="field?.maxLength"
               @input="changeFieldValue(field, $event)"
             />
             <p
-              class="contact-form__error"
               v-if="field?.isError"
+              class="contact-form__error"
             >
               {{ field?.errorText }}
             </p>
@@ -40,11 +40,11 @@
       </form>
     </div>
     <div class="modal-window__footer">
-      <button class="modal-window__processing" v-if="formProcessingValue" disabled>
+      <button v-if="formProcessingValue" class="modal-window__processing" disabled>
         <LoadingIcon />
         Processing...
       </button>
-      <button class="button button-primary" @click="confirmForm" v-else>
+      <button v-else class="button button-primary" @click="confirmForm">
         Confirm
       </button>
     </div>
@@ -56,8 +56,8 @@ import { onBeforeUnmount, ref } from "vue";
 
 import { useModalStore } from "@/store/ui/modalStore";
 import { useToastStore } from "@/store/ui/toastStore";
-import EX_$ContactForm from '@/typescript/classes/contactForm'
-import { IContactModalField } from "@/typescript/interfaces/contactModalInterfaces";
+import EX_$ContactForm from '@/typescript/classes/contactForm';
+import { IContactFormField } from "@/typescript/interfaces/contactFormInterfaces";
 
 import LoadingIcon from "@/components/ui/icons/LoadingIcon.vue";
 
@@ -65,15 +65,13 @@ const modalStore = useModalStore();
 const toastStore = useToastStore();
 
 const formProcessingValue = ref(false);
-const contactModalObj = ref(EX_$ContactForm.getContactModal);
+const contactFormAccessKey = import.meta.env.VITE_WEB3_ACCESS_KEY;
+const contactFormObj = ref(EX_$ContactForm.getContactFormObj);
 
 async function confirmForm (e: Event) {
   formProcessingValue.value = true;
 
   await EX_$ContactForm?.confirmContactForm(e)
-    .then(() => {
-
-    })
     .finally(() => {
       formProcessingValue.value = false;
 
@@ -84,25 +82,42 @@ async function confirmForm (e: Event) {
           toastName: 'contact-modal-message',
           toastText: EX_$ContactForm?.getRequestStatusAndMessage?.finallyMessage,
           toastDuration: 5000
-        })
+        });
       }
     });
 }
 
-function changeFieldValue (field: IContactModalField, e: Event) {
-  field.value = (e.target as HTMLInputElement | HTMLTextAreaElement).value
+function changeFieldValue (field: IContactFormField, e: Event) {
+  field.value = (e.target as HTMLInputElement | HTMLTextAreaElement).value;
 }
 
 function closeModal () {
-  modalStore?.closeModal('contact')
-  EX_$ContactForm.setRequestStatusAndMessage = {}
-  EX_$ContactForm.clearFieldsErrors()
-  EX_$ContactForm.clearFieldsValues()
+  return new Promise((resolve) => {
+    if (!EX_$ContactForm?.getErrorsArray?.length) {
+      modalStore?.closeModal("contact");
+    }
+
+    EX_$ContactForm.setRequestStatusAndMessage = { finallyMessage: '', requestStatus: true };
+    EX_$ContactForm.clearFieldsErrors();
+    EX_$ContactForm.clearFieldsValues();
+    resolve(true);
+  })
+    .catch((e) => {
+      toastStore.openToast({
+        toastType: "error",
+        toastTitle: "Error",
+        toastName: "contact-modal-error",
+        toastText: e,
+        toastDuration: 5000
+      });
+    });
 }
 
 onBeforeUnmount(() => {
-  closeModal()
-})
+  closeModal().then(() => {
+    EX_$ContactForm.setRequestStatusAndMessage = { finallyMessage: '', requestStatus: true };
+  });
+});
 </script>
 
 <style lang="scss" scoped>

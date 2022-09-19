@@ -23,13 +23,13 @@ Design was taken for the basis: https://www.figma.com/community/file/10326601030
 - [x] Partial TypeScript support.
 - [x] Add "Experience" page.
 - [x] Add "Contact" layer/modal.
-- [ ] Add lightweight animations (?).
-- [ ] Fix eslint and lint *.vue, *.ts files.
-- [ ] i18n compatible.
-- [ ] Full TypeScript support.
-- [ ] Add SEO metatags.
-- [ ] Support Vitest && Cover functions with tests.
+- [x] Fix eslint and lint *.vue, *.ts files.
 - [ ] Make unique UI library (buttons, modals, titles, toasts and etc).
+- [ ] Add lightweight animations (?).
+- [ ] i18n compatible.
+- [ ] Full TypeScript support && add hooks for implement data from components.
+- [ ] Add SEO metatags (support vue-meta || vue-head).
+- [ ] Support Vitest && Cover functions with tests.
 
 
 ## Quick start

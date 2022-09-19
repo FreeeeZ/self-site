@@ -19,7 +19,7 @@
       </div>
     </div>
     <div class="home-hero__bottom">
-      <a class="button home-hero__arrow-button" href="#about" v-smooth-scroll>
+      <a v-smooth-scroll class="button home-hero__arrow-button" href="#about">
         <picture class="home-hero__picture">
           <source type="image/webp" srcset="@/assets/images/global/scroll-arrow.webp">
           <img src="@/assets/images/global/scroll-arrow.svg" alt="Main photo" width="32">
@@ -39,7 +39,7 @@ import ContactModal from "@/components/common/contact-modal.vue";
 const modalStore = useModalStore();
 
 function openContactModal () {
-  modalStore.openModal({ modalName: 'contact', content: markRaw(ContactModal) })
+  modalStore.openModal({ modalName: 'contact', content: markRaw(ContactModal) });
 }
 </script>
 

@@ -3,10 +3,10 @@ import axios from 'axios';
 
 import { validateEmail } from "@/utility/regExpHelper";
 
-import { IContactModalObj } from "@/typescript/interfaces/contactModalInterfaces";
+import { IContactFormObj } from "@/typescript/interfaces/contactFormInterfaces";
 
 export class $ContactForm  {
-  private contactModalObj = ref({
+  private contactFormObj = ref({
     fields: [
       {
         name: 'name',
@@ -47,12 +47,12 @@ export class $ContactForm  {
     fieldsErrors: [],
     requestStatus: true,
     finallyMessage: ''
-  } as IContactModalObj);
+  } as IContactFormObj);
 
   clearFieldsValues () {
     this.getFieldsArray?.forEach((field) => {
       field.value = '';
-    })
+    });
   }
 
   validateContactForm () {
@@ -72,21 +72,22 @@ export class $ContactForm  {
         field.isError = true;
         field.errorText = 'Field is not valid';
       }
-    })
+    });
   }
 
   async confirmContactForm (e: Event): Promise<void> {
     const contactForm = document.getElementById('contactForm') as HTMLFormElement;
     const formData = new FormData(contactForm);
-    let fieldValuesObj: object = {};
-    let contactFormData: string;
+    const fieldValuesObj: object = {};
+    let contactFormData = '';
 
     formData?.forEach((value, key) => {
       if (typeof value !== "string" || value?.length) {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         fieldValuesObj[key] = value;
       }
-    })
+    });
 
     contactFormData = JSON.stringify(fieldValuesObj);
 
@@ -106,17 +107,17 @@ export class $ContactForm  {
             this.clearFieldsValues();
             this.setRequestStatusAndMessage = {
               finallyMessage: response?.data?.message,
-              finallyStatus: response?.data?.success
+              requestStatus: response?.data?.success
             };
           })
           .catch((error) => {
             this.setRequestStatusAndMessage = {
               finallyMessage: error?.response?.data?.message,
-              finallyStatus: error?.success
+              requestStatus: error?.success
             };
-          })
+          });
       } catch (e) {
-        console.error(e)
+        console.error(e);
       }
     }
 
@@ -128,35 +129,35 @@ export class $ContactForm  {
 
     this.getFieldsArray?.forEach((field) => {
       field.isError = false;
-    })
+    });
   }
 
-  get getContactModal () {
-    return this.contactModalObj?.value;
+  get getContactFormObj () {
+    return this.contactFormObj?.value;
   }
 
   get getFieldsArray () {
-    return this.contactModalObj?.value?.fields;
+    return this.contactFormObj?.value?.fields;
   }
 
   get getErrorsArray () {
-    return this.contactModalObj?.value?.fieldsErrors;
+    return this.contactFormObj?.value?.fieldsErrors;
   }
 
   get getRequestStatusAndMessage () {
     return {
-      finallyMessage: this.contactModalObj.value.finallyMessage,
-      requestStatus: this.contactModalObj.value.requestStatus
-    }
+      finallyMessage: this.contactFormObj.value.finallyMessage,
+      requestStatus: this.contactFormObj.value.requestStatus
+    };
   }
 
-  set setErrorsArray (value: any) {
-    this.contactModalObj.value.fieldsErrors = value;
+  set setErrorsArray (value: Array<string>) {
+    this.contactFormObj.value.fieldsErrors = value;
   }
 
-  set setRequestStatusAndMessage (value: any) {
-    this.contactModalObj.value.finallyMessage = value.finallyMessage;
-    this.contactModalObj.value.requestStatus = value.finallyStatus;
+  set setRequestStatusAndMessage (value: IContactFormObj) {
+    this.contactFormObj.value.finallyMessage = value.finallyMessage;
+    this.contactFormObj.value.requestStatus = value.requestStatus;
   }
 }
 

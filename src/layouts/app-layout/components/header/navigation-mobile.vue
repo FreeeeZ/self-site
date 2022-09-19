@@ -11,12 +11,12 @@
         <span />
       </button>
       <nav
+        v-click-outside="clickOutsideBurger"
         class="main-header__navigation-mobile__burger-menu"
         :class="isBurgerOpened ? 'opened' : ''"
-        v-click-outside="clickOutsideBurger"
       >
         <ul>
-          <li v-for="(item, index) in formattedRouter" :key="index" :tabindex="index + 1">
+          <li v-for="(item, index) in formattedRouter" :key="index" :tabindex="0">
             <router-link :to="item.path">
               {{item.name}}
             </router-link>
@@ -31,30 +31,30 @@
 import { ref, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
 
-const route = useRoute()
-const router = useRouter()
-const formattedRouter = router.options.routes.filter(route => route.name !== 'NotFound' && route.name !== 'PathForNotFound')
+const route = useRoute();
+const router = useRouter();
+const formattedRouter = router.options.routes.filter(route => route.name !== 'NotFound' && route.name !== 'PathForNotFound');
 
-let isBurgerOpened = ref(false)
-let isBurgerButtonClicked = ref(false)
+const isBurgerOpened = ref(false);
+const isBurgerButtonClicked = ref(false);
 
 watch(() => route.name,() => {
-  toggleBurgerMenu(false)
-})
+  toggleBurgerMenu(false);
+});
 
 function toggleBurgerMenu (state: boolean) {
-  isBurgerOpened.value = state
+  isBurgerOpened.value = state;
 
   if (isBurgerButtonClicked.value) {
-    isBurgerOpened.value = false
+    isBurgerOpened.value = false;
   }
 }
 
-function clickOutsideBurger (event: any) {
-  isBurgerButtonClicked.value = event.path[0].className.includes('main-header__navigation-mobile__burger-button opened');
+function clickOutsideBurger (e: any) {
+  isBurgerButtonClicked.value = e.path[0].className.includes('main-header__navigation-mobile__burger-button opened');
 
   if (isBurgerOpened.value) {
-    isBurgerOpened.value = false
+    isBurgerOpened.value = false;
   }
 }
 </script>

@@ -7,19 +7,19 @@ export const useToastStore = defineStore('toasts', {
     openedToasts: []
   }),
   actions: {
-    openToast (toast: IToastItem): any {
+    openToast (toast: IToastItem): void {
       this.openedToasts.unshift(toast);
 
       const timeout = setTimeout(() => {
         this.closeAllToasts();
-        clearTimeout(timeout)
+        clearTimeout(timeout);
       }, toast?.toastDuration);
     },
     closeToast (toastId: number): void {
-      this.openedToasts?.splice(toastId, 1)
+      this.openedToasts?.splice(toastId, 1);
     },
     closeAllToasts () {
-      this.openedToasts?.splice(0, this.openedToasts?.length)
+      this.openedToasts?.splice(0, this.openedToasts?.length);
     }
   }
-})
+});

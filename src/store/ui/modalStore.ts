@@ -7,7 +7,7 @@ export const useModalStore = defineStore('modals', {
     openedModals: []
   }),
   actions: {
-    openModal (modal: IModalItem): any {
+    openModal (modal: IModalItem): number {
       return this.openedModals.unshift(modal);
     },
     closeModal (modalName: string): any {
@@ -17,4 +17,4 @@ export const useModalStore = defineStore('modals', {
       this.openedModals = this.openedModals.splice(0, this.openedModals.length);
     },
   }
-})
+});

@@ -2,17 +2,17 @@
   <div class="toast-wrapper">
     <transition-group name="toast-slide">
       <div
+        v-for="(toast, toastId) in toastStore?.openedToasts"
+        :key="toastId"
         class="toast-item"
         :class="`toast-item_${toast?.toastType}`"
         role="alert"
-        v-for="(toast, toastId) in toastStore?.openedToasts"
-        :key="toastId"
         @click="toastStore.closeToast(toastId)"
       >
-        <div class="toast-item__title" v-if="toast?.toastTitle">
+        <div v-if="toast?.toastTitle" class="toast-item__title">
           {{ toast?.toastTitle }}
         </div>
-        <div class="toast-item__text" v-if="toast?.toastText">
+        <div v-if="toast?.toastText" class="toast-item__text">
           {{ toast?.toastText }}
         </div>
         <div class="toast-item__progress">

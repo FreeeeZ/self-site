@@ -29,7 +29,7 @@ import { useModalStore } from "@/store/ui/modalStore";
 
 const modalStore = useModalStore();
 
-const modalIsOpen = computed(() => modalStore?.openedModals?.length !== 0)
+const modalIsOpen = computed(() => modalStore?.openedModals?.length !== 0);
 
 watch(() => modalIsOpen.value, (value) => {
   const documentElement = document.documentElement;
@@ -41,7 +41,7 @@ watch(() => modalIsOpen.value, (value) => {
       documentElement.classList.remove('page-locked');
     }
   }
-})
+});
 </script>
 
 <style lang="scss" scoped>
