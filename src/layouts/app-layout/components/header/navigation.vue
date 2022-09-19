@@ -2,7 +2,7 @@
   <div class="main-header__navigation">
     <nav>
       <ul>
-        <li v-for="(item, index) in formattedRouter" :key="index" :tabindex="index + 1">
+        <li v-for="(item, index) in formattedRouter" :key="index" :tabindex="0">
           <router-link :to="item.path">
             {{item.name}}
           </router-link>
@@ -15,8 +15,8 @@
 <script lang="ts" setup>
 import { useRouter } from "vue-router";
 
-const router = useRouter()
-const formattedRouter = router.options.routes.filter(route => route.name !== 'NotFound' && route.name !== 'PathForNotFound')
+const router = useRouter();
+const formattedRouter = router.options.routes.filter(route => route.name !== 'NotFound' && route.name !== 'PathForNotFound');
 </script>
 
 <style lang="scss" scoped>

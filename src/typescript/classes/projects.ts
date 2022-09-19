@@ -4,7 +4,7 @@ import { IProjectObject } from '@/typescript/interfaces/projectsInterfaces';
 
 export class $Projects {
   private projectsList: Array<IProjectObject> = reactive([]);
-  private projectsFetched: boolean = false;
+  private projectsFetched = false;
 
   get projectsArr () {
     return this.projectsList;
@@ -28,7 +28,7 @@ export class $Projects {
           })
           .catch((error) => {
             console.log(error);
-          })
+          });
       } catch (e) {
         console.error(e);
       }
@@ -45,7 +45,7 @@ export class $Projects {
             })
             .catch((error) => {
               console.log(error);
-            })
+            });
         } catch (e) {
           console.error(e);
         }
@@ -54,4 +54,4 @@ export class $Projects {
   }
 }
 
-export default new $Projects()
+export default new $Projects();

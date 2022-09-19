@@ -3,7 +3,7 @@
     <div class="container">
       <h2 class="home-skills__title">Skills</h2>
       <div class="home-skills__list">
-        <div class="home-skills__list-item" v-for="(skill, index) in skillsList" :key="index">
+        <div v-for="(skill, index) in skillsList" :key="index" class="home-skills__list-item">
           <picture class="list-item__picture">
             <source type="image/webp" :srcset="skill.imageWebP">
             <img :src="skill.imageSvg" :alt="skill.title">
@@ -90,7 +90,7 @@ const skillsList = [
     imageWebP: ViteIconWebP,
     title: 'Vite'
   },
-]
+];
 </script>
 
 <style lang="scss" scoped>

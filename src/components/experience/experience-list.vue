@@ -3,9 +3,9 @@
     <div class="container">
       <div class="experience-list__items">
         <div
-          class="experience-list__items-point"
           v-for="(company, index) in experienceArray"
           :key="index"
+          class="experience-list__items-point"
         >
           <div class="list-item__info">
             <p class="list-item__info-years">
@@ -75,7 +75,7 @@ const experienceArray = [
       '— Development of the frontend department in the company.<br>' +
       '— More will be added little bit later...',
   },
-]
+];
 </script>
 
 <style lang="scss" scoped>
