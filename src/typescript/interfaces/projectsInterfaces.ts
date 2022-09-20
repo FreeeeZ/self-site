@@ -19,6 +19,14 @@ export interface IUserInfo {
   site_admin: boolean;
 }
 
+export interface IProjectLicenseObject {
+  key: string;
+  name: string;
+  node_id: string;
+  spdx_id: string;
+  url: string;
+}
+
 export interface IProjectObject {
   id: number;
   node_id: string;
@@ -84,11 +92,11 @@ export interface IProjectObject {
   has_wiki: boolean;
   has_pages: boolean;
   forks_count: number;
-  mirror_url?: any;
+  mirror_url?: null | string;
   archived: boolean;
   disabled: boolean;
   open_issues_count: number;
-  license?: any;
+  license?: IProjectLicenseObject;
   allow_forking: boolean;
   is_template: boolean;
   web_commit_signoff_required: boolean;

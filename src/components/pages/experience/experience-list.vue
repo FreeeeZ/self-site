@@ -79,5 +79,5 @@ const experienceArray = [
 </script>
 
 <style lang="scss" scoped>
-@use './styles/experience-list.scss';
+@use 'styles/experience-list';
 </style>

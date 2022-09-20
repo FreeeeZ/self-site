@@ -33,6 +33,7 @@ import { useRoute, useRouter } from "vue-router";
 
 const route = useRoute();
 const router = useRouter();
+
 const formattedRouter = router.options.routes.filter(route => route.name !== 'NotFound' && route.name !== 'PathForNotFound');
 
 const isBurgerOpened = ref(false);
@@ -50,10 +51,10 @@ function toggleBurgerMenu (state: boolean) {
   }
 }
 
-function clickOutsideBurger (e: any) {
-  isBurgerButtonClicked.value = e.path[0].className.includes('main-header__navigation-mobile__burger-button opened');
+function clickOutsideBurger (e: Event) {
+  isBurgerButtonClicked.value = (e.target as HTMLElement).className.includes('main-header__navigation-mobile__burger-button opened');
 
-  if (isBurgerOpened.value) {
+  if (!isBurgerButtonClicked.value) {
     isBurgerOpened.value = false;
   }
 }

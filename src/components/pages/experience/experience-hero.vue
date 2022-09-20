@@ -7,5 +7,5 @@
 </template>
 
 <style lang="scss" scoped>
-@use './styles/experience-hero.scss';
+@use 'styles/experience-hero';
 </style>

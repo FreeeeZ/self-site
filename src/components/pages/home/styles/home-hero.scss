@@ -1,4 +1,4 @@
-@import "src/assets/scss/_global/breakpoints";
+@import "../../../../assets/scss/_global/breakpoints";
 
 .home-hero {
   margin: 150px 0 200px;
@@ -19,7 +19,7 @@
       column-gap: 0;
       row-gap: 50px;
     }
-    
+
     & > div {
       flex-grow: 1;
       flex-basis: 0;
