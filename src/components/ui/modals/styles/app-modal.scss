@@ -95,24 +95,6 @@
         display: flex;
         justify-content: center;
       }
-
-      &:deep(.modal-window__processing) {
-        background: transparent;
-        display: flex;
-        flex-direction: row;
-        column-gap: 15px;
-        align-items: center;
-        justify-items: center;
-        color: #FFF;
-        border: 1px solid rgb(0 0 0 / 20%);
-        border-radius: 5px;
-        padding: 5px 15px;
-
-        svg {
-          width: 30px;
-          height: 30px;
-        }
-      }
     }
   }
 

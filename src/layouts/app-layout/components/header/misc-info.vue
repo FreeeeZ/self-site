@@ -1,8 +1,8 @@
 <template>
   <div class="main-header__misc-info">
-    <button class="button button-primary" @click="openContactModal">
+    <app-button button-type="primary" @click="openContactModal">
       Contact
-    </button>
+    </app-button>
   </div>
 </template>
 
@@ -10,6 +10,7 @@
 import { markRaw } from "vue";
 import { useModalStore } from "@/store/ui/modalStore";
 
+import AppButton from "@/components/ui/buttons/app-button.vue";
 import ContactModal from '@/components/common/contact-modal.vue';
 
 const modalStore = useModalStore();

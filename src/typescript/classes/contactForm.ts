@@ -78,7 +78,7 @@ export class $ContactForm  {
   async confirmContactForm (e: Event): Promise<void> {
     const contactForm = document.getElementById('contactForm') as HTMLFormElement;
     const formData = new FormData(contactForm);
-    const fieldValuesObj: object = {};
+    const fieldValuesObj = {};
     let contactFormData = '';
 
     formData?.forEach((value, key) => {

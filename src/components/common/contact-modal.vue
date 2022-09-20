@@ -40,13 +40,13 @@
       </form>
     </div>
     <div class="modal-window__footer">
-      <button v-if="formProcessingValue" class="modal-window__processing" disabled>
+      <app-button v-if="formProcessingValue" button-type="primary-with-icon" disabled @click="confirmForm">
         <LoadingIcon />
         Processing...
-      </button>
-      <button v-else class="button button-primary" @click="confirmForm">
-        Confirm
-      </button>
+      </app-button>
+      <app-button v-else button-type="primary" @click="confirmForm">
+        Contact
+      </app-button>
     </div>
   </div>
 </template>
@@ -56,9 +56,11 @@ import { onBeforeUnmount, ref } from "vue";
 
 import { useModalStore } from "@/store/ui/modalStore";
 import { useToastStore } from "@/store/ui/toastStore";
+
 import EX_$ContactForm from '@/typescript/classes/contactForm';
 import { IContactFormField } from "@/typescript/interfaces/contactFormInterfaces";
 
+import AppButton from "@/components/ui/buttons/app-button.vue";
 import LoadingIcon from "@/components/ui/icons/LoadingIcon.vue";
 
 const modalStore = useModalStore();
@@ -93,10 +95,7 @@ function changeFieldValue (field: IContactFormField, e: Event) {
 
 function closeModal () {
   return new Promise((resolve) => {
-    if (!EX_$ContactForm?.getErrorsArray?.length) {
-      modalStore?.closeModal("contact");
-    }
-
+    modalStore?.closeModal("contact");
     EX_$ContactForm.setRequestStatusAndMessage = { finallyMessage: '', requestStatus: true };
     EX_$ContactForm.clearFieldsErrors();
     EX_$ContactForm.clearFieldsValues();

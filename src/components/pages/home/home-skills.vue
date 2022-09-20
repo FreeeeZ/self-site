@@ -94,5 +94,5 @@ const skillsList = [
 </script>
 
 <style lang="scss" scoped>
-@use './styles/home-skills';
+@use 'styles/home-skills';
 </style>

@@ -7,9 +7,9 @@
         <p class="home-hero__description">
           Hey! Welcome to my visiting card site. I hope it will be interesting. Let's go!
         </p>
-        <button class="button button-primary" @click="openContactModal">
+        <app-button button-type="primary" @click="openContactModal">
           Contact me
-        </button>
+        </app-button>
       </div>
       <div class="home-hero__right">
         <picture class="home-hero__main-picture">
@@ -34,6 +34,7 @@ import { markRaw } from "vue";
 
 import { useModalStore } from "@/store/ui/modalStore";
 
+import AppButton from "@/components/ui/buttons/app-button.vue";
 import ContactModal from "@/components/common/contact-modal.vue";
 
 const modalStore = useModalStore();
@@ -44,5 +45,5 @@ function openContactModal () {
 </script>
 
 <style lang="scss" scoped>
-@use './styles/home-hero.scss';
+@use 'styles/home-hero';
 </style>

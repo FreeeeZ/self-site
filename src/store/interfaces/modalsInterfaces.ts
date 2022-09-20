@@ -1,9 +1,11 @@
+import { Component } from "vue";
+
 export interface IModalStore {
   openedModals: Array<IModalItem>;
 }
 
 export interface IModalItem {
   modalName: string;
-  content: any;
+  content: Component;
   props?: object;
 }

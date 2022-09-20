@@ -15,5 +15,5 @@
 </template>
 
 <style lang="scss" scoped>
-@use './styles/not-found-wrap.scss';
+@use 'styles/not-found-view';
 </style>

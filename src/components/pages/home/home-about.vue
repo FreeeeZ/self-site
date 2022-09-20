@@ -16,5 +16,5 @@
 </template>
 
 <style lang="scss" scoped>
-@use './styles/home-about';
+@use 'styles/home-about';
 </style>

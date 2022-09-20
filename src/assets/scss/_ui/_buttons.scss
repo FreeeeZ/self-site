@@ -14,6 +14,16 @@
     @include button-primary;
   }
 
+  &.button-primary-with-icon {
+    @include button-primary;
+
+    display: flex;
+    flex-direction: row;
+    column-gap: 15px;
+    align-items: center;
+    justify-items: center;
+  }
+
   &.button-danger {
     @include button-danger;
   }

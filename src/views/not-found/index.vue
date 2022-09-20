@@ -1,7 +1,7 @@
 <template>
-  <NotfoundWrap />
+  <NotFoundView />
 </template>
 
 <script lang="ts" setup>
-import NotfoundWrap from "@/components/not-found/not-found-wrap.vue";
+import NotFoundView from "@/components/pages/not-found/not-found-view.vue";
 </script>
