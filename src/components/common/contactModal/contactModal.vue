@@ -40,13 +40,13 @@
       </form>
     </div>
     <div class="modal-window__footer">
-      <app-button v-if="formProcessingValue" button-type="primary-with-icon" disabled @click="confirmForm">
+      <AppButton v-if="formProcessingValue" button-type="primary-with-icon" disabled @click="confirmForm">
         <LoadingIcon />
         Processing...
-      </app-button>
-      <app-button v-else button-type="primary" @click="confirmForm">
+      </AppButton>
+      <AppButton v-else button-type="primary" @click="confirmForm">
         Contact
-      </app-button>
+      </AppButton>
     </div>
   </div>
 </template>
