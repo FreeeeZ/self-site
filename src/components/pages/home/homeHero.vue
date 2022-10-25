@@ -7,9 +7,9 @@
         <p class="home-hero__description">
           Hey! Welcome to my visiting card site. I hope it will be interesting. Let's go!
         </p>
-        <app-button button-type="primary" @click="openContactModal">
+        <AppButton button-type="primary" @click="openContactModal">
           Contact me
-        </app-button>
+        </AppButton>
       </div>
       <div class="home-hero__right">
         <picture class="home-hero__main-picture">

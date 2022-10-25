@@ -1,8 +1,8 @@
 <template>
   <div class="main-header__misc-info">
-    <app-button button-type="primary" @click="openContactModal">
+    <AppButton button-type="primary" @click="openContactModal">
       Contact
-    </app-button>
+    </AppButton>
   </div>
 </template>
 
