@@ -30,18 +30,12 @@
 </template>
 
 <script lang="ts" setup>
-import { markRaw } from "vue";
+import AppButton from "@/components/ui/buttons/appButton.vue";
+import useHomeHero from "@/components/pages/home/useHomeHero";
 
-import { useModalStore } from "@/store/ui/modalStore";
-
-import AppButton from "@/components/ui/buttons/app-button.vue";
-import ContactModal from "@/components/common/contact-modal.vue";
-
-const modalStore = useModalStore();
-
-function openContactModal () {
-  modalStore.openModal({ modalName: 'contact', content: markRaw(ContactModal) });
-}
+const {
+  openContactModal
+} = useHomeHero();
 </script>
 
 <style lang="scss" scoped>

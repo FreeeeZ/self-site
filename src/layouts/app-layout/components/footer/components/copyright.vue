@@ -9,5 +9,5 @@ const currentYear = new Date().getFullYear();
 </script>
 
 <style lang="scss" scoped>
-@use './styles/copyright.scss';
+@use '../styles/copyright';
 </style>
