@@ -11,8 +11,8 @@ import { useRoute } from "vue-router";
 import { useModalStore } from "@/store/ui/modalStore";
 
 import AppLayout from '@/layouts/app-layout/index.vue';
-import AppModal from "@/components/ui/modals/app-modal.vue";
-import AppToast from "@/components/ui/toasts/app-toast.vue";
+import AppModal from "@/components/ui/modals/appModal.vue";
+import AppToast from "@/components/ui/toasts/appToast.vue";
 
 const route = useRoute();
 const modalStore = useModalStore();

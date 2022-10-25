@@ -58,5 +58,5 @@ const socialsList = [
 </script>
 
 <style lang="scss" scoped>
-@use './styles/socials-list.scss';
+@use '../styles/social-list';
 </style>

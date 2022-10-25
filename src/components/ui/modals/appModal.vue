@@ -23,25 +23,9 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, watch } from "vue";
+import useAppModal from "@/components/ui/modals/useAppModal";
 
-import { useModalStore } from "@/store/ui/modalStore";
-
-const modalStore = useModalStore();
-
-const modalIsOpen = computed(() => modalStore?.openedModals?.length !== 0);
-
-watch(() => modalIsOpen.value, (value) => {
-  const documentElement = document.documentElement;
-
-  if (documentElement) {
-    if (value) {
-      documentElement.classList.add('page-locked');
-    } else {
-      documentElement.classList.remove('page-locked');
-    }
-  }
-});
+const { modalStore } = useAppModal();
 </script>
 
 <style lang="scss" scoped>

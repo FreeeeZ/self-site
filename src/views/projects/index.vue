@@ -3,14 +3,8 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, ref } from "vue";
+import useProjects from "@/views/projects/useProjects";
+import ProjectsList from '@/components/common/projectsList/projectsList.vue';
 
-import EX_$Projects from '@/typescript/classes/projects';
-import ProjectsList from '@/components/common/projects-list.vue';
-
-const projectsLength = ref(0);
-
-onMounted(() => {
-  projectsLength.value = EX_$Projects.projectsArr.length;
-});
+const { projectsLength } = useProjects();
 </script>

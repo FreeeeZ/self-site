@@ -20,5 +20,5 @@ const formattedRouter = router.options.routes.filter(route => route.name !== 'No
 </script>
 
 <style lang="scss" scoped>
-@use './styles/navigation.scss';
+@use '../styles/navigation';
 </style>

@@ -39,10 +39,7 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, ref } from 'vue';
-
-import EX_$Projects from '@/typescript/classes/projects';
-import { IProjectObject } from "@/typescript/interfaces/projectsInterfaces";
+import useProjectsList from "@/components/common/projectsList/useProjectsList";
 
 defineProps({
   renderFor: {
@@ -54,12 +51,7 @@ defineProps({
   }
 });
 
-const projectsArr = ref([] as Array<IProjectObject>);
-
-onMounted(async () => {
-  await EX_$Projects?.getProjects();
-  projectsArr.value = EX_$Projects.projectsArr;
-});
+const { projectsArr } = useProjectsList();
 </script>
 
 <style lang="scss" scoped>

@@ -24,10 +24,10 @@ Design was taken for the basis: https://www.figma.com/community/file/10326601030
 - [x] Add "Experience" page.
 - [x] Add "Contact" layer/modal.
 - [x] Fix eslint and lint *.vue, *.ts files.
+- [x] TypeScript support && add hooks for implement data from components.
 - [ ] Make unique UI library (buttons, modals, titles, toasts and etc).
 - [ ] Add lightweight animations (?).
 - [ ] i18n compatible.
-- [ ] Full TypeScript support && add hooks for implement data from components.
 - [ ] Add SEO metatags (support vue-meta || vue-head).
 - [ ] Support Vitest && Cover functions with tests.
 
