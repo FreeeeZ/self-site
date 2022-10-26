@@ -24,7 +24,7 @@
 </template>
 
 <script setup>
-import { useToastStore } from "@/store/ui/toastStore";
+import { useToastStore } from "@/store/ui/toastStore.ts";
 
 const toastStore = useToastStore();
 </script>
