@@ -16,6 +16,7 @@
             color: #BDEBEA;
             text-decoration: none;
             position: relative;
+            transition: 0.3s color;
 
             &::after {
               content: "";

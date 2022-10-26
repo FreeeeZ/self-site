@@ -2,7 +2,7 @@ import { ref } from 'vue';
 import axios from 'axios';
 
 import { validateEmail } from "@/utility/regExpHelper";
-
+import { CONTACT_FORM_ERRORS } from "@/constants/messages";
 import { IContactFormObj } from "@/typescript/interfaces/contactFormInterfaces";
 
 export class $ContactForm  {
@@ -64,13 +64,13 @@ export class $ContactForm  {
       if (field?.required && !field?.value?.length) {
         this.getErrorsArray?.push(field?.name);
         field.isError = true;
-        field.errorText = 'Field required';
+        field.errorText = CONTACT_FORM_ERRORS.CONTACT_FORM_FIELD_REQUIRED;
       }
 
       if (field?.name === 'email' && field?.value?.length && !validateEmail(field?.value)) {
         this.getErrorsArray?.push(field?.name);
         field.isError = true;
-        field.errorText = 'Field is not valid';
+        field.errorText = CONTACT_FORM_ERRORS.CONTACT_FORM_FIELD_IS_NOT_VALID;
       }
     });
   }
@@ -94,31 +94,27 @@ export class $ContactForm  {
     this.validateContactForm();
 
     if (!this.getErrorsArray?.length) {
-      try {
-        await axios(`${import.meta.env.VITE_WEB3_FORMS_API_URI}/submit`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json"
-          },
-          data: contactFormData
+      await axios(`${import.meta.env.VITE_WEB3_FORMS_API_URL}/submit`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        data: contactFormData
+      })
+        .then((response) => {
+          this.clearFieldsValues();
+          this.setRequestStatusAndMessage = {
+            finallyMessage: response?.data?.message,
+            requestStatus: response?.data?.success
+          };
         })
-          .then((response) => {
-            this.clearFieldsValues();
-            this.setRequestStatusAndMessage = {
-              finallyMessage: response?.data?.message,
-              requestStatus: response?.data?.success
-            };
-          })
-          .catch((error) => {
-            this.setRequestStatusAndMessage = {
-              finallyMessage: error?.response?.data?.message,
-              requestStatus: error?.success
-            };
-          });
-      } catch (e) {
-        console.error(e);
-      }
+        .catch((error) => {
+          this.setRequestStatusAndMessage = {
+            finallyMessage: error?.response?.data?.message,
+            requestStatus: error?.success
+          };
+        });
     }
 
     e.preventDefault();

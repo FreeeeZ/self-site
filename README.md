@@ -30,6 +30,7 @@ Design was taken for the basis: https://www.figma.com/community/file/10326601030
 - [ ] i18n compatible.
 - [ ] Add SEO metatags (support vue-meta || vue-head).
 - [ ] Support Vitest && Cover functions with tests.
+- [ ] Add light/dark themes.
 
 
 ## Quick start

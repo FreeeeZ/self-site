@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 
-import { IModalStore, IModalItem } from "@/store/interfaces/modalsInterfaces";
+import { IModalStore, IModalItem } from "@/store/interfaces/modalInterfaces";
 
 export const useModalStore = defineStore('modals', {
   state: (): IModalStore => ({
