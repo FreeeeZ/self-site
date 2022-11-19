@@ -114,8 +114,11 @@
     border: none;
   }
 
-  &__picture {
-    img {
+  &__arrow {
+    width: 32px;
+    height: 32px;
+
+    &:deep(svg) {
       width: 32px;
       height: 32px;
     }

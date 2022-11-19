@@ -1,4 +1,11 @@
 .app-layout {
   background: #041F31;
   overflow-x: hidden;
+  position: relative;
+
+  .scroll-top {
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+  }
 }
