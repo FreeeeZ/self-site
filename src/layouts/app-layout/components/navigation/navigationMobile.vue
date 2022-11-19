@@ -61,5 +61,5 @@ function clickOutsideBurger (e: Event) {
 </script>
 
 <style lang="scss" scoped>
-@use '../styles/navigation-mobile';
+@use 'styles/navigation-mobile';
 </style>

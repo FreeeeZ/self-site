@@ -2,16 +2,16 @@
   <footer class="main-footer">
     <div class="container">
       <SocialList />
-      <Navigation />
+      <Navigation navigation-type="footer" />
       <Copyright />
     </div>
   </footer>
 </template>
 
 <script lang="ts" setup>
-import SocialList from './components/socialList.vue';
-import Navigation from './components/navigation.vue';
-import Copyright from './components/copyright.vue';
+import SocialList from '@/layouts/app-layout/components/footer/components/socialList.vue';
+import Navigation from '@/layouts/app-layout/components/navigation/navigation.vue';
+import Copyright from '@/layouts/app-layout/components/footer/components/copyright.vue';
 </script>
 
 <style lang="scss" scoped>

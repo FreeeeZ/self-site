@@ -20,10 +20,7 @@
     </div>
     <div class="home-hero__bottom">
       <a v-smooth-scroll class="button home-hero__arrow-button" href="#about">
-        <picture class="home-hero__picture">
-          <source type="image/webp" srcset="@/assets/images/global/scroll-arrow.webp">
-          <img src="@/assets/images/global/scroll-arrow.svg" alt="Main photo" width="32">
-        </picture>
+        <ScrollArrowIcon color="#D7E5EC" class="home-hero__arrow" />
       </a>
     </div>
   </div>
@@ -32,6 +29,7 @@
 <script lang="ts" setup>
 import AppButton from "@/components/ui/buttons/appButton.vue";
 import useHomeHero from "@/components/pages/home/useHomeHero";
+import ScrollArrowIcon from "@/components/icons/ScrollArrowIcon.vue";
 
 const {
   openContactModal

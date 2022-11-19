@@ -1,7 +1,7 @@
 <template>
   <header class="main-header">
     <div class="container">
-      <Navigation v-if="screenBreakpointType === 'xl' || screenBreakpointType === 'lg'" />
+      <Navigation v-if="screenBreakpointType === 'xl' || screenBreakpointType === 'lg'" navigation-type="header" />
       <NavigationMobile v-else />
       <MiscInfo />
     </div>
@@ -9,12 +9,12 @@
 </template>
 
 <script lang="ts" setup>
-import useWindowSize from "@/utility/useWindowSize";
+import useWindowBreakpoints from "@/utility/useWindowBreakpoints";
 import MiscInfo from '@/layouts/app-layout/components/header/components/miscInfo.vue';
-import Navigation from '@/layouts/app-layout/components/header/components/navigation.vue';
-import NavigationMobile from "@/layouts/app-layout/components/header/components/navigationMobile.vue";
+import Navigation from '@/layouts/app-layout/components/navigation/navigation.vue';
+import NavigationMobile from "@/layouts/app-layout/components/navigation/navigationMobile.vue";
 
-const { screenBreakpointType } = useWindowSize();
+const { screenBreakpointType } = useWindowBreakpoints();
 </script>
 
 <style lang="scss" scoped>

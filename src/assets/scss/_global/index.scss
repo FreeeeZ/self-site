@@ -1,6 +1,8 @@
 @import "./container";
+@import "./animations";
 @import "./breakpoints";
 @import "src/assets/scss/_ui/font-family";
+@import '@/components/icons/styles/icons';
 
 :root {
   font-family: $montserrat;
