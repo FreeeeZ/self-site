@@ -3,7 +3,7 @@
 </template>
 
 <script lang="ts" setup>
-import useProjects from "@/views/projects/useProjects";
+import useProjects from "@/pages/projects/useProjects";
 import ProjectsList from '@/components/common/projectsList/projectsList.vue';
 
 const { projectsLength } = useProjects();
