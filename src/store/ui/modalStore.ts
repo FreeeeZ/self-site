@@ -10,7 +10,7 @@ export const useModalStore = defineStore('modals', {
     openModal (modal: IModalItem): number {
       return this.openedModals.unshift(modal);
     },
-    closeModal (modalName: string): any {
+    closeModal (modalName: string): unknown {
       return this.openedModals = this.openedModals.filter(modal => modal.modalName !== modalName);
     },
     closeAllModals () {
