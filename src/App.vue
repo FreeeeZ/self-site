@@ -21,8 +21,3 @@ watch(() => route.name, () => {
   modalStore.closeAllModals();
 });
 </script>
-
-<style lang="scss">
-@import '@/assets/scss/_global/index.scss';
-@import '@/assets/scss/_ui/index.scss';
-</style>
