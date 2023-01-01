@@ -17,7 +17,10 @@
             <p class="list-item__info-position">
               {{company?.position}}
             </p>
-            <p class="list-item__info-description" v-html="company?.description" />
+            <p
+              class="list-item__info-description"
+              v-html="company?.description"
+            />
           </div>
         </div>
       </div>

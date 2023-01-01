@@ -1,3 +1,4 @@
+@import "@/assets/scss/_global/colors";
 @import "@/assets/scss/_ui/font-family";
 @import "@/assets/scss/_global/keyframes";
 @import "@/assets/scss/_global/breakpoints";
@@ -22,8 +23,8 @@
   .toast-item {
     font-family: $montserrat;
     padding: 15px;
-    background: #FFF;
-    color: #000;
+    background: $base-color-white-primary;
+    color: $base-color-black-primary;
     border-radius: 5px;
     width: 300px;
     display: flex;
@@ -66,23 +67,23 @@
     }
 
     &_success {
-      color: #FFF;
-      background: #51a351;
+      color: $base-color-white-primary;
+      background: $base-color-success;
     }
 
     &_info {
-      color: #FFF;
-      background: #2f96b4;
+      color: $base-color-white-primary;
+      background: $base-color-info;
     }
 
     &_warning {
-      color: #FFF;
-      background: #f89406
+      color: $base-color-white-primary;
+      background: $base-color-warning;
     }
 
     &_error {
-      color: #FFF;
-      background: #e34040;
+      color: $base-color-white-primary;
+      background: $base-color-error;
     }
 
     &.toast-slide-enter-active,

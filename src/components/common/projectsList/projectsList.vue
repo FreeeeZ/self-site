@@ -1,7 +1,9 @@
 <template>
   <div class="projects-list">
     <div class="container">
-      <h2 class="projects-list__title">Projects</h2>
+      <h2 class="projects-list__title">
+        Projects
+      </h2>
       <div v-if="projectsArr?.length">
         <div class="projects-list__items">
           <div
@@ -10,23 +12,44 @@
             class="projects-list__items-point"
           >
             <div class="list-item__info">
-              <h2 class="list-item__info-title">
+              <div class="list-item__info-title">
+                <h2>
+                  <a
+                    rel="noopener noreferrer nofollow"
+                    :href="project?.html_url"
+                    target="_blank"
+                  >
+                    {{ project?.name }}
+                  </a>
+                </h2>
+              </div>
+              <div
+                v-if="project?.homepage"
+                class="list-item__info-demo-link"
+              >
+                <p>Demo link:</p>
                 <a
                   rel="noopener noreferrer nofollow"
-                  :href="project?.html_url"
+                  :href="project?.homepage"
                   target="_blank"
                 >
-                  {{ project?.name }}
+                  {{project?.homepage}}
                 </a>
-              </h2>
+              </div>
               <div v-if="project?.tags" class="list-item__info-tags">
-                <div v-for="(tag, tagIdx) in Object.keys(project?.tags)" :key="tagIdx" class="list-item__info-tags-item">
+                <div
+                  v-for="(tag, tagIdx) in Object.keys(project?.tags)"
+                  :key="tagIdx"
+                  class="list-item__info-tags-item"
+                >
                   {{ tag }}
                 </div>
               </div>
-              <p v-if="project?.description" class="list-item__info-description">
-                {{ project?.description }}
-              </p>
+              <div v-if="project?.description" class="list-item__info-description">
+                <p>
+                  {{ project?.description }}
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -45,10 +68,10 @@
 </template>
 
 <script lang="ts" setup>
+import useProjectsList from "@/components/common/projectsList/useProjectsList";
+
 import AppButton from "@/components/ui/buttons/appButton.vue";
 import LoadingIcon from "@/components/ui/icons/loadingIcon.vue";
-
-import useProjectsList from "@/components/common/projectsList/useProjectsList";
 
 defineProps({
   renderFor: {

@@ -10,8 +10,9 @@
 
 <script lang="ts" setup>
 import useWindowBreakpoints from "@/utility/useWindowBreakpoints";
-import MiscInfo from '@/layouts/app-layout/components/header/components/miscInfo.vue';
+
 import Navigation from '@/layouts/app-layout/components/navigation/navigation.vue';
+import MiscInfo from '@/layouts/app-layout/components/header/components/miscInfo.vue';
 import NavigationMobile from "@/layouts/app-layout/components/navigation/navigationMobile.vue";
 
 const { screenBreakpointType } = useWindowBreakpoints();

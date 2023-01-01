@@ -1,3 +1,5 @@
+@import "@/assets/scss/_global/colors";
+
 .main-footer {
   &__socials-list {
     display: flex;
@@ -36,7 +38,7 @@
           text-align: center;
           letter-spacing: 0.12em;
           text-transform: uppercase;
-          color: #BDEBEA;
+          color: $base-color-white-primary;
         }
       }
     }

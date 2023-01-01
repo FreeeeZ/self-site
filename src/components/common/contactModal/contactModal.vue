@@ -52,10 +52,10 @@
 </template>
 
 <script lang="ts" setup>
+import useContactModal from "@/components/common/contactModal/useContactModal";
+
 import AppButton from "@/components/ui/buttons/appButton.vue";
 import LoadingIcon from "@/components/ui/icons/loadingIcon.vue";
-
-import useContactModal from "@/components/common/contactModal/useContactModal";
 
 const {
   contactFormObj,

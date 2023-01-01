@@ -2,15 +2,15 @@
 @import "@/assets/scss/_ui/mixins/inputs";
 
 .input {
-  border: 1px solid #000;
-  background-color: transparent;
+  border: 1px solid $base-color-black-primary;
+  background-color: $base-color-transparent;
   border-radius: 6px;
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
 
   &::placeholder {
-    color: #b2b2b2;
+    color: $base-color-pink-primary;
   }
 
   &-primary {

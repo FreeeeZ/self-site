@@ -27,13 +27,12 @@
 </template>
 
 <script lang="ts" setup>
-import AppButton from "@/components/ui/buttons/appButton.vue";
 import useHomeHero from "@/components/pages/home/useHomeHero";
+
+import AppButton from "@/components/ui/buttons/appButton.vue";
 import ScrollArrowIcon from "@/components/icons/ScrollArrowIcon.vue";
 
-const {
-  openContactModal
-} = useHomeHero();
+const { openContactModal } = useHomeHero();
 </script>
 
 <style lang="scss" scoped>

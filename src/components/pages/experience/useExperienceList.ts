@@ -39,14 +39,22 @@ export default function useExperienceList () {
         '— Conducting interviews for recruitment of staff in the frontend department.<br>',
     },
     {
-      yearInterval: 'July 2022 — Now',
+      yearInterval: 'July 2022 — October 2022',
       name: 'red_mad_robot',
       position: 'Frontend Developer',
       description:
-        '— NFT marketplace for the international market. Product development in a large distributed team, preparing the system for release, project support, code review, refactofing legacy-code.<br>' +
-        '— Promotion of frontend technologies through presentations for teams.<br>' +
-        '— Development of the frontend department in the company.<br>' +
-        '— More will be added little bit later...',
+        '— Participation in development of the decentralized NFT platform (Markup, API integration, Implement solidity contracts, Write unit tests with Vitest/Jest).<br>' +
+        '— Speeches and lectures with presentations for frontend developers of company.<br>' +
+        '— Participation in frontend developers code review, discussion and adoption of architectural decisions.<br>' +
+        '— Optimization to improve system performance and improve the quality of UI interaction.<br>' +
+        '— Technical audits of the frontend part of applications.'
+    },
+    {
+      yearInterval: 'October 2022 — Now',
+      name: 'red_mad_robot',
+      position: 'Team Lead',
+      description:
+        'More info will be added little bit later...'
     },
   ];
 
