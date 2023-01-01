@@ -36,7 +36,7 @@
               }
 
               &.active-link {
-                color: $base-linear-gradient-primary;
+                color: $base-color-green-primary;
 
                 &::after {
                   width: 100%;
@@ -69,7 +69,7 @@
               transition: 0.3s color;
 
               &.active-link {
-                color: $base-linear-gradient-primary;
+                color: $base-color-green-primary;
               }
             }
           }
