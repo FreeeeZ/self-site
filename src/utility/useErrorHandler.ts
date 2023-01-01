@@ -15,5 +15,5 @@ export default function useErrorHandler () {
 
   return {
     showError
-  }
+  };
 }
