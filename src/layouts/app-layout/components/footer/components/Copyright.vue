@@ -5,7 +5,14 @@
 </template>
 
 <script lang="ts" setup>
-const currentYear = new Date().getFullYear();
+import { onMounted, ref } from "vue";
+
+const currentYear = ref('');
+
+onMounted(() => {
+  const localCurrentYear = new Date().getFullYear();
+  currentYear.value = localCurrentYear.toString();
+});
 </script>
 
 <style lang="scss" scoped>
