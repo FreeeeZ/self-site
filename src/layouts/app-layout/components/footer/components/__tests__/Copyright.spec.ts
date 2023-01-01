@@ -11,7 +11,8 @@ describe('Copyright component', () => {
   });
 
   it('Current year must be this year', () => {
-    const wrapper = mount(Copyright);
+    // TODO: Fix 'any'
+    const wrapper = mount(Copyright as any);
     const localCurrentYear = new Date().getFullYear();
 
     expect(wrapper.vm.currentYear).toEqual(localCurrentYear.toString());
