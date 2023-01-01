@@ -5,7 +5,7 @@
 <script lang="ts" setup>
 import useProjects from "@/pages/projects/useProjects";
 
-import ProjectsList from '@/components/common/projectsList/projectsList.vue';
+import ProjectsList from '@/components/common/projectsList/ProjectsList.vue';
 
 const { projectsLength } = useProjects();
 </script>

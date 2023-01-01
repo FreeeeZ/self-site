@@ -70,8 +70,8 @@
 <script lang="ts" setup>
 import useProjectsList from "@/components/common/projectsList/useProjectsList";
 
-import AppButton from "@/components/ui/buttons/appButton.vue";
-import LoadingIcon from "@/components/ui/icons/loadingIcon.vue";
+import AppButton from "@/components/ui/buttons/AppButton.vue";
+import LoadingIcon from "@/components/ui/icons/LoadingIcon.vue";
 
 defineProps({
   renderFor: {

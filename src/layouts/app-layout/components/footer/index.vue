@@ -9,9 +9,9 @@
 </template>
 
 <script lang="ts" setup>
-import SocialList from '@/layouts/app-layout/components/footer/components/socialList.vue';
-import Navigation from '@/layouts/app-layout/components/navigation/navigation.vue';
-import Copyright from '@/layouts/app-layout/components/footer/components/copyright.vue';
+import Navigation from '@/layouts/app-layout/components/navigation/Navigation.vue';
+import Copyright from '@/layouts/app-layout/components/footer/components/Copyright.vue';
+import SocialList from '@/layouts/app-layout/components/footer/components/SocialList.vue';
 </script>
 
 <style lang="scss" scoped>

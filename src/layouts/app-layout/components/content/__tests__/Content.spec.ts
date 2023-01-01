@@ -3,9 +3,10 @@ import { describe, expect, it } from 'vitest';
 
 import Content from '@/layouts/app-layout/components/content/index.vue';
 
-describe('Content', () => {
+describe('Content component', () => {
   it('Content must be initialized', () => {
     const wrapper = mount(Content);
+
     expect(wrapper.vm).toBeTruthy();
   });
 });

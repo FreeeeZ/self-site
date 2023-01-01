@@ -10,8 +10,8 @@
 import { markRaw } from "vue";
 import { useModalStore } from "@/store/ui/modalStore";
 
-import AppButton from "@/components/ui/buttons/appButton.vue";
-import ContactModal from '@/components/common/contactModal/contactModal.vue';
+import AppButton from "@/components/ui/buttons/AppButton.vue";
+import ContactModal from '@/components/common/contactModal/ContactModal.vue';
 
 const modalStore = useModalStore();
 

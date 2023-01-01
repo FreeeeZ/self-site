@@ -6,8 +6,8 @@
 </template>
 
 <script lang="ts" setup>
-import HomeHero from '@/components/pages/home/homeHero.vue';
-import HomeAbout from '@/components/pages/home/homeAbout.vue';
-import HomeSkills from '@/components/pages/home/homeSkills.vue';
-import ProjectsList from '@/components/common/projectsList/projectsList.vue';
+import HomeHero from '@/components/pages/home/HomeHero.vue';
+import HomeAbout from '@/components/pages/home/HomeAbout.vue';
+import HomeSkills from '@/components/pages/home/HomeSkills.vue';
+import ProjectsList from '@/components/common/projectsList/ProjectsList.vue';
 </script>

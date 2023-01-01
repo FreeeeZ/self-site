@@ -1,7 +1,7 @@
 import { markRaw } from "vue";
 
 import { useModalStore } from "@/store/ui/modalStore";
-import ContactModal from "@/components/common/contactModal/contactModal.vue";
+import ContactModal from "@/components/common/contactModal/ContactModal.vue";
 
 export default function useHomeHero () {
   const modalStore = useModalStore();

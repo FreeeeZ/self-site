@@ -29,7 +29,7 @@
 <script lang="ts" setup>
 import useHomeHero from "@/components/pages/home/useHomeHero";
 
-import AppButton from "@/components/ui/buttons/appButton.vue";
+import AppButton from "@/components/ui/buttons/AppButton.vue";
 import ScrollArrowIcon from "@/components/icons/ScrollArrowIcon.vue";
 
 const { openContactModal } = useHomeHero();
