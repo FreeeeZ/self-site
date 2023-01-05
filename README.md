@@ -25,12 +25,12 @@ Design was taken for the basis: https://www.figma.com/community/file/10326601030
 - [x] Add "Contact" layer/modal.
 - [x] Fix eslint and lint *.vue, *.ts files.
 - [x] TypeScript support && add hooks for implement data from components.
-- [ ] Make unique UI library (buttons, modals, titles, toasts and etc).
-- [ ] Add lightweight animations (?).
+- [x] Support Vitest && Cover functions with simple tests.
+- [x] Make simple UI library (buttons, modals, titles, toasts and etc).
 - [ ] i18n compatible.
 - [ ] Add SEO metatags (support vue-meta || vue-head).
-- [ ] Support Vitest && Cover functions with tests.
-- [ ] Add light/dark themes.
+- [ ] Add light/dark themes (maybe with Figma tokens).
+- [ ] Add lightweight animations (?).
 
 
 ## Quick start
@@ -43,4 +43,4 @@ Design was taken for the basis: https://www.figma.com/community/file/10326601030
 
 [MIT](https://github.com/FreeeeZ/self-site/blob/main/LICENSE)
 
-Copyright (c) 2022, Shell Vladislav
+Copyright (c) 2023, Shell Vladislav

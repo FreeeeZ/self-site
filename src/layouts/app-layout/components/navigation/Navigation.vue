@@ -2,10 +2,14 @@
   <div class="app-layout__navigation" :class="`app-layout__navigation_${navigationType}`">
     <nav>
       <ul>
-        <li v-for="(item, index) in formattedRouter" :key="index" :tabindex="0">
-          <router-link :to="item.path">
-            {{item.name}}
-          </router-link>
+        <li
+          v-for="(route, index) in formattedRouter"
+          :key="index"
+          :tabindex="0"
+        >
+          <RouterLink :to="route.path">
+            {{ route.name }}
+          </RouterLink>
         </li>
       </ul>
     </nav>

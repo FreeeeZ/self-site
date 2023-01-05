@@ -1,7 +1,7 @@
 <template>
   <main class="main-content">
     <div :class="`${String(route?.name)}-page`.toLowerCase()">
-      <router-view />
+      <RouterView />
     </div>
   </main>
 </template>

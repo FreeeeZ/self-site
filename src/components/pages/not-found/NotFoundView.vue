@@ -7,9 +7,9 @@
       </picture>
       <h1 class="not-found-wrap__title">404</h1>
       <h2 class="not-found-wrap__subtitle">Oops! You were not supposed to find a crying whale.</h2>
-      <router-link to="/" class="button button-primary">
+      <RouterLink to="/" class="button button-primary button-uppercase">
         Go to main page
-      </router-link>
+      </RouterLink>
     </div>
   </div>
 </template>

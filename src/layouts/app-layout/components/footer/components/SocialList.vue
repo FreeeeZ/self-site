@@ -13,7 +13,7 @@
         <img :src="social.imageSvg" alt="Main photo">
       </picture>
       <p class="socials-list-item__title">
-        {{social.title}}
+        {{ social.title }}
       </p>
     </a>
   </div>

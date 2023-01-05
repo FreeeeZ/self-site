@@ -54,13 +54,13 @@
           </div>
         </div>
         <div v-if="renderFor === 'home-page'" class="projects-list__bottom">
-          <router-link to="/projects" class="button button-primary">
-            SEE ALL PROJECTS
-          </router-link>
+          <RouterLink to="/projects" class="button button-primary button-uppercase">
+            See all projects
+          </RouterLink>
         </div>
       </div>
       <AppButton v-else button-type="primary-with-icon" disabled>
-        <LoadingIcon />
+        <LoadingIcon color="#000000" />
         Processing...
       </AppButton>
     </div>
@@ -70,8 +70,8 @@
 <script lang="ts" setup>
 import useProjectsList from "@/components/common/projectsList/useProjectsList";
 
+import LoadingIcon from "@/components/icons/LoadingIcon.vue";
 import AppButton from "@/components/ui/buttons/AppButton.vue";
-import LoadingIcon from "@/components/ui/icons/LoadingIcon.vue";
 
 defineProps({
   renderFor: {

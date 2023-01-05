@@ -7,9 +7,9 @@
         I have come a long way from being a frontend developer intern to the position of Teamlead frontend developer. I have 5 years of software development experience. I have been leading the Frontend department. I solved the problems of the department and the company, drew up individual development plans, I have experience in developing assessment grades for frontend department employees, held meetings of the CAF (Club of Anonymous Frontenders) to exchange experiences and communicate on various topics related to the frontend community. I also have experience in interviewing and evaluating candidates.
       </p>
       <div class="home-about__bottom">
-        <router-link to="/experience" class="button button-primary">
-          SEE MY EXPERIENCE
-        </router-link>
+        <RouterLink to="/experience" class="button button-primary button-uppercase">
+          See my experience
+        </RouterLink>
       </div>
     </div>
   </div>

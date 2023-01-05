@@ -3,7 +3,11 @@
     name="fade"
     appear
   >
-    <button v-show="isShowButton" class="app-button button button-to-top" @click="toTop">
+    <button
+      v-show="isShowButton"
+      class="app-button button button-to-top"
+      @click="toTop"
+    >
       <ScrollArrowIcon color="#000000" />
     </button>
   </transition>

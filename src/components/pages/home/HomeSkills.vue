@@ -3,13 +3,17 @@
     <div class="container">
       <h2 class="home-skills__title">Skills</h2>
       <div class="home-skills__list">
-        <div v-for="(skill, index) in skillsList" :key="index" class="home-skills__list-item">
+        <div
+          v-for="(skill, index) in skillsList"
+          :key="index"
+          class="home-skills__list-item"
+        >
           <picture class="list-item__picture">
             <source type="image/webp" :srcset="skill.imageWebP">
             <img :src="skill.imageSvg" :alt="skill.title">
           </picture>
           <h2 class="list-item__title">
-            {{skill.title}}
+            {{ skill.title }}
           </h2>
         </div>
       </div>

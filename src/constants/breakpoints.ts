@@ -1,0 +1,3 @@
+export const BREAKPOINTS_VALUES = {
+  IS_SHOW_TO_TOP_VALUE: 915
+};

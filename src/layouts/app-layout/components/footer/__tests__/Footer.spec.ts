@@ -1,5 +1,5 @@
-import { shallowMount } from "@vue/test-utils";
 import { describe, expect, it } from 'vitest';
+import { shallowMount } from '@vue/test-utils';
 
 import Footer from '@/layouts/app-layout/components/footer/index.vue';
 import Navigation from '@/layouts/app-layout/components/navigation/Navigation.vue';

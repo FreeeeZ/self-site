@@ -12,6 +12,10 @@
     cursor: pointer;
   }
 
+  &.button-uppercase {
+    text-transform: uppercase;
+  }
+
   &.button-primary {
     @include button-primary;
   }

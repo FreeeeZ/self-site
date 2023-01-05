@@ -1,3 +1,4 @@
+import { DefineComponent } from "vue";
 import { mount } from '@vue/test-utils';
 import { describe, expect, it } from 'vitest';
 
@@ -10,11 +11,17 @@ describe('Copyright component', () => {
     expect(wrapper.vm).toBeTruthy();
   });
 
-  it('Current year must be this year', () => {
-    // TODO: Fix 'any'
-    const wrapper = mount(Copyright as any);
+  it('Current year must be correct value', () => {
+    const wrapper = mount(Copyright as DefineComponent);
     const localCurrentYear = new Date().getFullYear();
 
     expect(wrapper.vm.currentYear).toEqual(localCurrentYear.toString());
+  });
+
+  it('Copyright must be correct value', () => {
+    const wrapper = mount(Copyright as DefineComponent);
+    const localCurrentYear = new Date().getFullYear();
+
+    expect(wrapper.find('.main-footer__copyright').text()).toBe(`Vladislav Shell © ${localCurrentYear}`);
   });
 });
