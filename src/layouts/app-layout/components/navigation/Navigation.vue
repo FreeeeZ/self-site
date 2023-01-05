@@ -3,12 +3,12 @@
     <nav>
       <ul>
         <li
-          v-for="(route, index) in formattedRouter"
+          v-for="(routeItem, index) in formattedRouter"
           :key="index"
           :tabindex="0"
         >
-          <RouterLink :to="route.path">
-            {{ route.name }}
+          <RouterLink :to="routeItem.path">
+            {{ routeItem.name }}
           </RouterLink>
         </li>
       </ul>
