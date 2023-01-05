@@ -24,8 +24,8 @@
 </template>
 
 <script setup>
-import { UI_VALUES } from "@/constants/ui.js";
-import { useToastStore } from "@/store/ui/toastStore.ts";
+import { UI_VALUES } from "@/constants/ui";
+import { useToastStore } from "@/store/ui/toastStore";
 
 const toastStore = useToastStore();
 </script>
