@@ -3,6 +3,7 @@ import { onBeforeUnmount, ref } from "vue";
 import { useModalStore } from "@/store/ui/modalStore";
 import { useToastStore } from "@/store/ui/toastStore";
 
+import { UI_VALUES } from "@/constants/ui";
 import EX_$ContactForm from "@/typescript/models/contactForm";
 import { IContactFormField } from "@/typescript/interfaces/contactFormInterfaces";
 
@@ -27,7 +28,7 @@ export default function useContactModal () {
             toastTitle: EX_$ContactForm?.getRequestStatusAndMessage?.requestStatus ? 'Success' : 'Error',
             toastName: 'contact-modal-message',
             toastText: EX_$ContactForm?.getRequestStatusAndMessage?.finallyMessage,
-            toastDuration: 5000
+            toastDuration: UI_VALUES.TOAST_DEFAULT_DURATION_VALUE
           });
         }
       });
@@ -51,7 +52,7 @@ export default function useContactModal () {
           toastTitle: "Error",
           toastName: "contact-modal-error",
           toastText: e,
-          toastDuration: 5000
+          toastDuration: UI_VALUES.TOAST_DEFAULT_DURATION_VALUE
         });
       });
   }

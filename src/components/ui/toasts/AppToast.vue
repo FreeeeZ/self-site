@@ -16,7 +16,7 @@
           {{ toast?.toastText }}
         </div>
         <div class="toast-item__progress">
-          <div :style="`--duration: ${toast?.toastDuration / 1000}`" />
+          <div :style="`--duration: ${toast?.toastDuration / UI_VALUES.TOAST_CONVERT_TO_ONE_SECOND_VALUE}`" />
         </div>
       </div>
     </transition-group>
@@ -24,6 +24,7 @@
 </template>
 
 <script setup>
+import { UI_VALUES } from "@/constants/ui.js";
 import { useToastStore } from "@/store/ui/toastStore.ts";
 
 const toastStore = useToastStore();
