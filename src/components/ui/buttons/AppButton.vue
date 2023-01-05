@@ -18,7 +18,3 @@ defineProps({
   }
 });
 </script>
-
-<style lang="scss" scoped>
-@use './styles/app-button';
-</style>

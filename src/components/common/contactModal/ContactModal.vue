@@ -44,7 +44,7 @@
       </form>
     </div>
     <div class="modal-window__footer">
-      <AppButton v-if="!formProcessingValue" button-type="primary-with-icon" disabled @click="confirmForm">
+      <AppButton v-if="formProcessingValue" button-type="primary-with-icon" disabled @click="confirmForm">
         <LoadingIcon color="#000000" />
         Processing...
       </AppButton>
