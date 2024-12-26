@@ -6,6 +6,10 @@ import VueIconSvg from "@/assets/images/skills/vue-icon.svg";
 import VueIconWebP from "@/assets/images/skills/vue-icon.webp";
 import ReactIconSvg from "@/assets/images/skills/react-icon.png";
 import ReactIconWebP from "@/assets/images/skills/react-icon.webp";
+import ReactQueryIconSvg from "@/assets/images/skills/react-query-icon.svg";
+import ReactQueryIconWebP from "@/assets/images/skills/react-query-icon.webp";
+import ReduxIconSvg from "@/assets/images/skills/redux-icon.svg";
+import ReduxIconWebP from "@/assets/images/skills/redux-icon.webp";
 import VuexIconSvg from "@/assets/images/skills/vuex-icon.svg";
 import VuexIconWebP from "@/assets/images/skills/vuex-icon.webp";
 import PiniaIconSvg from "@/assets/images/skills/pinia-icon.svg";
@@ -29,17 +33,12 @@ export default function useHomeSkills () {
     {
       imageSvg: TsIconSvg,
       imageWebP: TsIconWebP,
-      title: 'Typescript'
+      title: 'TypeScript'
     },
     {
       imageSvg: VueIconSvg,
       imageWebP: VueIconWebP,
       title: 'Vue JS'
-    },
-    {
-      imageSvg: ReactIconSvg,
-      imageWebP: ReactIconWebP,
-      title: 'React JS'
     },
     {
       imageSvg: VuexIconSvg,
@@ -50,6 +49,21 @@ export default function useHomeSkills () {
       imageSvg: PiniaIconSvg,
       imageWebP: PiniaIconWebP,
       title: 'Pinia'
+    },
+    {
+      imageSvg: ReactIconSvg,
+      imageWebP: ReactIconWebP,
+      title: 'React JS'
+    },
+    {
+      imageSvg: ReduxIconSvg,
+      imageWebP: ReduxIconWebP,
+      title: 'Redux'
+    },
+    {
+      imageSvg: ReactQueryIconSvg,
+      imageWebP: ReactQueryIconWebP,
+      title: 'React Query'
     },
     {
       imageSvg: GitIconSvg,

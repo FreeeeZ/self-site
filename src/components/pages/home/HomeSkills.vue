@@ -1,7 +1,7 @@
 <template>
   <div class="home-skills">
     <div class="container">
-      <h2 class="home-skills__title">Skills</h2>
+      <h2 class="home-skills__title">Main skills</h2>
       <div class="home-skills__list">
         <div
           v-for="(skill, index) in skillsList"

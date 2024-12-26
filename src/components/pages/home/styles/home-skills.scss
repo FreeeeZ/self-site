@@ -17,18 +17,18 @@
     display: flex;
     justify-content: center;
     flex-flow: wrap;
-    gap: 120px;
+    gap: 76px;
 
     @media screen and (max-width: $xl) {
-      gap: 85px;
+      gap: 90px;
     }
 
     @media screen and (max-width: $lg) {
-      gap: 74px;
+      gap: 80px;
     }
 
     @media screen and (max-width: $md) {
-      gap: 84px;
+      gap: 20px;
     }
 
     @media screen and (max-width: $sm) {
@@ -37,7 +37,7 @@
     }
 
     &-item {
-      width: 124px;
+      width: 120px;
       display: flex;
       flex-direction: column;
       justify-content: center;
