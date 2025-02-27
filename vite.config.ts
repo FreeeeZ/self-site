@@ -1,31 +1,26 @@
+import { defineConfig } from 'vite';
 import path from 'path';
 import vue from '@vitejs/plugin-vue';
-import { defineConfig, loadEnv } from 'vite';
-import eslintPlugin from 'vite-plugin-eslint';
+import vercel from 'vite-plugin-vercel';
 
-export default ({ mode }) => {
-  process.env = {...process.env, ...loadEnv(mode, process.cwd())};
-
-  return defineConfig({
-    base: mode === 'development' ? process.env.VITE_DEV_BASE_URL : process.env.VITE_PROD_BASE_URL,
-    resolve: {
-      alias: {
-        '@': path.resolve(__dirname, 'src'),
-      },
+// https://vite.dev/config/
+export default defineConfig({
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src'),
     },
-    plugins: [
-      vue(),
-      eslintPlugin()
-    ],
-    server: {
-      host: 'localhost',
-      port: 3000,
-    },
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    test: {
-      globals: true,
-      environment: 'jsdom',
-    },
-  });
-};
+  },
+  plugins: [
+    vue(),
+    vercel(),
+  ],
+  server: {
+    host: 'localhost',
+    port: 3000,
+  },
+  // @ts-ignore
+  test: {
+    globals: true,
+    environment: 'jsdom',
+  },
+});
