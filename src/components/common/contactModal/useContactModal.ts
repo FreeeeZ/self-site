@@ -1,11 +1,11 @@
 import { onBeforeUnmount, ref } from "vue";
 
-import { useModalStore } from "@/store/ui/modalStore";
-import { useToastStore } from "@/store/ui/toastStore";
+import { useModalStore } from "@/store/ui/modal";
+import { useToastStore } from "@/store/ui/toast";
 
 import { UI_VALUES } from "@/constants/ui";
-import EX_$ContactForm from "@/typescript/models/contactForm";
-import { IContactFormField } from "@/typescript/interfaces/contactFormInterfaces";
+import ContactForm from "@/typescript/models/contactForm";
+import { IContactFormField } from "@/typescript/interfaces/contactForm";
 
 export default function useContactModal () {
   const modalStore = useModalStore();
@@ -13,21 +13,21 @@ export default function useContactModal () {
 
   const formProcessingValue = ref(false);
   const contactFormAccessKey = import.meta.env.VITE_WEB3_ACCESS_KEY;
-  const contactFormObj = ref(EX_$ContactForm.getContactFormObj);
+  const contactFormObj = ref(ContactForm.getContactFormObj);
 
   async function confirmForm (e: Event) {
     formProcessingValue.value = true;
 
-    await EX_$ContactForm?.confirmContactForm(e)
+    await ContactForm?.confirmContactForm(e)
       .finally(() => {
         formProcessingValue.value = false;
 
-        if (!EX_$ContactForm?.getErrorsArray?.length) {
+        if (!ContactForm?.getErrorsArray?.length) {
           toastStore.openToast({
-            toastType: EX_$ContactForm?.getRequestStatusAndMessage?.requestStatus ? 'success' : 'error',
-            toastTitle: EX_$ContactForm?.getRequestStatusAndMessage?.requestStatus ? 'Success' : 'Error',
+            toastType: ContactForm?.getRequestStatusAndMessage?.requestStatus ? 'success' : 'error',
+            toastTitle: ContactForm?.getRequestStatusAndMessage?.requestStatus ? 'Success' : 'Error',
             toastName: 'contact-modal-message',
-            toastText: EX_$ContactForm?.getRequestStatusAndMessage?.finallyMessage,
+            toastText: ContactForm?.getRequestStatusAndMessage?.finallyMessage,
             toastDuration: UI_VALUES.TOAST_DEFAULT_DURATION_VALUE
           });
         }
@@ -41,9 +41,9 @@ export default function useContactModal () {
   function closeModal () {
     return new Promise((resolve) => {
       modalStore?.closeModal("contact");
-      EX_$ContactForm.setRequestStatusAndMessage = { finallyMessage: '', requestStatus: true };
-      EX_$ContactForm.clearFieldsErrors();
-      EX_$ContactForm.clearFieldsValues();
+      ContactForm.setRequestStatusAndMessage = { finallyMessage: '', requestStatus: true };
+      ContactForm.clearFieldsErrors();
+      ContactForm.clearFieldsValues();
       resolve(true);
     })
       .catch((e) => {
@@ -59,7 +59,7 @@ export default function useContactModal () {
 
   onBeforeUnmount(() => {
     closeModal().then(() => {
-      EX_$ContactForm.setRequestStatusAndMessage = { finallyMessage: '', requestStatus: true };
+      ContactForm.setRequestStatusAndMessage = { finallyMessage: '', requestStatus: true };
     });
   });
 

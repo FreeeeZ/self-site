@@ -25,7 +25,7 @@
 
 <script setup>
 import { UI_VALUES } from "@/constants/ui";
-import { useToastStore } from "@/store/ui/toastStore";
+import { useToastStore } from "@/store/ui/toast";
 
 const toastStore = useToastStore();
 </script>

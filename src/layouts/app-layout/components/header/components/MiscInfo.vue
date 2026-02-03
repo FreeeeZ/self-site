@@ -8,7 +8,7 @@
 
 <script lang="ts" setup>
 import { markRaw } from "vue";
-import { useModalStore } from "@/store/ui/modalStore";
+import { useModalStore } from "@/store/ui/modal";
 
 import AppButton from "@/components/ui/buttons/AppButton.vue";
 import ContactModal from '@/components/common/contactModal/ContactModal.vue';

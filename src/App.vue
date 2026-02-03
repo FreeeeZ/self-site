@@ -8,7 +8,7 @@
 import { watch } from "vue";
 import { useRoute } from "vue-router";
 
-import { useModalStore } from "@/store/ui/modalStore";
+import { useModalStore } from "@/store/ui/modal";
 
 import AppLayout from '@/layouts/app-layout/index.vue';
 import AppModal from "@/components/ui/modals/AppModal.vue";

@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 
-import { IToastStore, IToastItem } from "@/store/interfaces/toastInterfaces";
+import { IToastStore, IToastItem } from "@/store/interfaces/toast";
 
 export const useToastStore = defineStore('toasts', {
   state: (): IToastStore => ({

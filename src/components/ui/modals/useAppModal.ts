@@ -1,5 +1,5 @@
 import { computed, watch } from "vue";
-import { useModalStore } from "@/store/ui/modalStore";
+import { useModalStore } from "@/store/ui/modal";
 
 export default function useAppModal () {
   const modalStore = useModalStore();

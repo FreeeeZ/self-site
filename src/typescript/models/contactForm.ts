@@ -3,9 +3,9 @@ import axios from 'axios';
 
 import { validateEmail } from "@/utility/regExpHelper";
 import { CONTACT_FORM_ERRORS } from "@/constants/messages";
-import { IContactFormObj } from "@/typescript/interfaces/contactFormInterfaces";
+import { IContactFormObj } from "@/typescript/interfaces/contactForm";
 
-export class $ContactForm  {
+export class ContactForm  {
   private contactFormObj = ref({
     fields: [
       {
@@ -157,4 +157,4 @@ export class $ContactForm  {
   }
 }
 
-export default new $ContactForm();
+export default new ContactForm();

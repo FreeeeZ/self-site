@@ -1,5 +1,5 @@
 import { UI_VALUES } from "@/constants/ui";
-import { useToastStore } from "@/store/ui/toastStore";
+import { useToastStore } from "@/store/ui/toast";
 
 export default function useErrorHandler () {
   const toastStore = useToastStore();

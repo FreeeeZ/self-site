@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { reactive } from 'vue';
-import { IProjectObject } from '@/typescript/interfaces/projectsInterfaces';
+import { IProjectObject } from '@/typescript/interfaces/projects';
 
-export class $Projects {
+export class Projects {
   private projectsList: Array<IProjectObject> = reactive([]);
   private projectsFetched = false;
 
@@ -46,4 +46,4 @@ export class $Projects {
   }
 }
 
-export default new $Projects();
+export default new Projects();
