@@ -1,15 +1,16 @@
 import { onMounted, ref } from "vue";
 
-import Projects from "@/typescript/models/projects";
-import { IProjectObject } from "@/typescript/interfaces/projects";
+import GitHubRepos from "@/typescript/models/gitHubRepos";
+import { IRepoObject } from "@/typescript/interfaces/gitHubRepos";
 
 export default function useProjectsList () {
-  const projectsArr = ref([] as Array<IProjectObject>);
+  const projectsArr = ref([] as Array<IRepoObject>);
 
-  async function fetchProjects () {
+  async function fetchProjects() {
     try {
-      await Projects?.getProjects();
-      projectsArr.value = Projects.projectsArr;
+      await GitHubRepos.getProjects();
+
+      projectsArr.value = GitHubRepos.projectsList;
     } catch (error) {
       console.log(error);
     }

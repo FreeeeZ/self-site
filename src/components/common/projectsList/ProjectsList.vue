@@ -38,7 +38,7 @@
               </div>
               <div v-if="project?.tags" class="list-item__info-tags">
                 <div
-                  v-for="(tag, tagIdx) in Object.keys(project?.tags)"
+                  v-for="(tag, tagIdx) in project?.tags"
                   :key="tagIdx"
                   class="list-item__info-tags-item"
                 >

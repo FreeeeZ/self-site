@@ -1,4 +1,4 @@
-export interface IUserInfo {
+interface IUserInfo {
   login: string;
   id: number;
   node_id: string;
@@ -19,7 +19,7 @@ export interface IUserInfo {
   site_admin: boolean;
 }
 
-export interface IProjectLicenseObject {
+interface IRepoLicenseObject {
   key: string;
   name: string;
   node_id: string;
@@ -27,7 +27,7 @@ export interface IProjectLicenseObject {
   url: string;
 }
 
-export interface IProjectObject {
+export interface IRepoObject {
   id: number;
   node_id: string;
   name: string;
@@ -96,7 +96,7 @@ export interface IProjectObject {
   archived: boolean;
   disabled: boolean;
   open_issues_count: number;
-  license?: IProjectLicenseObject;
+  license?: IRepoLicenseObject;
   allow_forking: boolean;
   is_template: boolean;
   web_commit_signoff_required: boolean;
