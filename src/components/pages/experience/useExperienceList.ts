@@ -14,7 +14,7 @@ export default function useExperienceList () {
     {
       yearInterval: 'March 2019 — June 2022',
       name: 'SmartWorld LLC',
-      position: 'Frontend Supervisor',
+      position: 'Frontend Lead',
       description:
         '— Development projects of company on technologies: Yii2 (PHP), React.js, Vue.js (Nuxt.js), JavaScript, TypeScript, jQuery, CSS, SASS, Bootstrap (3, 4, 5), Material UI, Vuetify.<br>' +
         '— Web3 (work with smart contracts, ABI, connection of software wallets).<br>' +
@@ -55,10 +55,6 @@ export default function useExperienceList () {
         '— Ensuring team interaction with the customer.<br>' +
         '— Technical analysis of the project to complete tasks (using the principles of SOLID, MVVM, clean architecture and UML diagrams).<br>' +
         '— Integration with Solidity smart contracts.<br>' +
-        '— Speaking and lectures with presentations for front-end developers of the company.<br>' +
-        '— Participation in Code Review of front-end developers, discussion and adoption of architectural decisions.<br>' +
-        '— Optimization of improving the performance and quality of the system for interaction with the user interface.<br>' +
-        '— Technical audits of the front-end part of applications.<br>' +
         '— SEO optimization of web applications.<br>' +
         '— Web3 (working with smart contracts, ABI, connecting software wallets).<br>' +
         '— Blockchain (Ethers.js, Wagmi, Rainbowkit)<br>' +
@@ -77,6 +73,25 @@ export default function useExperienceList () {
         '— Layout of interfaces (Ant Design/TailwindCSS, Atomic Design).<br>' +
         '— Working on projects with microservice architecture (mainly Webpack Module Federation).<br>' +
         '— Setting up a monorepo of projects (Turbo).<br>',
+    },
+    {
+      yearInterval: 'February 2025 — Present',
+      name: 'Sovcombank Technologies',
+      position: 'Frontend Developer',
+      description:
+        '— Participation in frontend developers code review.<br>' +
+        '— Optimization to improve system performance.<br>' +
+        '— Technical audits of the frontend part of application.<br>' +
+        '— Defining the scope of tasks and assessment.<br>' +
+        '— Mentoring developers to implement AI into daily workflows.<br>' +
+        '— Legacy code refactoring.<br>' +
+        '— Interface integration with the backend (Rest API, WebSocket).<br>'  +
+        '— Developing architectural solutions for non-trivial features.<br>'  +
+        '— Implementation and support of the Microfrontend architecture (@module-federation/vite).<br>'  +
+        '— Optimizing system performance for user interface interaction.<br>'  +
+        '— Facilitating the frontend team retrospective process.<br>'  +
+        '— Refactoring system modules, following the FSD architecture guidelines.<br>'  +
+        '— Configuring Vite and ESLint.<br>',
     },
   ];
 
