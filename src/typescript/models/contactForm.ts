@@ -1,160 +1,228 @@
-import { ref } from 'vue';
-import axios from 'axios';
+import { reactive } from 'vue';
+import axios, { type AxiosError } from 'axios';
 
-import { validateEmail } from "@/utility/regExpHelper";
-import { CONTACT_FORM_ERRORS } from "@/constants/messages";
-import { IContactFormObj } from "@/typescript/interfaces/contactForm";
+import { validateEmail } from '@/utility/regExpHelper';
+import { CONTACT_FORM_ERRORS } from '@/constants/messages';
+import type { IContactFormField, IContactFormObj } from '@/typescript/interfaces/contactForm';
 
-export class ContactForm  {
-  private contactFormObj = ref({
-    fields: [
-      {
-        name: 'name',
-        label: 'Name',
-        required: true,
-        placeholder: 'Name',
-        tag: 'input',
-        type: 'text',
-        maxLength: 52,
-        value: '',
-        isError: false,
-        errorText: ''
-      },
-      {
-        name: 'email',
-        label: 'Email',
-        required: false,
-        placeholder: 'Email',
-        tag: 'input',
-        type: 'email',
-        maxLength: 52,
-        value: '',
-        isError: false,
-        errorText: ''
-      },
-      {
-        name: 'message',
-        label: 'Message',
-        required: true,
-        placeholder: 'Message',
-        tag: 'textarea',
-        maxLength: 300,
-        value: '',
-        isError: false,
-        errorText: ''
-      }
-    ],
-    fieldsErrors: [],
-    requestStatus: true,
-    finallyMessage: ''
-  } as IContactFormObj);
+interface FieldConfig {
+  name: string;
+  label: string;
+  required: boolean;
+  placeholder: string;
+  tag: 'input' | 'textarea';
+  type?: string;
+  maxLength: number;
+}
 
-  clearFieldsValues () {
-    this.getFieldsArray?.forEach((field) => {
-      field.value = '';
-    });
-  }
+interface SubmissionResult {
+  finallyMessage: string;
+  requestStatus: boolean;
+}
 
-  validateContactForm () {
-    this.setErrorsArray = [];
+interface FormValues {
+  [key: string]: string;
+}
 
-    return this.getFieldsArray?.forEach((field) => {
-      field.isError = false;
+class ContactFormService {
+  private readonly fieldConfigs: FieldConfig[] = [
+    {
+      name: 'name',
+      label: 'Name',
+      required: true,
+      placeholder: 'Name',
+      tag: 'input',
+      type: 'text',
+      maxLength: 52,
+    },
+    {
+      name: 'email',
+      label: 'Email',
+      required: false,
+      placeholder: 'Email',
+      tag: 'input',
+      type: 'email',
+      maxLength: 52,
+    },
+    {
+      name: 'message',
+      label: 'Message',
+      required: true,
+      placeholder: 'Message',
+      tag: 'textarea',
+      maxLength: 300,
+    },
+  ];
 
-      if (field?.required && !field?.value?.length) {
-        this.getErrorsArray?.push(field?.name);
-        field.isError = true;
-        field.errorText = CONTACT_FORM_ERRORS.CONTACT_FORM_FIELD_REQUIRED;
-      }
+  private readonly state = reactive({
+    fields: this.fieldConfigs.map(config => ({
+      ...config,
+      value: '',
+      isError: false,
+      errorText: '',
+    })) as IContactFormField[],
+    fieldsErrors: [] as string[],
+    isProcessing: false,
+    submissionResult: {
+      finallyMessage: '',
+      requestStatus: true,
+    } as SubmissionResult,
+  });
 
-      if (field?.name === 'email' && field?.value?.length && !validateEmail(field?.value)) {
-        this.getErrorsArray?.push(field?.name);
-        field.isError = true;
-        field.errorText = CONTACT_FORM_ERRORS.CONTACT_FORM_FIELD_IS_NOT_VALID;
-      }
-    });
-  }
-
-  async confirmContactForm (e: Event): Promise<void> {
-    const contactForm = document.getElementById('contactForm') as HTMLFormElement;
-    const formData = new FormData(contactForm);
-    const fieldValuesObj = {};
-    let contactFormData = '';
-
-    formData?.forEach((value, key) => {
-      if (typeof value !== "string" || value?.length) {
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        fieldValuesObj[key] = value;
-      }
-    });
-
-    contactFormData = JSON.stringify(fieldValuesObj);
-
-    this.validateContactForm();
-
-    if (!this.getErrorsArray?.length) {
-      await axios(`${import.meta.env.VITE_WEB3_FORMS_API_URL}/submit`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json"
-        },
-        data: contactFormData
-      })
-        .then((response) => {
-          this.clearFieldsValues();
-          this.setRequestStatusAndMessage = {
-            finallyMessage: response?.data?.message,
-            requestStatus: response?.data?.success
-          };
-        })
-        .catch((error) => {
-          this.setRequestStatusAndMessage = {
-            finallyMessage: error?.response?.data?.message,
-            requestStatus: error?.success
-          };
-        });
-    }
-
-    e.preventDefault();
-  };
-
-  clearFieldsErrors () {
-    this.setErrorsArray = [];
-
-    this.getFieldsArray?.forEach((field) => {
-      field.isError = false;
-    });
-  }
-
-  get getContactFormObj () {
-    return this.contactFormObj?.value;
-  }
-
-  get getFieldsArray () {
-    return this.contactFormObj?.value?.fields;
-  }
-
-  get getErrorsArray () {
-    return this.contactFormObj?.value?.fieldsErrors;
-  }
-
-  get getRequestStatusAndMessage () {
+  get getContactFormObj(): IContactFormObj {
     return {
-      finallyMessage: this.contactFormObj.value.finallyMessage,
-      requestStatus: this.contactFormObj.value.requestStatus
+      fields: this.state.fields,
+      fieldsErrors: this.state.fieldsErrors,
+      requestStatus: this.state.submissionResult.requestStatus,
+      finallyMessage: this.state.submissionResult.finallyMessage,
     };
   }
 
-  set setErrorsArray (value: Array<string>) {
-    this.contactFormObj.value.fieldsErrors = value;
+  get getErrorsArray(): string[] {
+    return this.state.fieldsErrors;
   }
 
-  set setRequestStatusAndMessage (value: IContactFormObj) {
-    this.contactFormObj.value.finallyMessage = value.finallyMessage;
-    this.contactFormObj.value.requestStatus = value.requestStatus;
+  get getRequestStatusAndMessage(): SubmissionResult {
+    return { ...this.state.submissionResult };
+  }
+
+  private validateField(field: IContactFormField): boolean {
+    if (field.required && !field.value.trim()) {
+      field.errorText = CONTACT_FORM_ERRORS.CONTACT_FORM_FIELD_REQUIRED;
+
+      return false;
+    }
+
+    if (field.name === 'email' && field.value && !validateEmail(field.value)) {
+      field.errorText = CONTACT_FORM_ERRORS.CONTACT_FORM_FIELD_IS_NOT_VALID;
+
+      return false;
+    }
+
+    return true;
+  }
+
+  validateContactForm(): void {
+    this.state.fieldsErrors = [];
+
+    this.state.fields.forEach(field => {
+      field.isError = false;
+
+      if (!this.validateField(field)) {
+        field.isError = true;
+        this.state.fieldsErrors.push(field.name);
+      }
+    });
+  }
+
+  clearFieldsValues(): void {
+    this.state.fields.forEach(field => {
+      field.value = '';
+    });
+    this.clearFieldsErrors();
+  }
+
+  clearFieldsErrors(): void {
+    this.state.fieldsErrors = [];
+    this.state.fields.forEach(field => {
+      field.isError = false;
+      field.errorText = '';
+    });
+  }
+
+  updateFieldValue(fieldName: string, value: string): void {
+    const field = this.state.fields.find(f => f.name === fieldName);
+
+    if (field) {
+      field.value = value;
+
+      if (field.isError) {
+        field.isError = false;
+        field.errorText = '';
+        const errorIndex = this.state.fieldsErrors.indexOf(fieldName);
+        if (errorIndex > -1) {
+          this.state.fieldsErrors.splice(errorIndex, 1);
+        }
+      }
+    }
+  }
+
+  private async submitFormData(formData: string): Promise<SubmissionResult> {
+    try {
+      const response = await axios.post(
+        `${import.meta.env.VITE_WEB3_FORMS_API_URL}/submit`,
+        formData,
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+          },
+        }
+      );
+
+      return {
+        finallyMessage: response.data.message || 'Message sent successfully',
+        requestStatus: response.data.success,
+      };
+    } catch (error) {
+      const axiosError = error as AxiosError<{ message?: string; success?: boolean }>;
+
+      return {
+        finallyMessage: axiosError.response?.data?.message || 'Submission failed',
+        requestStatus: axiosError.response?.data?.success || false,
+      };
+    }
+  }
+
+  async confirmContactForm(event: Event): Promise<void> {
+    event.preventDefault();
+
+    this.validateContactForm();
+
+    if (this.state.fieldsErrors.length > 0) {
+      return;
+    }
+
+    this.state.isProcessing = true;
+
+    try {
+      const formValues = this.getFormValues();
+      const formDataJson = JSON.stringify(formValues);
+
+      const result = await this.submitFormData(formDataJson);
+
+      this.state.submissionResult = result;
+
+      if (result.requestStatus) {
+        this.clearFieldsValues();
+      }
+    } finally {
+      this.state.isProcessing = false;
+    }
+  }
+
+  private getFormValues(): FormValues {
+    const values: FormValues = {};
+
+    this.state.fields.forEach(field => {
+      if (field.value.trim()) {
+        values[field.name] = field.value;
+      }
+    });
+
+    const accessKey = import.meta.env.VITE_WEB3_ACCESS_KEY;
+    if (accessKey) {
+      values.access_key = accessKey;
+    }
+
+    return values;
+  }
+
+  reset(): void {
+    this.clearFieldsValues();
+    this.state.submissionResult = { finallyMessage: '', requestStatus: true };
+    this.state.isProcessing = false;
   }
 }
 
-export default new ContactForm();
+export default new ContactFormService();
