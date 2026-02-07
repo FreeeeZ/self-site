@@ -29,10 +29,13 @@ export default [
       ...ts.configs['stylistic-type-checked'].rules,
       '@typescript-eslint/no-explicit-any': 'warn',
       '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
-      '@typescript-eslint/consistent-type-imports': ['error', {
-        prefer: 'type-imports',
-        disallowTypeAnnotations: false
-      }],
+      '@typescript-eslint/consistent-type-imports': [
+        'error',
+        {
+          prefer: 'type-imports',
+          disallowTypeAnnotations: false,
+        },
+      ],
     },
   },
   {
@@ -53,12 +56,18 @@ export default [
     rules: {
       ...vue.configs['vue3-recommended'].rules,
       'vue/multi-word-component-names': 'off',
-      'vue/component-tags-order': ['error', {
-        order: ['template', 'script', 'style']
-      }],
-      'vue/block-order': ['error', {
-        order: ['template', 'script', 'style']
-      }],
+      'vue/component-tags-order': [
+        'error',
+        {
+          order: ['template', 'script', 'style'],
+        },
+      ],
+      'vue/block-order': [
+        'error',
+        {
+          order: ['template', 'script', 'style'],
+        },
+      ],
       'vue/require-default-prop': 'off',
       'vue/no-multiple-template-root': 'off',
     },
@@ -77,7 +86,18 @@ export default [
     },
     rules: {
       ...prettierConfig.rules,
-      'prettier/prettier': 'error',
+      'prettier/prettier': [
+        'error',
+        {
+          semi: true,
+          singleQuote: true,
+          trailingComma: 'es5',
+          printWidth: 100,
+          tabWidth: 2,
+          useTabs: false,
+          vueIndentScriptAndStyle: false,
+        },
+      ],
     },
   },
   {
@@ -92,7 +112,7 @@ export default [
       '.vite/',
       '.vercel/',
       '.git/',
-      'public/'
+      'public/',
     ],
   },
 ];

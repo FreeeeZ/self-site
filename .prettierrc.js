@@ -3,12 +3,12 @@ export default {
   tabWidth: 2,
   singleQuote: true,
   trailingComma: 'es5',
-  semi: false,
+  semi: true,
   arrowParens: 'always',
   bracketSpacing: true,
   endOfLine: 'auto',
   printWidth: 100,
-  vueIndentScriptAndStyle: true,
+  vueIndentScriptAndStyle: false,
   overrides: [
     {
       files: ['*.ts', '*.tsx'],
