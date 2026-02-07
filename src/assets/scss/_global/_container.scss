@@ -1,10 +1,10 @@
-@import "./breakpoints";
+@use "./breakpoints" as breakpoints;
 
 .container {
   padding: 0 15px;
 }
 
-@media screen and (min-width: $sm) {
+@media screen and (min-width: breakpoints.$sm) {
   .container {
     max-width: 540px;
     margin: auto;
@@ -12,19 +12,19 @@
   }
 }
 
-@media screen and (min-width: $md) {
+@media screen and (min-width: breakpoints.$md) {
   .container {
     max-width: 720px;
   }
 }
 
-@media screen and (min-width: $lg) {
+@media screen and (min-width: breakpoints.$lg) {
   .container {
     max-width: 960px;
   }
 }
 
-@media screen and (min-width: $xl) {
+@media screen and (min-width: breakpoints.$xl) {
   .container {
     max-width: 1100px;
   }

@@ -1,4 +1,4 @@
-@import "@/assets/scss/_global/colors";
+@use "@/assets/scss/_global/colors" as colors;
 
 .contact-form {
   &__field {
@@ -18,17 +18,17 @@
     margin: 15px 0 0;
 
     &_success {
-      color: $base-color-success;
+      color: colors.$base-color-success;
     }
 
     &_error {
-      color: $base-color-error;
+      color: colors.$base-color-error;
     }
   }
 
   &__error {
     text-align: right;
     margin: 0;
-    color: $base-color-error;
+    color: colors.$base-color-error;
   }
 }

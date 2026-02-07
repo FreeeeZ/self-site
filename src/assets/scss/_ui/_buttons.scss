@@ -1,7 +1,7 @@
-@import "@/assets/scss/_global/colors";
-@import "@/assets/scss/_ui/font-family";
-@import "@/assets/scss/_ui/mixins/buttons";
-@import "@/assets/scss/_global/breakpoints";
+@use "@/assets/scss/_global/colors" as colors;
+@use "@/assets/scss/_ui/font-family" as font-family;
+@use "@/assets/scss/_ui/mixins/buttons" as buttons;
+@use "@/assets/scss/_global/breakpoints" as breakpoints;
 
 .button {
   border: none;
@@ -17,11 +17,11 @@
   }
 
   &.button-primary {
-    @include button-primary;
+    @include buttons.button-primary;
   }
 
   &.button-primary-with-icon {
-    @include button-primary;
+    @include buttons.button-primary;
 
     display: flex;
     flex-direction: row;
@@ -31,7 +31,7 @@
   }
 
   &.button-danger {
-    @include button-danger;
+    @include buttons.button-danger;
   }
 
   &.button-soon {
@@ -44,8 +44,8 @@
       justify-content: center;
       position: absolute;
       font-size: 12px;
-      color: $base-color-white-primary;
-      background-color: $base-color-red-primary;
+      color: colors.$base-color-white-primary;
+      background-color: colors.$base-color-red-primary;
       padding: 0 3px;
       border-radius: 5px;
       right: -8px;
@@ -55,27 +55,27 @@
   }
 
   &.button-to-top {
-    font-family: $montserrat;
-    background: $base-linear-gradient-primary;
+    font-family: font-family.$montserrat;
+    background: colors.$base-linear-gradient-primary;
     border-radius: 50%;
     padding: 12px 25px;
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
     line-height: 20px;
-    color: $base-color-gray-secondary;
+    color: colors.$base-color-gray-secondary;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 60px;
     height: 60px;
 
-    @media screen and (max-width: $md) {
+    @media screen and (max-width: breakpoints.$md) {
       display: none;
     }
 
     &:hover {
-      background: $base-linear-gradient-tertiary;
+      background: colors.$base-linear-gradient-tertiary;
     }
 
     & > .icon-wrapper {

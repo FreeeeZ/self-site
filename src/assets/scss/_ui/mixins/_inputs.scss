@@ -1,10 +1,10 @@
-@import "@/assets/scss/_global/colors";
-@import "@/assets/scss/_ui/font-family";
+@use "@/assets/scss/_global/colors" as colors;
+@use "@/assets/scss/_ui/font-family" as font-family;
 
 @mixin input-primary {
-  font-family: $montserrat;
+  font-family: font-family.$montserrat;
   padding: 15px;
   font-size: 16px;
-  color: $base-color-white-primary;
-  border: 1px solid $base-color-white-primary;
+  color: colors.$base-color-white-primary;
+  border: 1px solid colors.$base-color-white-primary;
 }

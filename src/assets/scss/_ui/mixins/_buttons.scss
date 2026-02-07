@@ -1,24 +1,24 @@
-@import "@/assets/scss/_global/colors";
-@import "@/assets/scss/_ui/font-family";
+@use "@/assets/scss/_global/colors" as colors;
+@use "@/assets/scss/_ui/font-family" as font-family;
 
 @mixin button-primary {
-  font-family: $montserrat;
-  background: $base-linear-gradient-primary;
+  font-family: font-family.$montserrat;
+  background: colors.$base-linear-gradient-primary;
   border-radius: 6px;
   padding: 12px 25px;
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
   line-height: 20px;
-  color: $base-color-gray-secondary;
+  color: colors.$base-color-gray-secondary;
 
   &:hover {
-    background: $base-linear-gradient-tertiary;
+    background: colors.$base-linear-gradient-tertiary;
   }
 }
 
 @mixin button-danger {
-  font-family: $montserrat;
+  font-family: font-family.$montserrat;
   background: linear-gradient(90deg, #f5002d 0%, #b69898 100%);
   border-radius: 6px;
   padding: 12px 25px;
@@ -26,7 +26,7 @@
   font-weight: 500;
   font-size: 16px;
   line-height: 20px;
-  color: $base-color-white-primary;
+  color: colors.$base-color-white-primary;
 
   &:hover {
     background: linear-gradient(90deg, #e0566c 0%, #b69898 100%);

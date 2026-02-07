@@ -1,5 +1,5 @@
-@import "@/assets/scss/_global/colors";
-@import "@/assets/scss/_global/keyframes";
+@use "@/assets/scss/_global/colors" as colors;
+@use "@/assets/scss/_global/keyframes" as keyframes;
 
 .modal-wrapper {
   position: fixed;
@@ -33,7 +33,7 @@
       width: 500px;
       border-radius: 10px;
       box-shadow: 0 8px 40px rgb(0 0 0 / 40%);
-      background-color: $base-color-gray-primary;
+      background-color: colors.$base-color-gray-primary;
       margin: 10px;
 
       &:deep(fieldset) {
@@ -72,7 +72,7 @@
           display: block;
           width: 25px;
           height: 3px;
-          background: $base-linear-gradient-primary;
+          background: colors.$base-linear-gradient-primary;
           margin: 0 0 10px;
           border-radius: 10px;
 

@@ -1,4 +1,4 @@
-@import "@/assets/scss/_global/colors";
+@use "@/assets/scss/_global/colors";
 
 .main-header {
   &__navigation-mobile {
@@ -16,7 +16,7 @@
       &-button {
         z-index: 2;
         position: absolute;
-        background: $base-color-transparent;
+        background: colors.$base-color-transparent;
         border: none;
 
         &::before {
@@ -32,7 +32,7 @@
           display: block;
           width: 33px;
           height: 3px;
-          background: $base-linear-gradient-primary;
+          background: colors.$base-linear-gradient-primary;
           margin: 0 0 10px;
           border-radius: 10px;
           transition: all .3s;
@@ -96,7 +96,7 @@
               font-weight: 500;
               font-size: 16px;
               line-height: 20px;
-              color: $base-color-white-primary;
+              color: colors.$base-color-white-primary;
               text-decoration: none;
               position: relative;
               transition: 0.3s color;
@@ -107,7 +107,7 @@
                 height: 2px;
                 width: 0;
                 transition: width .3s, height .3s;
-                background: $base-linear-gradient-primary;
+                background: colors.$base-linear-gradient-primary;
                 border-radius: 2px;
                 position: absolute;
                 left: 50%;
@@ -116,7 +116,7 @@
               }
 
               &.active-link {
-                color: $base-color-green-primary;
+                color: colors.$base-color-green-primary;
 
                 &::after {
                   width: 100%;

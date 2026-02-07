@@ -1,4 +1,4 @@
-@import "@/assets/scss/_global/colors";
+@use "@/assets/scss/_global/colors" as colors;
 
 .main-footer {
   &__copyright {
@@ -7,7 +7,7 @@
     line-height: 26px;
     text-align: center;
     letter-spacing: 0.04em;
-    color: $base-color-white-primary;
+    color: colors.$base-color-white-primary;
     text-transform: uppercase;
   }
 }

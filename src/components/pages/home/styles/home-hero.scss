@@ -1,10 +1,10 @@
-@import "@/assets/scss/_global/colors";
-@import "@/assets/scss/_global/breakpoints";
+@use "@/assets/scss/_global/colors" as colors;
+@use "@/assets/scss/_global/breakpoints" as breakpoints;
 
 .home-hero {
   margin: 150px 0 200px;
 
-  @media screen and (max-width: $lg) {
+  @media screen and (max-width: breakpoints.$lg) {
     margin: 50px 0 100px;
   }
 
@@ -15,7 +15,7 @@
     align-items: center;
     margin: 0 auto 105px;
 
-    @media screen and (max-width: $lg) {
+    @media screen and (max-width: breakpoints.$lg) {
       flex-direction: column-reverse;
       column-gap: 0;
       row-gap: 50px;
@@ -25,7 +25,7 @@
       flex-grow: 1;
       flex-basis: 0;
 
-      @media screen and (max-width: $lg) {
+      @media screen and (max-width: breakpoints.$lg) {
         &:first-child {
           display: flex;
           flex-direction: column;
@@ -44,7 +44,7 @@
     font-weight: 400;
     font-size: 20px;
     line-height: 23px;
-    color: $base-color-white-secondary;
+    color: colors.$base-color-white-secondary;
     margin: 0 0 10px;
   }
 
@@ -53,21 +53,21 @@
     font-weight: 600;
     font-size: 68px;
     line-height: 88px;
-    background: $base-linear-gradient-primary;
+    background: colors.$base-linear-gradient-primary;
     -webkit-background-clip: text;
-    -webkit-text-fill-color: $base-color-transparent;
-    text-fill-color: $base-color-transparent;
+    -webkit-text-fill-color: colors.$base-color-transparent;
+    text-fill-color: colors.$base-color-transparent;
     margin: 0 0 20px;
 
-    @media screen and (max-width: $xl) {
+    @media screen and (max-width: breakpoints.$xl) {
       font-size: 58px;
     }
 
-    @media screen and (max-width: $lg) {
+    @media screen and (max-width: breakpoints.$lg) {
       font-size: 48px;
     }
 
-    @media screen and (max-width: $sm) {
+    @media screen and (max-width: breakpoints.$sm) {
       font-size: 32px;
     }
   }
@@ -78,10 +78,10 @@
     font-size: 16px;
     line-height: 24px;
     letter-spacing: 0.04em;
-    color: $base-color-white-primary;
+    color: colors.$base-color-white-primary;
     margin: 0 0 30px;
 
-    @media screen and (max-width: $lg) {
+    @media screen and (max-width: breakpoints.$lg) {
       text-align: center;
     }
   }
@@ -93,12 +93,12 @@
       border-radius: 50%;
       box-shadow: 20px 20px 20px -10px rgb(0 0 0 / 25%);
 
-      @media screen and (max-width: $lg) {
+      @media screen and (max-width: breakpoints.$lg) {
         width: 300px;
         height: 300px;
       }
 
-      @media screen and (max-width: $sm) {
+      @media screen and (max-width: breakpoints.$sm) {
         width: 250px;
         height: 250px;
       }
@@ -111,7 +111,7 @@
   }
 
   &__arrow-button {
-    background: $base-color-transparent;
+    background: colors.$base-color-transparent;
     border: none;
   }
 

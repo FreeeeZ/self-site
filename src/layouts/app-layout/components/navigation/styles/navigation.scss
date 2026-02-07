@@ -1,4 +1,4 @@
-@import "@/assets/scss/_global/colors";
+@use "@/assets/scss/_global/colors" as colors;
 
 .app-layout {
   &__navigation {
@@ -16,7 +16,7 @@
               font-weight: 500;
               font-size: 16px;
               line-height: 20px;
-              color: $base-color-white-primary;
+              color: colors.$base-color-white-primary;
               text-decoration: none;
               position: relative;
               transition: 0.3s color;
@@ -27,7 +27,7 @@
                 height: 2px;
                 width: 0;
                 transition: width .3s, height .3s;
-                background: $base-linear-gradient-primary;
+                background: colors.$base-linear-gradient-primary;
                 border-radius: 2px;
                 position: absolute;
                 left: 50%;
@@ -36,7 +36,7 @@
               }
 
               &.active-link {
-                color: $base-color-green-primary;
+                color: colors.$base-color-green-primary;
 
                 &::after {
                   width: 100%;
@@ -64,12 +64,12 @@
               font-weight: 400;
               font-size: 14px;
               line-height: 17px;
-              color: $base-color-white-primary;
+              color: colors.$base-color-white-primary;
               text-decoration: none;
               transition: 0.3s color;
 
               &.active-link {
-                color: $base-color-green-primary;
+                color: colors.$base-color-green-primary;
               }
             }
           }
