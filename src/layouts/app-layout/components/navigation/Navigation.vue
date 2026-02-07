@@ -2,11 +2,7 @@
   <div class="app-layout__navigation" :class="`app-layout__navigation_${navigationType}`">
     <nav>
       <ul>
-        <li
-          v-for="(routeItem, index) in formattedRouter"
-          :key="index"
-          :tabindex="0"
-        >
+        <li v-for="(routeItem, index) in formattedRouter" :key="index" :tabindex="0">
           <RouterLink :to="routeItem.path">
             {{ routeItem.name }}
           </RouterLink>
@@ -17,17 +13,19 @@
 </template>
 
 <script lang="ts" setup>
-import { useRouter } from "vue-router";
+import { useRouter } from 'vue-router';
 
 defineProps({
   navigationType: {
     type: String,
-    required: true
-  }
+    required: true,
+  },
 });
 
 const router = useRouter();
-const formattedRouter = router.options.routes.filter(route => route.name !== 'NotFound' && route.name !== 'PathForNotFound');
+const formattedRouter = router.options.routes.filter(
+  (route) => route.name !== 'NotFound' && route.name !== 'PathForNotFound'
+);
 </script>
 
 <style lang="scss" scoped>

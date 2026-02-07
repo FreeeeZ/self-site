@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="icon-wrapper"
-    :style="style"
-  >
+  <div class="icon-wrapper" :style="style">
     <slot />
   </div>
 </template>
@@ -13,11 +10,11 @@ import { computed } from 'vue';
 const props = defineProps({
   size: {
     type: String,
-    default: null
+    default: null,
   },
   color: {
     type: String,
-    default: null
+    default: null,
   },
 });
 

@@ -12,7 +12,7 @@
 <script lang="ts" setup>
 import { onMounted, ref } from 'vue';
 
-import { BREAKPOINTS_VALUES } from "@/constants/breakpoints";
+import { BREAKPOINTS_VALUES } from '@/constants/breakpoints';
 
 import Header from '@/layouts/app-layout/components/header/index.vue';
 import Content from '@/layouts/app-layout/components/content/index.vue';
@@ -21,7 +21,7 @@ import ScrollToTopButton from '@/components/ui/buttons/ScrollToTopButton.vue';
 
 const isToTopShow = ref(false);
 
-function handleScroll(){
+function handleScroll() {
   isToTopShow.value = window.scrollY >= BREAKPOINTS_VALUES.IS_SHOW_TO_TOP_VALUE;
 }
 

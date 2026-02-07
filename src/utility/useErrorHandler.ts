@@ -1,20 +1,20 @@
-import { UI_VALUES } from "@/constants/ui";
-import { useToastStore } from "@/store/ui/toastStore";
+import { UI_VALUES } from '@/constants/ui';
+import { useToastStore } from '@/store/ui/toast';
 
-export default function useErrorHandler () {
+export default function useErrorHandler() {
   const toastStore = useToastStore();
 
-  function showError (errorText: string) {
+  function showError(errorText: string) {
     toastStore.openToast({
       toastType: 'error',
       toastTitle: 'Error',
       toastName: 'error-handle-message',
       toastText: errorText,
-      toastDuration: UI_VALUES.TOAST_DEFAULT_DURATION_VALUE
+      toastDuration: UI_VALUES.TOAST_DEFAULT_DURATION_VALUE,
     });
   }
 
   return {
-    showError
+    showError,
   };
 }

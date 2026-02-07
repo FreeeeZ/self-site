@@ -7,8 +7,8 @@ describe('AppButton component', () => {
   it('AppButton must be initialized', () => {
     const wrapper = mount(AppButton, {
       props: {
-        buttonType: 'primary'
-      }
+        buttonType: 'primary',
+      },
     });
 
     expect(wrapper.vm).toBeTruthy();

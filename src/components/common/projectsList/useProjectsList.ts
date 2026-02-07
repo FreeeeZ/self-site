@@ -1,15 +1,16 @@
-import { onMounted, ref } from "vue";
+import { onMounted, ref } from 'vue';
 
-import EX_$Projects from "@/typescript/models/projects";
-import { IProjectObject } from "@/typescript/interfaces/projectsInterfaces";
+import GitHubRepos from '@/typescript/models/gitHubRepos';
+import type { IRepoObject } from '@/typescript/interfaces/gitHubRepos';
 
-export default function useProjectsList () {
-  const projectsArr = ref([] as Array<IProjectObject>);
+export default function useProjectsList() {
+  const projectsArr = ref([] as IRepoObject[]);
 
-  async function fetchProjects () {
+  async function fetchProjects() {
     try {
-      await EX_$Projects?.getProjects();
-      projectsArr.value = EX_$Projects.projectsArr;
+      await GitHubRepos.getProjects();
+
+      projectsArr.value = GitHubRepos.projectsList;
     } catch (error) {
       console.log(error);
     }
@@ -20,6 +21,6 @@ export default function useProjectsList () {
   });
 
   return {
-    projectsArr
+    projectsArr,
   };
 }

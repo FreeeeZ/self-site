@@ -1,74 +1,91 @@
-import { onBeforeUnmount, ref } from "vue";
+import { onBeforeUnmount, ref } from 'vue';
 
-import { useModalStore } from "@/store/ui/modalStore";
-import { useToastStore } from "@/store/ui/toastStore";
+import { useModalStore } from '@/store/ui/modal';
+import { useToastStore } from '@/store/ui/toast';
 
-import { UI_VALUES } from "@/constants/ui";
-import EX_$ContactForm from "@/typescript/models/contactForm";
-import { IContactFormField } from "@/typescript/interfaces/contactFormInterfaces";
+import { UI_VALUES } from '@/constants/ui';
+import contactFormService from '@/typescript/models/contactForm';
+import type { IContactFormField } from '@/typescript/interfaces/contactForm';
 
-export default function useContactModal () {
+export default function useContactModal() {
   const modalStore = useModalStore();
   const toastStore = useToastStore();
 
   const formProcessingValue = ref(false);
-  const contactFormAccessKey = import.meta.env.VITE_WEB3_ACCESS_KEY;
-  const contactFormObj = ref(EX_$ContactForm.getContactFormObj);
 
-  async function confirmForm (e: Event) {
+  const contactFormObj = ref(contactFormService.getContactFormObj);
+
+  const updateContactFormObj = () => {
+    contactFormObj.value = contactFormService.getContactFormObj;
+  };
+
+  async function confirmForm(event: Event) {
     formProcessingValue.value = true;
 
-    await EX_$ContactForm?.confirmContactForm(e)
-      .finally(() => {
-        formProcessingValue.value = false;
+    try {
+      await contactFormService.confirmContactForm(event);
 
-        if (!EX_$ContactForm?.getErrorsArray?.length) {
-          toastStore.openToast({
-            toastType: EX_$ContactForm?.getRequestStatusAndMessage?.requestStatus ? 'success' : 'error',
-            toastTitle: EX_$ContactForm?.getRequestStatusAndMessage?.requestStatus ? 'Success' : 'Error',
-            toastName: 'contact-modal-message',
-            toastText: EX_$ContactForm?.getRequestStatusAndMessage?.finallyMessage,
-            toastDuration: UI_VALUES.TOAST_DEFAULT_DURATION_VALUE
-          });
-        }
-      });
-  }
+      updateContactFormObj();
 
-  function changeFieldValue (field: IContactFormField, e: Event) {
-    field.value = (e.target as HTMLInputElement | HTMLTextAreaElement).value;
-  }
+      const hasValidationErrors = contactFormService.getErrorsArray.length > 0;
 
-  function closeModal () {
-    return new Promise((resolve) => {
-      modalStore?.closeModal("contact");
-      EX_$ContactForm.setRequestStatusAndMessage = { finallyMessage: '', requestStatus: true };
-      EX_$ContactForm.clearFieldsErrors();
-      EX_$ContactForm.clearFieldsValues();
-      resolve(true);
-    })
-      .catch((e) => {
+      if (!hasValidationErrors) {
+        const result = contactFormService.getRequestStatusAndMessage;
+
         toastStore.openToast({
-          toastType: "error",
-          toastTitle: "Error",
-          toastName: "contact-modal-error",
-          toastText: e,
-          toastDuration: UI_VALUES.TOAST_DEFAULT_DURATION_VALUE
+          toastType: result.requestStatus ? 'success' : 'error',
+          toastTitle: result.requestStatus ? 'Success' : 'Error',
+          toastName: 'contact-modal-message',
+          toastText: result.finallyMessage,
+          toastDuration: UI_VALUES.TOAST_DEFAULT_DURATION_VALUE,
         });
+
+        await closeModal();
+      }
+    } catch (error) {
+      toastStore.openToast({
+        toastType: 'error',
+        toastTitle: 'Error',
+        toastName: 'contact-modal-error',
+        toastText: error instanceof Error ? error.message : 'An error occurred',
+        toastDuration: UI_VALUES.TOAST_DEFAULT_DURATION_VALUE,
       });
+    } finally {
+      formProcessingValue.value = false;
+    }
+  }
+
+  function changeFieldValue(field: IContactFormField, e: Event) {
+    const value = (e.target as HTMLInputElement | HTMLTextAreaElement).value;
+
+    contactFormService.updateFieldValue(field.name, value);
+    updateContactFormObj();
+  }
+
+  async function closeModal(): Promise<void> {
+    try {
+      modalStore.closeModal('contact');
+      contactFormService.reset();
+    } catch (error) {
+      toastStore.openToast({
+        toastType: 'error',
+        toastTitle: 'Error',
+        toastName: 'contact-modal-error',
+        toastText: error instanceof Error ? error.message : 'An error occurred',
+        toastDuration: UI_VALUES.TOAST_DEFAULT_DURATION_VALUE,
+      });
+    }
   }
 
   onBeforeUnmount(() => {
-    closeModal().then(() => {
-      EX_$ContactForm.setRequestStatusAndMessage = { finallyMessage: '', requestStatus: true };
-    });
+    closeModal();
   });
 
   return {
     contactFormObj,
     formProcessingValue,
-    contactFormAccessKey,
     closeModal,
     confirmForm,
-    changeFieldValue
+    changeFieldValue,
   };
 }

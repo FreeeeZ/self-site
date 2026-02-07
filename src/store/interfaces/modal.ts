@@ -1,7 +1,7 @@
-import { Component } from "vue";
+import type { Component } from 'vue';
 
 export interface IModalStore {
-  openedModals: Array<IModalItem>;
+  openedModals: IModalItem[];
 }
 
 export interface IModalItem {

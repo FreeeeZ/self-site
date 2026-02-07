@@ -1,44 +1,33 @@
 <template>
   <div class="projects-list">
     <div class="container">
-      <h2 class="projects-list__title">
-        Projects
-      </h2>
+      <h2 class="projects-list__title">Projects</h2>
       <div v-if="projectsArr?.length">
         <div class="projects-list__items">
           <div
-            v-for="(project, projectIdx) in countItemsForRender ? projectsArr?.slice(0, countItemsForRender) : projectsArr"
+            v-for="(project, projectIdx) in countItemsForRender
+              ? projectsArr?.slice(0, countItemsForRender)
+              : projectsArr"
             :key="projectIdx"
             class="projects-list__items-point"
           >
             <div class="list-item__info">
               <div class="list-item__info-title">
                 <h2>
-                  <a
-                    rel="noopener noreferrer nofollow"
-                    :href="project?.html_url"
-                    target="_blank"
-                  >
+                  <a rel="noopener noreferrer nofollow" :href="project?.html_url" target="_blank">
                     {{ project?.name }}
                   </a>
                 </h2>
               </div>
-              <div
-                v-if="project?.homepage"
-                class="list-item__info-demo-link"
-              >
+              <div v-if="project?.homepage" class="list-item__info-demo-link">
                 <p>Demo link:</p>
-                <a
-                  rel="noopener noreferrer nofollow"
-                  :href="project?.homepage"
-                  target="_blank"
-                >
-                  {{project?.homepage}}
+                <a rel="noopener noreferrer nofollow" :href="project?.homepage" target="_blank">
+                  {{ project?.homepage }}
                 </a>
               </div>
               <div v-if="project?.tags" class="list-item__info-tags">
                 <div
-                  v-for="(tag, tagIdx) in Object.keys(project?.tags)"
+                  v-for="(tag, tagIdx) in project?.tags"
                   :key="tagIdx"
                   class="list-item__info-tags-item"
                 >
@@ -68,19 +57,19 @@
 </template>
 
 <script lang="ts" setup>
-import useProjectsList from "@/components/common/projectsList/useProjectsList";
+import useProjectsList from '@/components/common/projectsList/useProjectsList';
 
-import LoadingIcon from "@/components/icons/LoadingIcon.vue";
-import AppButton from "@/components/ui/buttons/AppButton.vue";
+import LoadingIcon from '@/components/icons/LoadingIcon.vue';
+import AppButton from '@/components/ui/buttons/AppButton.vue';
 
 defineProps({
   renderFor: {
-    type: String
+    type: String,
   },
   countItemsForRender: {
     type: Number,
-    required: true
-  }
+    required: true,
+  },
 });
 
 const { projectsArr } = useProjectsList();

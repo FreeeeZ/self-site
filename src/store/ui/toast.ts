@@ -1,13 +1,13 @@
-import { defineStore } from "pinia";
+import { defineStore } from 'pinia';
 
-import { IToastStore, IToastItem } from "@/store/interfaces/toastInterfaces";
+import type { IToastStore, IToastItem } from '@/store/interfaces/toast';
 
 export const useToastStore = defineStore('toasts', {
   state: (): IToastStore => ({
-    openedToasts: []
+    openedToasts: [],
   }),
   actions: {
-    openToast (toast: IToastItem): void {
+    openToast(toast: IToastItem): void {
       this.openedToasts.unshift(toast);
 
       const timeout = setTimeout(() => {
@@ -15,11 +15,11 @@ export const useToastStore = defineStore('toasts', {
         clearTimeout(timeout);
       }, toast?.toastDuration);
     },
-    closeToast (toastId: number): void {
+    closeToast(toastId: number): void {
       this.openedToasts?.splice(toastId, 1);
     },
-    closeAllToasts () {
+    closeAllToasts() {
       this.openedToasts?.splice(0, this.openedToasts?.length);
-    }
-  }
+    },
+  },
 });

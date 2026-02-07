@@ -31,7 +31,7 @@ const routes = [
   {
     path: '/:pathMatch(.*)*',
     name: 'PathForNotFound',
-    redirect: '/404'
+    redirect: '/404',
   },
 ];
 

@@ -1,32 +1,25 @@
 <template>
-  <transition
-    name="fade"
-    appear
-  >
-    <button
-      v-show="isShowButton"
-      class="app-button button button-to-top"
-      @click="toTop"
-    >
+  <transition name="fade" appear>
+    <button v-show="isShowButton" class="app-button button button-to-top" @click="toTop">
       <ScrollArrowIcon color="#000000" />
     </button>
   </transition>
 </template>
 
 <script lang="ts" setup>
-import ScrollArrowIcon from "@/components/icons/ScrollArrowIcon.vue";
+import ScrollArrowIcon from '@/components/icons/ScrollArrowIcon.vue';
 
 defineProps({
   isShowButton: {
     type: Boolean,
-    required: true
-  }
+    required: true,
+  },
 });
 
 function toTop() {
   window.scrollTo({
     top: 0,
-    behavior: "smooth"
+    behavior: 'smooth',
   });
 }
 </script>

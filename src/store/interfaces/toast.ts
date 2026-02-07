@@ -1,5 +1,5 @@
 export interface IToastStore {
-  openedToasts: Array<IToastItem>;
+  openedToasts: IToastItem[];
 }
 
 export interface IToastItem {
