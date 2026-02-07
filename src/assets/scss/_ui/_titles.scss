@@ -1,9 +1,9 @@
-@import "@/assets/scss/_global/colors";
+@use "@/assets/scss/_global/colors" as colors;
 
 @mixin title-primary {
   font-weight: 600;
   font-size: 24px;
   line-height: 26px;
   letter-spacing: 0.04em;
-  color: $base-color-white-primary;
+  color: colors.$base-color-white-primary;
 }

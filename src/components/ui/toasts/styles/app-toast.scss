@@ -1,7 +1,7 @@
-@import "@/assets/scss/_global/colors";
-@import "@/assets/scss/_ui/font-family";
-@import "@/assets/scss/_global/keyframes";
-@import "@/assets/scss/_global/breakpoints";
+@use "@/assets/scss/_global/colors" as colors;
+@use "@/assets/scss/_ui/font-family" as font-family;
+@use "@/assets/scss/_global/keyframes";
+@use "@/assets/scss/_global/breakpoints" as breakpoints;
 
 .toast-wrapper {
   position: fixed;
@@ -12,7 +12,7 @@
   row-gap: 15px;
   z-index: 1200;
 
-  @media screen and (max-width: $md) {
+  @media screen and (max-width: breakpoints.$md) {
     width: max-content;
     right: 0;
     left: 50%;
@@ -21,10 +21,10 @@
   }
 
   .toast-item {
-    font-family: $montserrat;
+    font-family: font-family.$montserrat;
     padding: 15px;
-    background: $base-color-white-primary;
-    color: $base-color-black-primary;
+    background: colors.$base-color-white-primary;
+    color: colors.$base-color-black-primary;
     border-radius: 5px;
     width: 300px;
     display: flex;
@@ -38,7 +38,7 @@
       }
     }
 
-    @media screen and (max-width: $md) {
+    @media screen and (max-width: breakpoints.$md) {
       width: 270px;
     }
 
@@ -67,23 +67,23 @@
     }
 
     &_success {
-      color: $base-color-white-primary;
-      background: $base-color-success;
+      color: colors.$base-color-white-primary;
+      background: colors.$base-color-success;
     }
 
     &_info {
-      color: $base-color-white-primary;
-      background: $base-color-info;
+      color: colors.$base-color-white-primary;
+      background: colors.$base-color-info;
     }
 
     &_warning {
-      color: $base-color-white-primary;
-      background: $base-color-warning;
+      color: colors.$base-color-white-primary;
+      background: colors.$base-color-warning;
     }
 
     &_error {
-      color: $base-color-white-primary;
-      background: $base-color-error;
+      color: colors.$base-color-white-primary;
+      background: colors.$base-color-error;
     }
 
     &.toast-slide-enter-active,
@@ -96,7 +96,7 @@
       opacity: 0;
       transform: translateX(80px);
 
-      @media screen and (max-width: $md) {
+      @media screen and (max-width: breakpoints.$md) {
         transform: translateY(80px);
       }
     }

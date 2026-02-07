@@ -1,7 +1,7 @@
-@import "@/assets/scss/_global/colors";
+@use "@/assets/scss/_global/colors";
 
 .app-layout {
-  background: $base-color-layout-bg;
+  background: colors.$base-color-layout-bg;
   overflow-x: hidden;
   position: relative;
 

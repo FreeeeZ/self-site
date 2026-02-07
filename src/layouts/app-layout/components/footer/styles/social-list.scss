@@ -1,4 +1,4 @@
-@import "@/assets/scss/_global/colors";
+@use "@/assets/scss/_global/colors" as colors;
 
 .main-footer {
   &__socials-list {
@@ -8,7 +8,7 @@
     justify-content: center;
     column-gap: 73px;
     row-gap: 20px;
-    margin:  0 0 50px;
+    margin: 0 0 50px;
 
     &-item {
       display: flex;
@@ -38,7 +38,7 @@
           text-align: center;
           letter-spacing: 0.12em;
           text-transform: uppercase;
-          color: $base-color-white-primary;
+          color: colors.$base-color-white-primary;
         }
       }
     }

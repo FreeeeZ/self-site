@@ -1,8 +1,8 @@
-@import "@/assets/scss/_ui/titles";
+@use "@/assets/scss/_ui/titles" as titles;
 
 .experience-hero {
   &__title {
-    @include title-primary;
+    @include titles.title-primary;
 
     margin: 20px 0 50px;
   }

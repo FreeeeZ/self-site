@@ -1,20 +1,21 @@
-@import "@/assets/scss/_ui/font-family";
-@import "@/assets/scss/_ui/mixins/inputs";
+@use "@/assets/scss/_ui/font-family";
+@use "@/assets/scss/_ui/mixins/inputs" as mixin;
+@use "@/assets/scss/_global/colors" as colors;
 
 .input {
-  border: 1px solid $base-color-black-primary;
-  background-color: $base-color-transparent;
+  border: 1px solid colors.$base-color-black-primary;
+  background-color: colors.$base-color-transparent;
   border-radius: 6px;
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
 
   &::placeholder {
-    color: $base-color-pink-primary;
+    color: colors.$base-color-pink-primary;
   }
 
   &-primary {
-    @include input-primary;
+    @include mixin.input-primary;
   }
 
   &_resize-disabled {

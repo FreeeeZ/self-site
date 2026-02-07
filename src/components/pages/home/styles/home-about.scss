@@ -1,11 +1,11 @@
-@import "@/assets/scss/_ui/titles";
-@import "@/assets/scss/_global/colors";
+@use "@/assets/scss/_ui/titles" as titles;
+@use "@/assets/scss/_global/colors" as colors;
 
 .home-about {
   margin: 0 0 130px;
 
   &__title {
-    @include title-primary;
+    @include titles.title-primary;
   }
 
   &__description {
@@ -14,7 +14,7 @@
     font-size: 18px;
     line-height: 26px;
     letter-spacing: 0.04em;
-    color: $base-color-white-primary;
+    color: colors.$base-color-white-primary;
     padding: 0 0 0 20px;
     position: relative;
     margin: 0 0 30px;
@@ -26,7 +26,7 @@
       position: absolute;
       top: 0;
       left: 0;
-      background: $base-linear-gradient-secondary;
+      background: colors.$base-linear-gradient-secondary;
       border-radius: 10px;
     }
   }

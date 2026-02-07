@@ -1,11 +1,11 @@
-@import "./container";
-@import "./animations";
-@import "./breakpoints";
-@import "@/assets/scss/_ui/font-family";
-@import '@/components/icons/styles/icons';
+@use "./container";
+@use "./animations";
+@use "./breakpoints";
+@use "@/assets/scss/_ui/font-family" as font-family;
+@use '@/components/icons/styles/icons';
 
 :root {
-  font-family: $montserrat;
+  font-family: font-family.$montserrat;
   color-scheme: light dark;
   font-synthesis: none;
   text-rendering: optimizelegibility;
