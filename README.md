@@ -8,9 +8,9 @@ Design was taken for the basis: https://www.figma.com/community/file/10326601030
 
 ## Main deps
 
-![vue](https://img.shields.io/badge/vue-v3.2.45-green?style=flat-square)
-![typescript](https://img.shields.io/badge/typescript-v4.9.4-lightgrey?style=flat-square)
-![vite](https://img.shields.io/badge/vite-v4.0.3-yellow?style=flat-square)
+![vue](https://img.shields.io/badge/vue-v3.5.27-green?style=flat-square)
+![typescript](https://img.shields.io/badge/typescript-v5.9.3-lightgrey?style=flat-square)
+![vite](https://img.shields.io/badge/vite-v6.4.1-yellow?style=flat-square)
 ![license](https://img.shields.io/badge/license-MIT-green?style=flat-square)
 
 ## Roadmap
@@ -41,4 +41,4 @@ Design was taken for the basis: https://www.figma.com/community/file/10326601030
 
 [MIT](https://github.com/FreeeeZ/self-site/blob/main/LICENSE)
 
-Copyright (c) 2025, Shell Vladislav
+Copyright (c) 2026, Shell Vladislav
