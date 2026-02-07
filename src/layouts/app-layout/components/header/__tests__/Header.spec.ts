@@ -1,10 +1,10 @@
-import { mount, shallowMount } from "@vue/test-utils";
+import { mount, shallowMount } from '@vue/test-utils';
 import { describe, expect, it } from 'vitest';
 
 import Header from '@/layouts/app-layout/components/header/index.vue';
 import Navigation from '@/layouts/app-layout/components/navigation/Navigation.vue';
 import MiscInfo from '@/layouts/app-layout/components/header/components/MiscInfo.vue';
-import NavigationMobile from "@/layouts/app-layout/components/navigation/NavigationMobile.vue";
+import NavigationMobile from '@/layouts/app-layout/components/navigation/NavigationMobile.vue';
 
 describe('Header component', () => {
   it('Header must be initialized', () => {

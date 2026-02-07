@@ -7,14 +7,12 @@
         <p class="home-hero__description">
           Hey! Welcome to my visiting card site. I hope it will be interesting. Let's go!
         </p>
-        <AppButton button-type="primary" @click="openContactModal">
-          Contact me
-        </AppButton>
+        <AppButton button-type="primary" @click="openContactModal"> Contact me </AppButton>
       </div>
       <div class="home-hero__right">
         <picture class="home-hero__main-picture">
-          <source type="image/webp" srcset="@/assets/images/hero/main-photo.webp">
-          <img src="@/assets/images/hero/main-photo.png" alt="Main photo" width="400">
+          <source type="image/webp" srcset="@/assets/images/hero/main-photo.webp" />
+          <img src="@/assets/images/hero/main-photo.png" alt="Main photo" width="400" />
         </picture>
       </div>
     </div>
@@ -27,10 +25,10 @@
 </template>
 
 <script lang="ts" setup>
-import useHomeHero from "@/components/pages/home/useHomeHero";
+import useHomeHero from '@/components/pages/home/useHomeHero';
 
-import AppButton from "@/components/ui/buttons/AppButton.vue";
-import ScrollArrowIcon from "@/components/icons/ScrollArrowIcon.vue";
+import AppButton from '@/components/ui/buttons/AppButton.vue';
+import ScrollArrowIcon from '@/components/icons/ScrollArrowIcon.vue';
 
 const { openContactModal } = useHomeHero();
 </script>

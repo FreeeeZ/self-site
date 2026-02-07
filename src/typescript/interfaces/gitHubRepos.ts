@@ -106,5 +106,5 @@ export interface IRepoObject {
   open_issues: number;
   watchers: number;
   default_branch: string;
-  tags: string[]
+  tags: string[];
 }

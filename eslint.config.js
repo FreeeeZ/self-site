@@ -36,6 +36,7 @@ export default [
           disallowTypeAnnotations: false,
         },
       ],
+      '@typescript-eslint/no-unsafe-argument': off,
     },
   },
   {

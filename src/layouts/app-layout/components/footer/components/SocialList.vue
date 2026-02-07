@@ -9,8 +9,8 @@
       :href="social.linkUrl"
     >
       <picture class="socials-list-item__picture">
-        <source type="image/webp" :srcset="social.imageWebP">
-        <img :src="social.imageSvg" alt="Main photo">
+        <source type="image/webp" :srcset="social.imageWebP" />
+        <img :src="social.imageSvg" alt="Main photo" />
       </picture>
       <p class="socials-list-item__title">
         {{ social.title }}
@@ -34,25 +34,25 @@ const socialsList = [
     imageSvg: TgIconSvg,
     imageWebP: TgIconWebP,
     title: 'Telegram',
-    linkUrl: 'https://t.me/shellvladik'
+    linkUrl: 'https://t.me/shellvladik',
   },
   {
     imageSvg: LinkedInIconSvg,
     imageWebP: LinkedInIconWebP,
     title: 'Linkedin',
-    linkUrl: 'https://www.linkedin.com/in/vladislav-shell/'
+    linkUrl: 'https://www.linkedin.com/in/vladislav-shell/',
   },
   {
     imageSvg: GithubIconSvg,
     imageWebP: GithubIconWebP,
     title: 'Github',
-    linkUrl: 'https://github.com/FreeeeZ'
+    linkUrl: 'https://github.com/FreeeeZ',
   },
   {
     imageSvg: EmailIconSvg,
     imageWebP: EmailIconWebP,
     title: 'Email',
-    linkUrl: 'mailto:shell-vladislav@mail.ru'
+    linkUrl: 'mailto:shell-vladislav@mail.ru',
   },
 ];
 </script>

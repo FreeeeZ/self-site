@@ -7,8 +7,8 @@ describe('ScrollToTopButton component', () => {
   it('ScrollToTopButton must be initialized', () => {
     const wrapper = mount(ScrollToTopButton, {
       props: {
-        isShowButton: true
-      }
+        isShowButton: true,
+      },
     });
 
     expect(wrapper.vm).toBeTruthy();

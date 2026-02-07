@@ -8,19 +8,14 @@
       </div>
     </div>
     <div class="modal-window__main">
-      <form
-        id="contactForm"
-        class="contact-form"
-      >
+      <form id="contactForm" class="contact-form">
         <fieldset>
           <div
             v-for="field in contactFormObj?.fields"
             :key="field.name"
             class="contact-form__field"
           >
-            <label :for="field.name">
-              {{ field.label }}<em v-if="field.required">*</em>
-            </label>
+            <label :for="field.name"> {{ field.label }}<em v-if="field.required">*</em> </label>
             <component
               :is="field.tag"
               :id="field.name"
@@ -35,10 +30,7 @@
               :maxlength="field.maxLength"
               @input="changeFieldValue(field, $event)"
             />
-            <p
-              v-if="field.isError"
-              class="contact-form__error"
-            >
+            <p v-if="field.isError" class="contact-form__error">
               {{ field.errorText }}
             </p>
           </div>
@@ -57,26 +49,19 @@
           <LoadingIcon color="#000000" />
           Processing...
         </template>
-        <template v-else>
-          Send message
-        </template>
+        <template v-else> Send message </template>
       </AppButton>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import useContactModal from "@/components/common/contactModal/useContactModal";
-import LoadingIcon from "@/components/icons/LoadingIcon.vue";
-import AppButton from "@/components/ui/buttons/AppButton.vue";
+import useContactModal from '@/components/common/contactModal/useContactModal';
+import LoadingIcon from '@/components/icons/LoadingIcon.vue';
+import AppButton from '@/components/ui/buttons/AppButton.vue';
 
-const {
-  contactFormObj,
-  formProcessingValue,
-  closeModal,
-  confirmForm,
-  changeFieldValue
-} = useContactModal();
+const { contactFormObj, formProcessingValue, closeModal, confirmForm, changeFieldValue } =
+  useContactModal();
 </script>
 
 <style lang="scss" scoped>

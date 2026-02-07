@@ -7,8 +7,8 @@ describe('ProjectsList component', () => {
   it('ProjectsList must be initialized', () => {
     const wrapper = mount(ProjectsList, {
       props: {
-        countItemsForRender: 10
-      }
+        countItemsForRender: 10,
+      },
     });
 
     expect(wrapper.vm).toBeTruthy();

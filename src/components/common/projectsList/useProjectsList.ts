@@ -1,10 +1,10 @@
-import { onMounted, ref } from "vue";
+import { onMounted, ref } from 'vue';
 
-import GitHubRepos from "@/typescript/models/gitHubRepos";
-import { IRepoObject } from "@/typescript/interfaces/gitHubRepos";
+import GitHubRepos from '@/typescript/models/gitHubRepos';
+import type { IRepoObject } from '@/typescript/interfaces/gitHubRepos';
 
-export default function useProjectsList () {
-  const projectsArr = ref([] as Array<IRepoObject>);
+export default function useProjectsList() {
+  const projectsArr = ref([] as IRepoObject[]);
 
   async function fetchProjects() {
     try {
@@ -21,6 +21,6 @@ export default function useProjectsList () {
   });
 
   return {
-    projectsArr
+    projectsArr,
   };
 }

@@ -20,9 +20,7 @@ interface SubmissionResult {
   requestStatus: boolean;
 }
 
-interface FormValues {
-  [key: string]: string;
-}
+type FormValues = Record<string, string>;
 
 class ContactFormService {
   private readonly fieldConfigs: FieldConfig[] = [
@@ -55,7 +53,7 @@ class ContactFormService {
   ];
 
   private readonly state = reactive({
-    fields: this.fieldConfigs.map(config => ({
+    fields: this.fieldConfigs.map((config) => ({
       ...config,
       value: '',
       isError: false,
@@ -105,7 +103,7 @@ class ContactFormService {
   validateContactForm(): void {
     this.state.fieldsErrors = [];
 
-    this.state.fields.forEach(field => {
+    this.state.fields.forEach((field) => {
       field.isError = false;
 
       if (!this.validateField(field)) {
@@ -116,7 +114,7 @@ class ContactFormService {
   }
 
   clearFieldsValues(): void {
-    this.state.fields.forEach(field => {
+    this.state.fields.forEach((field) => {
       field.value = '';
     });
     this.clearFieldsErrors();
@@ -124,14 +122,14 @@ class ContactFormService {
 
   clearFieldsErrors(): void {
     this.state.fieldsErrors = [];
-    this.state.fields.forEach(field => {
+    this.state.fields.forEach((field) => {
       field.isError = false;
       field.errorText = '';
     });
   }
 
   updateFieldValue(fieldName: string, value: string): void {
-    const field = this.state.fields.find(f => f.name === fieldName);
+    const field = this.state.fields.find((f) => f.name === fieldName);
 
     if (field) {
       field.value = value;
@@ -204,7 +202,7 @@ class ContactFormService {
   private getFormValues(): FormValues {
     const values: FormValues = {};
 
-    this.state.fields.forEach(field => {
+    this.state.fields.forEach((field) => {
       if (field.value.trim()) {
         values[field.name] = field.value;
       }

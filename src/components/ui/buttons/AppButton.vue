@@ -1,8 +1,5 @@
 <template>
-  <button
-    class="app-button button"
-    :class="`button-${buttonType}`"
-  >
+  <button class="app-button button" :class="`button-${buttonType}`">
     <slot />
   </button>
 </template>
@@ -12,9 +9,9 @@ defineProps({
   buttonType: {
     type: String,
     required: true,
-    validator (value: string) {
+    validator(value: string) {
       return ['primary', 'primary-with-icon'].includes(value);
     },
-  }
+  },
 });
 </script>

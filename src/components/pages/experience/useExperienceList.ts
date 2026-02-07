@@ -1,4 +1,4 @@
-export default function useExperienceList () {
+export default function useExperienceList() {
   const experienceArray = [
     {
       yearInterval: 'July 2017 — March 2019',
@@ -24,7 +24,7 @@ export default function useExperienceList () {
         '— Creation and support of extensions for browsers (Chrome extensions).<br>' +
         '— Conducting Code Review.<br>' +
         '— Writing own npm packages.<br>' +
-        '— Working with the marketing department on improvements to the company\'s corporate websites.<br>' +
+        "— Working with the marketing department on improvements to the company's corporate websites.<br>" +
         '— Working with designs/layouts, as well as interacting with designers to implement layouts.<br><br>' +
         'Lead tasks:<br>' +
         '— Drawing up individual development plans for employees.' +
@@ -85,17 +85,17 @@ export default function useExperienceList () {
         '— Defining the scope of tasks and assessment.<br>' +
         '— Mentoring developers to implement AI into daily workflows.<br>' +
         '— Legacy code refactoring.<br>' +
-        '— Interface integration with the backend (Rest API, WebSocket).<br>'  +
-        '— Developing architectural solutions for non-trivial features.<br>'  +
-        '— Implementation and support of the Microfrontend architecture (@module-federation/vite).<br>'  +
-        '— Optimizing system performance for user interface interaction.<br>'  +
-        '— Facilitating the frontend team retrospective process.<br>'  +
-        '— Refactoring system modules, following the FSD architecture guidelines.<br>'  +
+        '— Interface integration with the backend (Rest API, WebSocket).<br>' +
+        '— Developing architectural solutions for non-trivial features.<br>' +
+        '— Implementation and support of the Microfrontend architecture (@module-federation/vite).<br>' +
+        '— Optimizing system performance for user interface interaction.<br>' +
+        '— Facilitating the frontend team retrospective process.<br>' +
+        '— Refactoring system modules, following the FSD architecture guidelines.<br>' +
         '— Configuring Vite and ESLint.<br>',
     },
   ];
 
   return {
-    experienceArray
+    experienceArray,
   };
 }

@@ -12,8 +12,8 @@ export interface IContactFormField {
 }
 
 export interface IContactFormObj {
-  fields?: Array<IContactFormField>;
-  fieldsErrors?: Array<string>;
+  fields?: IContactFormField[];
+  fieldsErrors?: string[];
   requestStatus: boolean;
   finallyMessage: string;
 }

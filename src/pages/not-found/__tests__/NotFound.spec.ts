@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { shallowMount } from '@vue/test-utils';
 
 import NotFound from '@/pages/not-found/index.vue';
-import NotFoundView from "@/components/pages/not-found/NotFoundView.vue";
+import NotFoundView from '@/components/pages/not-found/NotFoundView.vue';
 
 describe('NotFound component', () => {
   it('NotFound must be initialized', () => {

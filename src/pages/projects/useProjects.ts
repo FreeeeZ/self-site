@@ -1,8 +1,8 @@
-import { onMounted, ref } from "vue";
+import { onMounted, ref } from 'vue';
 
-import GitHubRepos from "@/typescript/models/gitHubRepos";
+import GitHubRepos from '@/typescript/models/gitHubRepos';
 
-export default function useProjects () {
+export default function useProjects() {
   const projectsLength = ref(0);
 
   onMounted(() => {
@@ -10,6 +10,6 @@ export default function useProjects () {
   });
 
   return {
-    projectsLength
+    projectsLength,
   };
 }

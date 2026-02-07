@@ -1,11 +1,9 @@
 <template>
-  <div class="main-footer__copyright">
-    Vladislav Shell © {{currentYear}}
-  </div>
+  <div class="main-footer__copyright">Vladislav Shell © {{ currentYear }}</div>
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue";
+import { ref } from 'vue';
 
 const currentYear = ref('');
 

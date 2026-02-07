@@ -1,4 +1,4 @@
-import { DefineComponent } from "vue";
+import type { DefineComponent } from 'vue';
 import { mount } from '@vue/test-utils';
 import { describe, expect, it } from 'vitest';
 
@@ -22,6 +22,8 @@ describe('Copyright component', () => {
     const wrapper = mount(Copyright as DefineComponent);
     const localCurrentYear = new Date().getFullYear();
 
-    expect(wrapper.find('.main-footer__copyright').text()).toBe(`Vladislav Shell © ${localCurrentYear}`);
+    expect(wrapper.find('.main-footer__copyright').text()).toBe(
+      `Vladislav Shell © ${localCurrentYear}`
+    );
   });
 });

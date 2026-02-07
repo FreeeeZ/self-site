@@ -1,11 +1,11 @@
-import { onBeforeUnmount, ref } from "vue";
+import { onBeforeUnmount, ref } from 'vue';
 
-import { useModalStore } from "@/store/ui/modal";
-import { useToastStore } from "@/store/ui/toast";
+import { useModalStore } from '@/store/ui/modal';
+import { useToastStore } from '@/store/ui/toast';
 
-import { UI_VALUES } from "@/constants/ui";
-import contactFormService from "@/typescript/models/contactForm";
-import type { IContactFormField } from "@/typescript/interfaces/contactForm";
+import { UI_VALUES } from '@/constants/ui';
+import contactFormService from '@/typescript/models/contactForm';
+import type { IContactFormField } from '@/typescript/interfaces/contactForm';
 
 export default function useContactModal() {
   const modalStore = useModalStore();
@@ -37,18 +37,18 @@ export default function useContactModal() {
           toastTitle: result.requestStatus ? 'Success' : 'Error',
           toastName: 'contact-modal-message',
           toastText: result.finallyMessage,
-          toastDuration: UI_VALUES.TOAST_DEFAULT_DURATION_VALUE
+          toastDuration: UI_VALUES.TOAST_DEFAULT_DURATION_VALUE,
         });
 
         await closeModal();
       }
     } catch (error) {
       toastStore.openToast({
-        toastType: "error",
-        toastTitle: "Error",
-        toastName: "contact-modal-error",
+        toastType: 'error',
+        toastTitle: 'Error',
+        toastName: 'contact-modal-error',
         toastText: error instanceof Error ? error.message : 'An error occurred',
-        toastDuration: UI_VALUES.TOAST_DEFAULT_DURATION_VALUE
+        toastDuration: UI_VALUES.TOAST_DEFAULT_DURATION_VALUE,
       });
     } finally {
       formProcessingValue.value = false;
@@ -64,15 +64,15 @@ export default function useContactModal() {
 
   async function closeModal(): Promise<void> {
     try {
-      modalStore.closeModal("contact");
+      modalStore.closeModal('contact');
       contactFormService.reset();
     } catch (error) {
       toastStore.openToast({
-        toastType: "error",
-        toastTitle: "Error",
-        toastName: "contact-modal-error",
+        toastType: 'error',
+        toastTitle: 'Error',
+        toastName: 'contact-modal-error',
         toastText: error instanceof Error ? error.message : 'An error occurred',
-        toastDuration: UI_VALUES.TOAST_DEFAULT_DURATION_VALUE
+        toastDuration: UI_VALUES.TOAST_DEFAULT_DURATION_VALUE,
       });
     }
   }
@@ -86,6 +86,6 @@ export default function useContactModal() {
     formProcessingValue,
     closeModal,
     confirmForm,
-    changeFieldValue
+    changeFieldValue,
   };
 }

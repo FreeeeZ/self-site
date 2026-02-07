@@ -1,16 +1,16 @@
-import { markRaw } from "vue";
+import { markRaw } from 'vue';
 
-import { useModalStore } from "@/store/ui/modal";
-import ContactModal from "@/components/common/contactModal/ContactModal.vue";
+import { useModalStore } from '@/store/ui/modal';
+import ContactModal from '@/components/common/contactModal/ContactModal.vue';
 
-export default function useHomeHero () {
+export default function useHomeHero() {
   const modalStore = useModalStore();
 
-  function openContactModal () {
+  function openContactModal() {
     modalStore.openModal({ modalName: 'contact', content: markRaw(ContactModal) });
   }
 
   return {
-    openContactModal
+    openContactModal,
   };
 }
